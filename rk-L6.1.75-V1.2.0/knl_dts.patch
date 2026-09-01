@@ -1,0 +1,27 @@
+diff -ru MYD-LR3576.orig/kernel-6.1/arch/arm64/boot/dts/rockchip/Makefile MYD-LR3576/kernel-6.1/arch/arm64/boot/dts/rockchip/Makefile
+--- MYD-LR3576.orig/kernel-6.1/arch/arm64/boot/dts/rockchip/Makefile	2024-10-08 18:25:50.000000000 +0800
++++ MYD-LR3576/kernel-6.1/arch/arm64/boot/dts/rockchip/Makefile	2026-09-01 12:12:20.429143137 +0800
+@@ -234,7 +234,7 @@
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568m-serdes-v1-evb-display-rgb2rgb-lp4x-v10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568m-serdes-v1-evb-display-super-frame-dsi0-command2dsi-lp4x-v10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568m-serdes-v1-evb-display-super-frame-dsi0-command2lvds0-lp4x-v10.dtb
+-dtb-$(CONFIG_ARCH_ROCKCHIP) += myd-lr3576.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += myd-lr3576.dtb myd-lr3576j.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-ebook-color-v10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-ebook-v10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-ebook-x3-v10.dtb
+diff -ru MYD-LR3576.orig/kernel-6.1/arch/arm64/boot/dts/rockchip/myd-lr3576.dts MYD-LR3576/kernel-6.1/arch/arm64/boot/dts/rockchip/myd-lr3576.dts
+--- MYD-LR3576.orig/kernel-6.1/arch/arm64/boot/dts/rockchip/myd-lr3576.dts	2025-03-31 15:50:20.000000000 +0800
++++ MYD-LR3576/kernel-6.1/arch/arm64/boot/dts/rockchip/myd-lr3576.dts	2025-10-25 13:41:56.715669235 +0800
+@@ -9,9 +9,9 @@
+ #include "rk3576.dtsi"
+ #include "rk3576j.dtsi"
+ #include "myd-lr3576.dtsi"
+-#include "myd-lr3576-camera-n4-x3.dtsi"
+-/*
+ #include "myd-lr3576-camera1-ov13855.dtsi"
++/*
++#include "myd-lr3576-camera-n4-x3.dtsi"
+ #include "myd-lr3576-camera2-n4.dtsi"
+ #include "myd-lr3576-camera3-ov5640.dtsi"
+ */
