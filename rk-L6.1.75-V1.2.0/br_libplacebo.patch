@@ -1,0 +1,149 @@
+--- MYD-LR3576.orig/buildroot/package/Config.in	2025-07-14 14:08:16.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/Config.in	2026-08-29 00:04:18.287067294 +0800
+@@ -1511,6 +1511,7 @@
+ 	source "package/libmad/Config.in"
+ 	source "package/libmodplug/Config.in"
+ 	source "package/libmpdclient/Config.in"
++	source "package/libplacebo/Config.in"
+ 	source "package/libreplaygain/Config.in"
+ 	source "package/libsamplerate/Config.in"
+ 	source "package/libsidplay2/Config.in"
+diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch MYD-LR3576.mpv/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch
+--- MYD-LR3576.orig/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch	2026-08-24 04:59:48.000000000 +0800
+@@ -0,0 +1,45 @@
++From 4386f3e3b3d02c55776e3f674d8447fd24388c2c Mon Sep 17 00:00:00 2001
++From: Javad Rahimipetroudi <javad.rahimipetroudi@mind.be>
++Date: Fri, 19 Jul 2024 07:02:48 +0200
++Subject: [PATCH] meson.build: add libatomic dependency if needed
++
++This PR fixes the problem related to not finding the libatomic during the
++build. Some combinations or architecture and libc (e.g. uClibc on SPARC)
++operations in a separate library and don't link with it automatically.
++An optional find_library to meson.build has been added to 
++discover this.
++
++
++Fixes:
++ - https://github.com/haasn/libplacebo/issues/278
++
++Signed-off-by: Javad Rahimipetroudi <javad.rahimipetroudi@mind.be>
++Upstream: https://github.com/haasn/libplacebo/commit/4386f3e3b3d02c55776e3f674d8447fd24388c2c
++---
++ meson.build | 3 ++-
++ 1 file changed, 2 insertions(+), 1 deletion(-)
++
++diff --git a/meson.build b/meson.build
++index a73e49ff..f8cbf9f1 100644
++--- a/meson.build
+++++ b/meson.build
++@@ -450,6 +450,7 @@ add_project_link_arguments(link_args, language: ['c', 'cpp'])
++ # Global dependencies
++ fs = import('fs')
++ libm = cc.find_library('m', required: false)
+++atomic = cc.find_library('atomic', required: false)
++ thirdparty = meson.project_source_root()/'3rdparty'
++ python = import('python').find_installation()
++ python_env = environment()
++@@ -475,7 +476,7 @@ else
++     )
++ endif
++ 
++-build_deps = [ libm, threads ]
+++build_deps = [ libm, threads, atomic]
++ 
++ subdir('tools')
++ subdir('src')
++-- 
++2.45.2
++
+diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch MYD-LR3576.mpv/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch
+--- MYD-LR3576.orig/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch	2026-08-24 04:59:48.000000000 +0800
+@@ -0,0 +1,36 @@
++From 0182e2b94bbc6bb964f96527d18e93c9b4709a3a Mon Sep 17 00:00:00 2001
++From: Javad Rahimipetroudi <javad.rahimipetroudi@mind.be>
++Date: Fri, 19 Jul 2024 07:57:45 +0200
++Subject: [PATCH] src/pl_assert.h:add static_assert define for ulibc
++
++This PR adds the static_assert macro defination for uClibc that is
++missed in some platforms. However, it is limited to C versions lower
++than C23. From C23, static_assert is not defined as macro anymore:
++https://en.cppreference.com/w/c/language/_Static_assert
++
++Signed-off-by: Javad Rahimipetroudi <javad.rahimipetroudi@mind.be>
++Upstream: https://github.com/haasn/libplacebo/commit/0182e2b94bbc6bb964f96527d18e93c9b4709a3a
++---
++ src/pl_assert.h | 6 ++++++
++ 1 file changed, 6 insertions(+)
++
++diff --git a/src/pl_assert.h b/src/pl_assert.h
++index b4c6656c..de9d3547 100644
++--- a/src/pl_assert.h
+++++ b/src/pl_assert.h
++@@ -20,6 +20,12 @@
++ #include <stdio.h>
++ #include <assert.h>
++ 
+++#if !defined (__cplusplus)
+++#if (__STDC_VERSION__ < 202301L)
+++#define static_assert _Static_assert
+++#endif
+++#endif
+++
++ #ifndef NDEBUG
++ # define pl_assert assert
++ #else
++-- 
++2.45.2
++
+diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/Config.in MYD-LR3576.mpv/buildroot/package/libplacebo/Config.in
+--- MYD-LR3576.orig/buildroot/package/libplacebo/Config.in	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/libplacebo/Config.in	2026-08-24 04:59:48.000000000 +0800
+@@ -0,0 +1,21 @@
++config BR2_PACKAGE_LIBPLACEBO
++	bool "libplacebo"
++	depends on BR2_TOOLCHAIN_HAS_THREADS_NPTL
++	depends on BR2_INSTALL_LIBSTDCPP
++	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_10 # C++20
++	depends on BR2_TOOLCHAIN_HAS_ATOMIC
++	depends on !BR2_STATIC_LIBS # needs <dlfcn.h>
++	help
++	  libplacebo is, in a nutshell, the core rendering algorithms
++	  and ideas of mpv rewritten as an independent library. As of
++	  today, libplacebo contains a large assortment of video
++	  processing shaders, focusing on both quality and
++	  performance.
++
++	  https://libplacebo.org
++
++comment "libplacebo needs a toolchain w/ C++, dynamic library, NPTL threads, gcc >= 10"
++	depends on BR2_USE_MMU
++	depends on BR2_TOOLCHAIN_HAS_ATOMIC
++	depends on !BR2_INSTALL_LIBSTDCPP || BR2_STATIC_LIBS || \
++		!BR2_TOOLCHAIN_HAS_THREADS_NPTL || BR2_TOOLCHAIN_GCC_AT_LEAST_10
+diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.hash MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.hash
+--- MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.hash	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.hash	2026-08-29 00:10:56.363267458 +0800
+@@ -0,0 +1,2 @@
++# Locally calculated
++sha256  31a693adf11791151f0b2bd5e1a4bdc1a2e2060017932f6ccf7a8a86e899cf2f  libplacebo-v7.360.1-br1.tar.gz
+diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.mk MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.mk
+--- MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.mk	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.mk	2026-08-24 04:59:48.000000000 +0800
+@@ -0,0 +1,15 @@
++################################################################################
++#
++# libplacebo
++#
++################################################################################
++
++LIBPLACEBO_VERSION = v7.360.1
++LIBPLACEBO_SITE = https://code.videolan.org/videolan/libplacebo.git
++LIBPLACEBO_SITE_METHOD = git
++LIBPLACEBO_GIT_SUBMODULES = YES
++LIBPLACEBO_LICENSE = LGPL-2.1+
++LIBPLACEBO_LICENSE_FILES = LICENSE
++LIBPLACEBO_INSTALL_STAGING = YES
++
++$(eval $(meson-package))
