@@ -1,0 +1,387 @@
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch MYD-LR3576/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,43 +0,0 @@
+-From bf8eae2d30a205bb76ac625e04c0351106981b9e Mon Sep 17 00:00:00 2001
+-From: Parker Ernest <@>
+-Date: Sun, 23 Feb 2020 13:22:42 +0100
+-Subject: [PATCH] swscale/x86/yuv2rgb: Fix build without SSSE3
+-
+-commit fc6a5883d6af8cae0e96af84dda0ad74b360a084 breaks build on
+-x86_64 CPUs which do not have SSSE3, e.g. AMD Phenom-II
+-
+-Signed-off-by: Michael Niedermayer <michael@niedermayer.cc>
+-[bernd.kuhls@t-online.de:
+-  - retrieved from upstream patchwork:
+-    https://patchwork.ffmpeg.org/project/ffmpeg/patch/20200223122256.23402-1-michael@niedermayer.cc/
+-]
+-Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+-[yann.morin.1998@free.fr: fix reference top patchwork and SoB order]
+-Signed-off-by: Yann E. MORIN <yann.morin.1998@free.fr>
+----
+- libswscale/x86/yuv2rgb.c | 2 ++
+- 1 file changed, 2 insertions(+)
+-
+-diff --git a/libswscale/x86/yuv2rgb.c b/libswscale/x86/yuv2rgb.c
+-index c12e88cbb5..4791e5b93a 100644
+---- a/libswscale/x86/yuv2rgb.c
+-+++ b/libswscale/x86/yuv2rgb.c
+-@@ -71,6 +71,7 @@ av_cold SwsFunc ff_yuv2rgb_init_x86(SwsContext *c)
+- #if HAVE_X86ASM
+-     int cpu_flags = av_get_cpu_flags();
+- 
+-+#if HAVE_SSSE3
+-     if (EXTERNAL_SSSE3(cpu_flags)) {
+-         switch (c->dstFormat) {
+-         case AV_PIX_FMT_RGB32:
+-@@ -99,6 +100,7 @@ av_cold SwsFunc ff_yuv2rgb_init_x86(SwsContext *c)
+-             return yuv420_rgb15_ssse3;
+-         }
+-     }
+-+#endif
+- 
+-     if (EXTERNAL_MMXEXT(cpu_flags)) {
+-         switch (c->dstFormat) {
+--- 
+-2.26.2
+-
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0002-avcodec-vaapi_h264-skip-decode-if-pic-has-no-slices.patch MYD-LR3576/buildroot/package/ffmpeg/0002-avcodec-vaapi_h264-skip-decode-if-pic-has-no-slices.patch
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/0002-avcodec-vaapi_h264-skip-decode-if-pic-has-no-slices.patch	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/0002-avcodec-vaapi_h264-skip-decode-if-pic-has-no-slices.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,36 +0,0 @@
+-From 2c6b3f357331e203ad87214984661c40704aceb7 Mon Sep 17 00:00:00 2001
+-From: Rainer Hochecker <fernetmenta@online.de>
+-Date: Sat, 26 Jan 2019 19:48:35 +0100
+-Subject: [PATCH] avcodec/vaapi_h264: skip decode if pic has no slices
+-
+-This fixes / workarounds https://bugs.freedesktop.org/show_bug.cgi?id=105368.
+-It was hit frequently when watching h264 channels received via DVB-X.
+-Corresponding kodi bug: https://github.com/xbmc/xbmc/issues/15704
+-
+-Downloaded from Kodi ffmpeg repo:
+-https://github.com/xbmc/FFmpeg/commit/2c6b3f357331e203ad87214984661c40704aceb7
+-
+-Patch was sent upstream:
+-http://ffmpeg.org/pipermail/ffmpeg-devel/2019-March/240863.html
+-
+-Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+----
+- libavcodec/vaapi_h264.c | 5 +++++
+- 1 file changed, 5 insertions(+)
+-
+-diff --git a/libavcodec/vaapi_h264.c b/libavcodec/vaapi_h264.c
+-index dd2a6571604..e521a05c4ff 100644
+---- a/libavcodec/vaapi_h264.c
+-+++ b/libavcodec/vaapi_h264.c
+-@@ -314,6 +314,11 @@ static int vaapi_h264_end_frame(AVCodecContext *avctx)
+-     H264SliceContext *sl = &h->slice_ctx[0];
+-     int ret;
+- 
+-+    if (pic->nb_slices == 0) {
+-+        ret = AVERROR_INVALIDDATA;
+-+        goto finish;
+-+    }
+-+
+-     ret = ff_vaapi_decode_issue(avctx, pic);
+-     if (ret < 0)
+-         goto finish;
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch MYD-LR3576/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,72 +0,0 @@
+-From 6e8daf0d502a2a822f1f08f42368d7d676dc1a9e Mon Sep 17 00:00:00 2001
+-From: Bernd Kuhls <bernd.kuhls@t-online.de>
+-Date: Sun, 6 Jun 2021 08:54:53 +0200
+-Subject: [PATCH] libavutil: Fix mips build
+-
+-Check for sys/auxv.h because not all toolchains contain this header.
+-
+-Fixes https://trac.ffmpeg.org/ticket/9138
+-
+-Patch sent upstream:
+-http://ffmpeg.org/pipermail/ffmpeg-devel/2021-June/281272.html
+-
+-Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+----
+- configure            | 2 ++
+- libavutil/mips/cpu.c | 6 +++---
+- 2 files changed, 5 insertions(+), 3 deletions(-)
+-
+-diff --git a/configure b/configure
+-index 6bfd98b384..773a7d516c 100755
+---- a/configure
+-+++ b/configure
+-@@ -2135,6 +2135,7 @@ HEADERS_LIST="
+-     opencv2_core_core_c_h
+-     OpenGL_gl3_h
+-     poll_h
+-+    sys_auxv_h
+-     sys_param_h
+-     sys_resource_h
+-     sys_select_h
+-@@ -6182,6 +6183,7 @@ check_func_headers VideoToolbox/VTCompressionSession.h VTCompressionSessionPrepa
+- check_headers windows.h
+- check_headers X11/extensions/XvMClib.h
+- check_headers asm/types.h
+-+check_headers sys/auxv.h
+- 
+- # it seems there are versions of clang in some distros that try to use the
+- # gcc headers, which explodes for stdatomic
+-diff --git a/libavutil/mips/cpu.c b/libavutil/mips/cpu.c
+-index 59619d54de..19196de50b 100644
+---- a/libavutil/mips/cpu.c
+-+++ b/libavutil/mips/cpu.c
+-@@ -19,7 +19,7 @@
+- #include "libavutil/cpu.h"
+- #include "libavutil/cpu_internal.h"
+- #include "config.h"
+--#if defined __linux__ || defined __ANDROID__
+-+#if (defined __linux__ || defined __ANDROID__) && HAVE_SYS_AUXV_H
+- #include <stdint.h>
+- #include <stdio.h>
+- #include <string.h>
+-@@ -28,7 +28,7 @@
+- #include "libavutil/avstring.h"
+- #endif
+- 
+--#if defined __linux__ || defined __ANDROID__
+-+#if (defined __linux__ || defined __ANDROID__) && HAVE_SYS_AUXV_H
+- 
+- #define HWCAP_LOONGSON_CPUCFG (1 << 14)
+- 
+-@@ -105,7 +105,7 @@ static int cpu_flags_cpuinfo(void)
+- 
+- int ff_get_cpu_flags_mips(void)
+- {
+--#if defined __linux__ || defined __ANDROID__
+-+#if (defined __linux__ || defined __ANDROID__) && HAVE_SYS_AUXV_H
+-     if (cpucfg_available())
+-         return cpu_flags_cpucfg();
+-     else
+--- 
+-2.29.2
+-
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch MYD-LR3576/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,47 +0,0 @@
+-From 0c288853630b7b4e004774c39945d4a804afcfa8 Mon Sep 17 00:00:00 2001
+-From: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+-Date: Fri, 6 Aug 2021 09:17:20 +0200
+-Subject: [PATCH] configure: add extralibs to extralibs_xxx
+-
+-Add extralibs to extralibs_xxx (e.g. extralibs_avformat) to allow
+-applications such as motion to retrieve ffmpeg dependencies such as
+--latomic through pkg-config
+-
+-Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
+-[Upstream status: not upstreamable]
+----
+- configure | 18 +++++++++---------
+- 1 file changed, 9 insertions(+), 9 deletions(-)
+-
+-diff --git a/configure b/configure
+-index 0bb3a7cf2b..3bda99e415 100755
+---- a/configure
+-+++ b/configure
+-@@ -7715,15 +7715,15 @@ rpath=$(enabled rpath && echo "-Wl,-rpath,\${libdir}")
+- source_path=${source_path}
+- LIBPREF=${LIBPREF}
+- LIBSUF=${LIBSUF}
+--extralibs_avutil="$avutil_extralibs"
+--extralibs_avcodec="$avcodec_extralibs"
+--extralibs_avformat="$avformat_extralibs"
+--extralibs_avdevice="$avdevice_extralibs"
+--extralibs_avfilter="$avfilter_extralibs"
+--extralibs_avresample="$avresample_extralibs"
+--extralibs_postproc="$postproc_extralibs"
+--extralibs_swscale="$swscale_extralibs"
+--extralibs_swresample="$swresample_extralibs"
+-+extralibs_avutil="$avutil_extralibs $extralibs"
+-+extralibs_avcodec="$avcodec_extralibs $extralibs"
+-+extralibs_avformat="$avformat_extralibs $extralibs"
+-+extralibs_avdevice="$avdevice_extralibs $extralibs"
+-+extralibs_avfilter="$avfilter_extralibs $extralibs"
+-+extralibs_avresample="$avresample_extralibs $extralibs"
+-+extralibs_postproc="$postproc_extralibs $extralibs"
+-+extralibs_swscale="$swscale_extralibs $extralibs"
+-+extralibs_swresample="$swresample_extralibs $extralibs"
+- EOF
+- 
+- for lib in $LIBRARY_LIST; do
+--- 
+-2.30.2
+-
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch MYD-LR3576/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,84 +0,0 @@
+-From effadce6c756247ea8bae32dc13bb3e6f464f0eb Mon Sep 17 00:00:00 2001
+-From: =?utf8?q?R=C3=A9mi=20Denis-Courmont?= <remi@remlab.net>
+-Date: Sun, 16 Jul 2023 18:18:02 +0300
+-Subject: [PATCH] avcodec/x86/mathops: clip constants used with shift
+- instructions within inline assembly
+-
+-Fixes assembling with binutils as >= 2.41
+-
+-Upstream: http://git.videolan.org/?p=ffmpeg.git;a=commitdiff;h=effadce6c756247ea8bae32dc13bb3e6f464f0eb
+-
+-Bug reports for this change in binutils:
+-https://fftrac-bg.ffmpeg.org/ticket/10405
+-https://gcc.gnu.org/bugzilla/show_bug.cgi?id=108941
+-https://sourceware.org/bugzilla/show_bug.cgi?id=30578
+-
+-Signed-off-by: James Almer <jamrial@gmail.com>
+-Signed-off-by: Bernd Kuhls <bernd@kuhls.net>
+----
+- libavcodec/x86/mathops.h | 26 +++++++++++++++++++++++---
+- 1 file changed, 23 insertions(+), 3 deletions(-)
+-
+-diff --git a/libavcodec/x86/mathops.h b/libavcodec/x86/mathops.h
+-index 6298f5ed19..ca7e2dffc1 100644
+---- a/libavcodec/x86/mathops.h
+-+++ b/libavcodec/x86/mathops.h
+-@@ -35,12 +35,20 @@
+- static av_always_inline av_const int MULL(int a, int b, unsigned shift)
+- {
+-     int rt, dummy;
+-+    if (__builtin_constant_p(shift))
+-     __asm__ (
+-         "imull %3               \n\t"
+-         "shrdl %4, %%edx, %%eax \n\t"
+-         :"=a"(rt), "=d"(dummy)
+--        :"a"(a), "rm"(b), "ci"((uint8_t)shift)
+-+        :"a"(a), "rm"(b), "i"(shift & 0x1F)
+-     );
+-+    else
+-+        __asm__ (
+-+            "imull %3               \n\t"
+-+            "shrdl %4, %%edx, %%eax \n\t"
+-+            :"=a"(rt), "=d"(dummy)
+-+            :"a"(a), "rm"(b), "c"((uint8_t)shift)
+-+        );
+-     return rt;
+- }
+- 
+-@@ -113,19 +121,31 @@ __asm__ volatile(\
+- // avoid +32 for shift optimization (gcc should do that ...)
+- #define NEG_SSR32 NEG_SSR32
+- static inline  int32_t NEG_SSR32( int32_t a, int8_t s){
+-+    if (__builtin_constant_p(s))
+-     __asm__ ("sarl %1, %0\n\t"
+-          : "+r" (a)
+--         : "ic" ((uint8_t)(-s))
+-+         : "i" (-s & 0x1F)
+-     );
+-+    else
+-+        __asm__ ("sarl %1, %0\n\t"
+-+               : "+r" (a)
+-+               : "c" ((uint8_t)(-s))
+-+        );
+-     return a;
+- }
+- 
+- #define NEG_USR32 NEG_USR32
+- static inline uint32_t NEG_USR32(uint32_t a, int8_t s){
+-+    if (__builtin_constant_p(s))
+-     __asm__ ("shrl %1, %0\n\t"
+-          : "+r" (a)
+--         : "ic" ((uint8_t)(-s))
+-+         : "i" (-s & 0x1F)
+-     );
+-+    else
+-+        __asm__ ("shrl %1, %0\n\t"
+-+               : "+r" (a)
+-+               : "c" ((uint8_t)(-s))
+-+        );
+-     return a;
+- }
+- 
+--- 
+-2.30.2
+-
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/Config.in MYD-LR3576/buildroot/package/ffmpeg/Config.in
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/Config.in	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/Config.in	2026-08-14 13:17:00.707812097 +0800
+@@ -26,6 +26,17 @@
+ 
+ if BR2_PACKAGE_FFMPEG
+ 
++config BR2_PACKAGE_FFMPEG_RKMPP
++	bool "Enable Rockchip MPP"
++	help
++	  provide full hardware transcoding pipeline in FFmpeg CLI for
++	  Rockchip platforms that support MPP (Media Process Platform)
++	  and RGA (2D Raster Graphic Acceleration).
++	depends on BR2_PACKAGE_ROCKCHIP
++	default y
++	select BR2_PACKAGE_ROCKCHIP_MPP
++	select BR2_PACKAGE_ROCKCHIP_RGA
++
+ config BR2_PACKAGE_FFMPEG_GPL
+ 	bool "Enable GPL code"
+ 	help
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.hash MYD-LR3576/buildroot/package/ffmpeg/ffmpeg.hash
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.hash	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/ffmpeg.hash	1970-01-01 08:00:00.000000000 +0800
+@@ -1,5 +0,0 @@
+-# Locally calculated
+-sha256  e80b380d595c809060f66f96a5d849511ef4a76a26b76eacf5778b94c3570309  ffmpeg-4.4.4.tar.xz
+-sha256  8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643  COPYING.GPLv2
+-sha256  b634ab5640e258563c536e658cad87080553df6f34f62269a21d554844e58bfe  COPYING.LGPLv2.1
+-sha256  cb48bf09a11f5fb576cddb0431c8f5ed0a60157a9ec942adffc13907cbe083f2  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk MYD-LR3576/buildroot/package/ffmpeg/ffmpeg.mk
+--- MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576/buildroot/package/ffmpeg/ffmpeg.mk	2026-08-14 22:42:12.880793695 +0800
+@@ -4,9 +4,15 @@
+ #
+ ################################################################################
+ 
++ifeq ($(BR2_PACKAGE_FFMPEG_RKMPP),y)
++FFMPEG_VERSION = 6.1
++FFMPEG_SITE = $(call github,nyanmisaka,ffmpeg-rockchip,$(FFMPEG_VERSION))
++FFMPEG_CPE_ID_VERSION = 6.1
++else
+ FFMPEG_VERSION = 4.4.4
+ FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.xz
+ FFMPEG_SITE = https://ffmpeg.org/releases
++endif
+ FFMPEG_INSTALL_STAGING = YES
+ 
+ FFMPEG_LICENSE = LGPL-2.1+, libjpeg license
+@@ -32,11 +38,6 @@
+ 	--disable-gray \
+ 	--enable-swscale-alpha \
+ 	--disable-small \
+-	--enable-dct \
+-	--enable-fft \
+-	--enable-mdct \
+-	--enable-rdft \
+-	--disable-crystalhd \
+ 	--disable-dxva2 \
+ 	--enable-runtime-cpudetect \
+ 	--disable-hardcoded-tables \
+@@ -94,9 +95,9 @@
+ endif
+ 
+ ifeq ($(BR2_PACKAGE_FFMPEG_AVRESAMPLE),y)
+-FFMPEG_CONF_OPTS += --enable-avresample
++FFMPEG_CONF_OPTS += --enable-swresample
+ else
+-FFMPEG_CONF_OPTS += --disable-avresample
++FFMPEG_CONF_OPTS += --disable-swresample
+ endif
+ 
+ ifeq ($(BR2_PACKAGE_FFMPEG_FFPROBE),y)
+@@ -561,6 +562,11 @@
+ FFMPEG_CONF_ENV += CFLAGS="$(FFMPEG_CFLAGS)"
+ FFMPEG_CONF_OPTS += $(call qstrip,$(BR2_PACKAGE_FFMPEG_EXTRACONF))
+ 
++ifeq ($(BR2_PACKAGE_FFMPEG_RKMPP),y)
++FFMPEG_DEPENDENCIES += rockchip-mpp rockchip-rga
++FFMPEG_CONF_OPTS += --enable-version3 --enable-rkmpp --enable-rkrga
++endif
++
+ # Override FFMPEG_CONFIGURE_CMDS: FFmpeg does not support --target and others
+ define FFMPEG_CONFIGURE_CMDS
+ 	(cd $(FFMPEG_SRCDIR) && rm -rf config.cache && \
