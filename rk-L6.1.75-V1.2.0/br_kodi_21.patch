@@ -1,0 +1,1701 @@
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.hash MYD-LR3576/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.hash	2026-08-22 20:09:29.145241601 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  ec981d070cccdfaa9116244e80a63d86c37f67dccd11aacfcc66dcfcbb608ce1  kodi-screensaver-pyro-20.1.0-Nexus.tar.gz
++sha256  4a6b5d7efd789be40226ffe337bac8f64c47335c40085d940d624d42cdaa1be0  kodi-screensaver-pyro-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.mk MYD-LR3576/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.mk	2026-08-22 20:09:29.145241601 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_PYRO_VERSION = 20.1.0-Nexus
++KODI_SCREENSAVER_PYRO_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_PYRO_SITE = $(call github,xbmc,screensaver.pyro,$(KODI_SCREENSAVER_PYRO_VERSION))
+ KODI_SCREENSAVER_PYRO_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_PYRO_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.hash MYD-LR3576/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.hash	2026-08-22 20:10:08.515358183 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  929af1a5a08399449497a13c2eb9761b4770b41445a13ee61d78b82677978ea5  kodi-screensaver-matrixtrails-20.1.0-Nexus.tar.gz
++sha256  cc342d201606e682fc9def894a308784b74633f981209570c87d1bd206894311  kodi-screensaver-matrixtrails-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.mk MYD-LR3576/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-matrixtrails.mk	2026-08-22 20:10:08.516358186 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_MATRIXTRAILS_VERSION = 20.1.0-Nexus
++KODI_SCREENSAVER_MATRIXTRAILS_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_MATRIXTRAILS_SITE = $(call github,xbmc,screensaver.matrixtrails,$(KODI_SCREENSAVER_MATRIXTRAILS_VERSION))
+ KODI_SCREENSAVER_MATRIXTRAILS_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_MATRIXTRAILS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.hash MYD-LR3576/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.hash	2026-08-22 20:10:53.687491946 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  f43a7ac762b2c8bb7c2a66dc7d2a577fad92119bb4418867ce22369b96b18f8c  kodi-pvr-waipu-20.11.0-Nexus.tar.gz
++sha256  93b9fc17660a70e7cccf02a8845db3cd5dbd044ae3ef35d3bb052bfa13b9de15  kodi-pvr-waipu-21.9.2-Omega.tar.gz
+ sha256  4202d4fb329f58c83ba921b56d7071e37f7df3f15b3820a3a04ef8eee49f54d2  pvr.waipu/LICENSE.txt
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.mk MYD-LR3576/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.mk	2026-08-22 20:10:53.687491946 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_WAIPU_VERSION = 20.11.0-Nexus
++KODI_PVR_WAIPU_VERSION = 21.9.2-Omega
+ KODI_PVR_WAIPU_SITE = $(call github,flubshi,pvr.waipu,$(KODI_PVR_WAIPU_VERSION))
+ KODI_PVR_WAIPU_LICENSE = GPL-2.0+
+ KODI_PVR_WAIPU_LICENSE_FILES = pvr.waipu/LICENSE.txt
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.hash MYD-LR3576/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.hash	2026-08-22 20:11:22.584577515 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  1baf69cca688ebd389705ea2bef2c5285ba75dcfd0d0b534b6ab1e61c0020979  kodi-audioencoder-wav-20.2.0-Nexus.tar.gz
++sha256  2bbc3e15706e02bbd3e6be3c232522e2091509a6fdf88d8af5db4cd6bf7b3476  kodi-audioencoder-wav-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.mk MYD-LR3576/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.mk	2026-08-22 20:11:22.584577515 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIOENCODER_WAV_VERSION = 20.2.0-Nexus
++KODI_AUDIOENCODER_WAV_VERSION = 21.0.2-Omega
+ KODI_AUDIOENCODER_WAV_SITE = $(call github,xbmc,audioencoder.wav,$(KODI_AUDIOENCODER_WAV_VERSION))
+ KODI_AUDIOENCODER_WAV_LICENSE = GPL-2.0+
+ KODI_AUDIOENCODER_WAV_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.hash MYD-LR3576/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.hash	2026-08-22 20:15:19.656279512 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  90f36ee0b4972669ed2876eae2502e58d86287aacdbf4bb25180aca01385e1c1  kodi-audioencoder-lame-20.3.0-Nexus.tar.gz
++sha256  cf593053e7413f6790352ab3c2fcf227763a23c8e7a90381b46afdde3d92df7f  kodi-audioencoder-lame-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.mk MYD-LR3576/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.mk	2026-08-22 20:15:19.657279515 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIOENCODER_LAME_VERSION = 20.3.0-Nexus
++KODI_AUDIOENCODER_LAME_VERSION = 21.0.2-Omega
+ KODI_AUDIOENCODER_LAME_SITE = $(call github,xbmc,audioencoder.lame,$(KODI_AUDIOENCODER_LAME_VERSION))
+ KODI_AUDIOENCODER_LAME_LICENSE = GPL-2.0+
+ KODI_AUDIOENCODER_LAME_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.hash MYD-LR3576/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.hash	2026-08-22 20:11:55.294674376 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  c99d3ef085c4900e0c03e5e37047dc136efced78ed245d07bc286468a31e8a65  kodi-pvr-pctv-20.4.0-Nexus.tar.gz
++sha256  d3527b88d3956fecf8dda40928bc01bd340a22c25a6c38f758af8d6d85153354  kodi-pvr-pctv-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.mk MYD-LR3576/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.mk	2026-08-22 20:11:55.294674376 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_PCTV_VERSION = 20.4.0-Nexus
++KODI_PVR_PCTV_VERSION = 21.0.2-Omega
+ KODI_PVR_PCTV_SITE = $(call github,kodi-pvr,pvr.pctv,$(KODI_PVR_PCTV_VERSION))
+ KODI_PVR_PCTV_LICENSE = GPL-2.0+
+ KODI_PVR_PCTV_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/0001-include-missing-cstdint-to-support-gcc-13.patch MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/0001-include-missing-cstdint-to-support-gcc-13.patch
+--- MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/0001-include-missing-cstdint-to-support-gcc-13.patch	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/0001-include-missing-cstdint-to-support-gcc-13.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,31 +0,0 @@
+-From 47dcb3843e02abb69c52d6f0021bd2816b8317a5 Mon Sep 17 00:00:00 2001
+-From: Rudi Heitbaum <rudi@heitbaum.com>
+-Date: Thu, 27 Apr 2023 02:46:59 +1000
+-Subject: [PATCH] include missing <cstdint> to support gcc-13
+-
+-gcc 13 moved some includes around and as a result <cstdint> is no longer transitively
+-included [1]. Explicitly include it for uint{32,64}_t.
+-
+-[1] https://gcc.gnu.org/gcc-13/porting_to.html#header-dep-changes
+-
+-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
+-
+-Upstream: https://github.com/xbmc/imagedecoder.heif/commit/47dcb3843e02abb69c52d6f0021bd2816b8317a5
+-
+-Signed-off-by: Bernd Kuhls <bernd@kuhls.net>
+----
+- lib/TinyEXIF/TinyEXIF.h | 1 +
+- 1 file changed, 1 insertion(+)
+-
+-diff --git a/lib/TinyEXIF/TinyEXIF.h b/lib/TinyEXIF/TinyEXIF.h
+-index 56354aa..b03d36b 100644
+---- a/lib/TinyEXIF/TinyEXIF.h
+-+++ b/lib/TinyEXIF/TinyEXIF.h
+-@@ -34,6 +34,7 @@
+- #ifndef __TINYEXIF_H__
+- #define __TINYEXIF_H__
+-
+-+#include <cstdint>
+- #include <string>
+- #include <vector>
+-
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/Config.in MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/Config.in
+--- MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/Config.in	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/Config.in	2026-08-22 20:12:19.762746830 +0800
+@@ -1,9 +1,9 @@
+ config BR2_PACKAGE_KODI_IMAGEDECODER_HEIF
+ 	bool "kodi-imagedecoder-heif"
+ 	depends on BR2_INSTALL_LIBSTDCPP # libde265, libheif, tinyxml2
+-	depends on BR2_TOOLCHAIN_HAS_THREADS # libde265
++	depends on BR2_TOOLCHAIN_HAS_THREADS # libde265, libheif
+ 	depends on !BR2_TOOLCHAIN_HAS_BINUTILS_BUG_30730 # libheif
+-	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_8 # libheif
++	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_10 # libheif
+ 	select BR2_PACKAGE_LIBDE265
+ 	select BR2_PACKAGE_LIBHEIF
+ 	select BR2_PACKAGE_TINYXML2
+@@ -12,7 +12,7 @@
+
+ 	  https://github.com/xbmc/imagedecoder.heif
+
+-comment "kodi-imagedecoder-heif needs a toolchain w/ C++, threads, gcc >= 4.8"
++comment "kodi-imagedecoder-heif needs a toolchain w/ C++, threads, gcc >= 10"
+ 	depends on !BR2_TOOLCHAIN_HAS_BINUTILS_BUG_30730 # libheif
+ 	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS || \
+-		!BR2_TOOLCHAIN_GCC_AT_LEAST_4_8
++		!BR2_TOOLCHAIN_GCC_AT_LEAST_10
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.hash MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.hash	2026-08-22 20:12:19.763746833 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  17f50aada11528c02db2ff3871a355c89709ab7e2a5e6b5e33957b790cf207ff  kodi-imagedecoder-heif-20.1.0-Nexus.tar.gz
++sha256  ac4d6604400cccd16399be19ce0fa9129575cb933d8fb5ff4c76b57c3a39eeeb  kodi-imagedecoder-heif-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.mk MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.mk	2026-08-22 20:12:19.763746833 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_IMAGEDECODER_HEIF_VERSION = 20.1.0-Nexus
++KODI_IMAGEDECODER_HEIF_VERSION = 21.0.2-Omega
+ KODI_IMAGEDECODER_HEIF_SITE = $(call github,xbmc,imagedecoder.heif,$(KODI_IMAGEDECODER_HEIF_VERSION))
+ KODI_IMAGEDECODER_HEIF_LICENSE = GPL-2.0+
+ KODI_IMAGEDECODER_HEIF_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.hash MYD-LR3576/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.hash	2026-08-22 20:12:39.988806722 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  0e8dc8ddce7830878c816da0836bdf5558c0dd388c48019012735a518eeefb04  kodi-pvr-njoy-20.3.0-Nexus.tar.gz
++sha256  62d856e14b76aa6900c28d4679b13d79d891dc040c4ea87331b0eee373542644  kodi-pvr-njoy-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.mk MYD-LR3576/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.mk	2026-08-22 20:12:39.989806725 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_NJOY_VERSION = 20.3.0-Nexus
++KODI_PVR_NJOY_VERSION = 21.0.2-Omega
+ KODI_PVR_NJOY_SITE = $(call github,kodi-pvr,pvr.njoy,$(KODI_PVR_NJOY_VERSION))
+ KODI_PVR_NJOY_LICENSE = GPL-2.0+
+ KODI_PVR_NJOY_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.hash MYD-LR3576/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.hash	2026-08-22 20:15:37.086331126 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  b6f5205caede6aaf57c1eab8206c5a5b3aaa6b5d8bda862d983ca53150cdf14a  kodi-pvr-zattoo-20.3.14-Nexus.tar.gz
++sha256  7e1fab309232e7115efa0868c8c3c13c2e7639628ef8bc59a93bf4aa82a3b20d  kodi-pvr-zattoo-21.0.4-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.mk MYD-LR3576/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.mk	2026-08-22 20:15:37.086331126 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_ZATTOO_VERSION = 20.3.14-Nexus
++KODI_PVR_ZATTOO_VERSION = 21.0.4-Omega
+ KODI_PVR_ZATTOO_SITE = $(call github,rbuehlma,pvr.zattoo,$(KODI_PVR_ZATTOO_VERSION))
+ KODI_PVR_ZATTOO_LICENSE = GPL-2.0+
+ KODI_PVR_ZATTOO_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.hash	2026-08-22 20:12:57.491858538 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  2f7a92bfaddcd5aa63e2ea7348ae9eeefd07dee2aba46840ce5376677e2abc19  kodi-audiodecoder-nosefart-20.2.0-Nexus.tar.gz
++sha256  4c82bf0ffab2d09f26b84d382fd00f70695d5f6a6d781be2818f9f5e10bc675a  kodi-audiodecoder-nosefart-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosefart.mk	2026-08-22 20:12:57.491858538 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_NOSEFART_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_NOSEFART_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_NOSEFART_SITE = $(call github,xbmc,audiodecoder.nosefart,$(KODI_AUDIODECODER_NOSEFART_VERSION))
+ KODI_AUDIODECODER_NOSEFART_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_NOSEFART_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-rsxs/Config.in MYD-LR3576/buildroot/package/kodi-screensaver-rsxs/Config.in
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-rsxs/Config.in	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-rsxs/Config.in	2026-08-22 20:13:31.316958700 +0800
+@@ -2,8 +2,6 @@
+ 	bool "kodi-screensaver-rsxs"
+ 	depends on BR2_PACKAGE_KODI_RENDER_SYSTEM_GL
+ 	select BR2_PACKAGE_BZIP2
+-	select BR2_PACKAGE_GLI
+-	select BR2_PACKAGE_GLM
+ 	help
+ 	  RSXS screensaver add-ons for Kodi
+
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.hash MYD-LR3576/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.hash	2026-08-22 20:13:31.316958700 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  e135408812b8c267554e3881a05396d4286c1f47b20416b4e5d88b632367ace7  kodi-screensaver-rsxs-20.1.0-Nexus.tar.gz
++sha256  76c1df60f3b4bf4c61f827e07ac61173e3b72defe6ab54d1a1fa34f1cd6f38ab  kodi-screensaver-rsxs-21.1.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.mk MYD-LR3576/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.mk	2026-08-22 20:13:31.316958700 +0800
+@@ -4,10 +4,10 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_RSXS_VERSION = 20.1.0-Nexus
++KODI_SCREENSAVER_RSXS_VERSION = 21.1.2-Omega
+ KODI_SCREENSAVER_RSXS_SITE = $(call github,xbmc,screensavers.rsxs,$(KODI_SCREENSAVER_RSXS_VERSION))
+ KODI_SCREENSAVER_RSXS_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_RSXS_LICENSE_FILES = LICENSE.md
+-KODI_SCREENSAVER_RSXS_DEPENDENCIES = bzip2 gli glm kodi
++KODI_SCREENSAVER_RSXS_DEPENDENCIES = bzip2 kodi
+
+ $(eval $(cmake-package))
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk MYD-LR3576/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk	2026-08-22 20:42:00.090023908 +0800
+@@ -6,20 +6,20 @@
+
+ # Not possible to directly refer to kodi variables, because of
+ # first/second expansion trickery...
+-KODI_JSONSCHEMABUILDER_VERSION = 20.4-Nexus
++KODI_JSONSCHEMABUILDER_VERSION = 21.2-Omega
+ KODI_JSONSCHEMABUILDER_SITE = $(call github,xbmc,xbmc,$(KODI_JSONSCHEMABUILDER_VERSION))
+ KODI_JSONSCHEMABUILDER_SOURCE = kodi-$(KODI_JSONSCHEMABUILDER_VERSION).tar.gz
+ KODI_JSONSCHEMABUILDER_DL_SUBDIR = kodi
+ KODI_JSONSCHEMABUILDER_LICENSE = GPL-2.0
+ KODI_JSONSCHEMABUILDER_LICENSE_FILES = LICENSE.md
+-HOST_KODI_JSONSCHEMABUILDER_SUBDIR = tools/depends/native/JsonSchemaBuilder
++HOST_KODI_JSONSCHEMABUILDER_SUBDIR = tools/depends/native/JsonSchemaBuilder/src
+
+ HOST_KODI_JSONSCHEMABUILDER_CONF_OPTS = \
+ 	-DCMAKE_MODULE_PATH=$(@D)/project/cmake/modules
+
+ define HOST_KODI_JSONSCHEMABUILDER_INSTALL_CMDS
+ 	$(INSTALL) -m 755 -D \
+-		$(@D)/tools/depends/native/JsonSchemaBuilder/JsonSchemaBuilder \
++		$(@D)/tools/depends/native/JsonSchemaBuilder/src/JsonSchemaBuilder \
+ 		$(HOST_DIR)/bin/kodi-JsonSchemaBuilder
+ endef
+
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash MYD-LR3576/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash	2026-08-22 20:14:25.204118270 +0800
+@@ -1,5 +1,5 @@
+ # Locally computed
+-sha256  50870b24a3663f8d8d88802b327a8fd2fec441a9fed952baf71faba6854a8e1b  kodi-vfs-rar-20.1.0-Nexus.tar.gz
++sha256  7492cf73d52299218acc982c4b35b020ea801d36d47e40460341f4dde712de50  kodi-vfs-rar-21.0.2-Omega.tar.gz
+ # License files
+ sha256  6ecc1687808b7d66b24f874755abfed7464d9751ed0001cd4e8e5d9bf397ff8a  lib/UnrarXLib/license.txt
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.mk MYD-LR3576/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.mk	2026-08-22 20:14:25.204118270 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VFS_RAR_VERSION = 20.1.0-Nexus
++KODI_VFS_RAR_VERSION = 21.0.2-Omega
+ KODI_VFS_RAR_SITE = $(call github,xbmc,vfs.rar,$(KODI_VFS_RAR_VERSION))
+ KODI_VFS_RAR_LICENSE = unrar, GPL-2.0+
+ KODI_VFS_RAR_LICENSE_FILES = lib/UnrarXLib/license.txt LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.hash MYD-LR3576/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.hash	2026-08-22 20:14:44.949176738 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  f0b76edf45df7161d8525fa2ba623dee64ca66d515342e942100dc46c8220553  kodi-visualisation-matrix-20.2.0-Nexus.tar.gz
++sha256  b1d1f3da5470d657e70c4b914a77445fe1d0a0ba35007fc402982a8b1b4cf9b0  kodi-visualisation-matrix-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.mk MYD-LR3576/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matrix.mk	2026-08-22 20:14:44.950176741 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_MATRIX_VERSION = 20.2.0-Nexus
++KODI_VISUALISATION_MATRIX_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_MATRIX_SITE = $(call github,xbmc,visualization.matrix,$(KODI_VISUALISATION_MATRIX_VERSION))
+ KODI_VISUALISATION_MATRIX_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_MATRIX_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.hash MYD-LR3576/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.hash	2026-08-22 20:15:04.336234147 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  71daf8c35bbf644591600fef93412cd068a6bf6173d2258dc243ee04c8e5b091  kodi-audioencoder-flac-20.2.0-Nexus.tar.gz
++sha256  2e7f21f4c42ac2c627ed381436d430a83f18ebc07cb92e91b6c98c4ff9528cc5  kodi-audioencoder-flac-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.mk MYD-LR3576/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.mk	2026-08-22 20:15:04.336234147 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIOENCODER_FLAC_VERSION = 20.2.0-Nexus
++KODI_AUDIOENCODER_FLAC_VERSION = 21.0.2-Omega
+ KODI_AUDIOENCODER_FLAC_SITE = $(call github,xbmc,audioencoder.flac,$(KODI_AUDIOENCODER_FLAC_VERSION))
+ KODI_AUDIOENCODER_FLAC_LICENSE = GPL-2.0+
+ KODI_AUDIOENCODER_FLAC_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.hash MYD-LR3576/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.hash	2026-08-22 20:16:32.307494647 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  f045d871789ef3d36e1a7c7361ea35be4e14a395e75446519e937be70d2433b4  kodi-pvr-wmc-20.3.0-Nexus.tar.gz
++sha256  bee42bd2a55d00ab589db9ebcddfa75d9211571fda63d641ba484f5582934364  kodi-pvr-wmc-21.0.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.mk MYD-LR3576/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.mk	2026-08-22 20:16:32.307494647 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_WMC_VERSION = 20.3.0-Nexus
++KODI_PVR_WMC_VERSION = 21.0.3-Omega
+ KODI_PVR_WMC_SITE = $(call github,kodi-pvr,pvr.wmc,$(KODI_PVR_WMC_VERSION))
+ KODI_PVR_WMC_LICENSE = GPL-2.0+
+ KODI_PVR_WMC_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-timidity/0001-MidiScan-include-missing-cstdint.patch MYD-LR3576/buildroot/package/kodi-audiodecoder-timidity/0001-MidiScan-include-missing-cstdint.patch
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-timidity/0001-MidiScan-include-missing-cstdint.patch	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-timidity/0001-MidiScan-include-missing-cstdint.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,29 +0,0 @@
+-From 0d4d3fcf5c58dd16b3e9a7337189141b839e4ace Mon Sep 17 00:00:00 2001
+-From: Rudi Heitbaum <rudi@heitbaum.com>
+-Date: Sat, 15 Apr 2023 07:41:15 +1000
+-Subject: [PATCH] MidiScan: include missing <cstdint>
+-
+-gcc 13 moved some includes around and as a result <cstdint> is no longer transitively
+-included [1]. Explicitly include it for uint{32,64}_t.
+-
+-[1] https://gcc.gnu.org/gcc-13/porting_to.html#header-dep-changes
+-
+-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
+-Upstream: https://github.com/xbmc/audiodecoder.timidity/commit/0d4d3fcf5c58dd16b3e9a7337189141b839e4ace
+-Signed-off-by: Bernd Kuhls <bernd@kuhls.net>
+----
+- src/MidiScan.h | 1 +
+- 1 file changed, 1 insertion(+)
+-
+-diff --git a/src/MidiScan.h b/src/MidiScan.h
+-index 9c19bdf..ac959e0 100644
+---- a/src/MidiScan.h
+-+++ b/src/MidiScan.h
+-@@ -8,6 +8,7 @@
+-
+- #pragma once
+-
+-+#include <cstdint>
+- #include <string>
+- #include <vector>
+-
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash	2026-08-22 20:16:59.806576077 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  ef1b384090df3c2c78d00ed33de1d989ce802702b0a9aa13575946409a5cd0f1  kodi-audiodecoder-timidity-20.2.0-Nexus.tar.gz
++sha256  eb7bee9453825f86275ae05c4561fb52ee7fd9fa21857e303933cb57d28ccc4b  kodi-audiodecoder-timidity-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.mk	2026-08-22 20:16:59.806576077 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_TIMIDITY_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_TIMIDITY_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_TIMIDITY_SITE = $(call github,xbmc,audiodecoder.timidity,$(KODI_AUDIODECODER_TIMIDITY_VERSION))
+ KODI_AUDIODECODER_TIMIDITY_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_TIMIDITY_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.hash MYD-LR3576/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.hash	2026-08-22 20:17:19.046633050 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  1c405ea9b6f43ba5f24df13ebce12cb428369279336deb97790917aa675c809f  kodi-visualisation-spectrum-20.2.0-Nexus.tar.gz
++sha256  7b6635789d226ee4cd4e17d54d57e880731d0762835802835d0d5ac4f0084b99  kodi-visualisation-spectrum-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.mk MYD-LR3576/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spectrum.mk	2026-08-22 20:17:19.046633050 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_SPECTRUM_VERSION = 20.2.0-Nexus
++KODI_VISUALISATION_SPECTRUM_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_SPECTRUM_SITE = $(call github,xbmc,visualization.spectrum,$(KODI_VISUALISATION_SPECTRUM_VERSION))
+ KODI_VISUALISATION_SPECTRUM_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_SPECTRUM_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi/Config.in MYD-LR3576/buildroot/package/kodi/Config.in
+--- MYD-LR3576.orig/buildroot/package/kodi/Config.in	2024-05-08 21:21:19.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi/Config.in	2026-08-22 20:20:17.568161672 +0800
+@@ -5,12 +5,13 @@
+ 	depends on !(BR2_i386 && !BR2_X86_CPU_HAS_SSE)
+ 	depends on BR2_USE_MMU # libcdio, and others
+
+-comment "kodi needs python3 w/ .py modules, a uClibc or glibc toolchain w/ C++, threads, wchar, dynamic library, gcc >= 9.x"
++comment "kodi needs python3 w/ .py modules, a uClibc or glibc toolchain w/ C++, threads, wchar, dynamic library, gcc >= 9.x, host gcc >= 9.x"
+ 	depends on BR2_PACKAGE_KODI_ARCH_SUPPORTS
+ 	depends on BR2_TOOLCHAIN_HAS_SYNC_4
+ 	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS \
+ 		|| !BR2_USE_WCHAR || BR2_STATIC_LIBS \
+ 		|| !BR2_TOOLCHAIN_GCC_AT_LEAST_9 \
++		|| !BR2_HOST_GCC_AT_LEAST_9 \
+ 		|| BR2_TOOLCHAIN_USES_MUSL \
+ 		|| !BR2_PACKAGE_PYTHON3 \
+ 		|| BR2_PACKAGE_PYTHON3_PYC_ONLY
+@@ -103,8 +104,10 @@
+ 	select BR2_PACKAGE_SQLITE
+ 	select BR2_PACKAGE_TAGLIB
+ 	select BR2_PACKAGE_TINYXML
++	select BR2_PACKAGE_TINYXML2
+ 	select BR2_PACKAGE_ZLIB
+ 	select BR2_TOOLCHAIN_GLIBC_GCONV_LIBS_COPY if BR2_TOOLCHAIN_USES_GLIBC # runtime UTF conversion support
++	select BR2_PACKAGE_LIBDISPLAY_INFO if BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM
+ 	select BR2_PACKAGE_LIBINPUT if BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM
+ 	select BR2_PACKAGE_LIBXKBCOMMON if BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM
+ 	select BR2_PACKAGE_LIBXKBCOMMON if BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_WAYLAND
+@@ -217,6 +220,12 @@
+
+ endchoice
+
++config BR2_PACKAGE_KODI_PIPEWIRE
++	bool "pipewire"
++	depends on BR2_PACKAGE_PIPEWIRE
++	help
++	  Enable Pipewire support.
++
+ config BR2_PACKAGE_KODI_PULSEAUDIO
+ 	bool "pulseaudio"
+ 	depends on BR2_PACKAGE_PULSEAUDIO_HAS_ATOMIC
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi/kodi.hash MYD-LR3576/buildroot/package/kodi/kodi.hash
+--- MYD-LR3576.orig/buildroot/package/kodi/kodi.hash	2024-05-08 21:21:19.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi/kodi.hash	2026-08-22 20:45:10.161588421 +0800
+@@ -1,5 +1,9 @@
++# From https://github.com/xbmc/xbmc/blob/Omega/xbmc/interfaces/swig/CMakeLists.txt
++sha512  743698979c801f3cfb36545888b5303e1e25dae5692bb45cab7ebbe102a6eda31f09abc6978349ad90ecaf630416fc87eacba7781244855e7e771a3c44041fa0  apache-groovy-binary-4.0.16.zip
++sha512  8e7e62418a49ba810512c13a640a8bf35f878fcd54af32fdaab1111e37817f58b21b475980ba663fba4887e45ef8d88af8ff17796f20d202e929e8e2574546dc  commons-lang3-3.14.0-bin.tar.gz
++sha512  2e94877000dd270b69e2e8cbf49f258a90b4c628b6b6b0814e300a2f0e9c391f0816dceb0707e596ae3b7c9532f93e7a4917df47c77f44b3a810e14042ce5f3f  commons-text-1.11.0-bin.tar.gz
+ # Locally computed
+-sha256  ccb2d3e382b5ae628a89db2325f5e778f1770a2a182f6eaa25645a22ccdffb18  kodi-20.4-Nexus.tar.gz
++sha256  da3a5df663684664b9383b65f1c06568222629d935084a59e4e641fcdcb6c383  kodi-21.2-Omega.tar.gz
+ sha256  f38c4a4e7a4f4da6d8e83b8852489aa3bb6588a915dc41f5ee89d9aad305a06e  kodi-libdvdcss-1.4.3-Next-Nexus-Alpha2-2.tar.gz
+ sha256  584f62a3896794408d46368e2ecf2c6217ab9c676ce85921b2d68b8961f49dfc  kodi-libdvdnav-6.1.1-Next-Nexus-Alpha2-2.tar.gz
+ sha256  719130091e3adc9725ba72df808f24a14737a009dca5a4c38c601c0c76449b62  kodi-libdvdread-6.1.3-Next-Nexus-Alpha2-2.tar.gz
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi/kodi.mk MYD-LR3576/buildroot/package/kodi/kodi.mk
+--- MYD-LR3576.orig/buildroot/package/kodi/kodi.mk	2024-05-08 21:21:19.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi/kodi.mk	2026-09-01 10:34:52.321392515 +0800
+@@ -6,8 +6,8 @@
+
+ # When updating the version, please also update kodi-jsonschemabuilder
+ # and kodi-texturepacker
+-KODI_VERSION_MAJOR = 20.4
+-KODI_VERSION_NAME = Nexus
++KODI_VERSION_MAJOR = 21.3
++KODI_VERSION_NAME = Omega
+ KODI_VERSION = $(KODI_VERSION_MAJOR)-$(KODI_VERSION_NAME)
+ KODI_SITE = $(call github,xbmc,xbmc,$(KODI_VERSION))
+ KODI_LICENSE = GPL-2.0
+@@ -54,6 +54,7 @@
+ 	sqlite \
+ 	taglib \
+ 	tinyxml \
++	tinyxml2 \
+ 	zlib
+
+ # taken from tools/depends/target/*/*-VERSION
+@@ -61,12 +62,25 @@
+ KODI_LIBDVDNAV_VERSION = 6.1.1-Next-Nexus-Alpha2-2
+ KODI_LIBDVDREAD_VERSION = 6.1.3-Next-Nexus-Alpha2-2
+ KODI_EXTRA_DOWNLOADS += \
++	https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.16.zip \
++	https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.14.0-bin.tar.gz \
++	https://archive.apache.org/dist/commons/text/binaries/commons-text-1.11.0-bin.tar.gz \
+ 	$(call github,xbmc,libdvdcss,$(KODI_LIBDVDCSS_VERSION))/kodi-libdvdcss-$(KODI_LIBDVDCSS_VERSION).tar.gz \
+ 	$(call github,xbmc,libdvdnav,$(KODI_LIBDVDNAV_VERSION))/kodi-libdvdnav-$(KODI_LIBDVDNAV_VERSION).tar.gz \
+ 	$(call github,xbmc,libdvdread,$(KODI_LIBDVDREAD_VERSION))/kodi-libdvdread-$(KODI_LIBDVDREAD_VERSION).tar.gz
+
++define KODI_PROVIDE_JAVA_TARBALLS
++	mkdir -p $(@D)/buildroot-build/build/download
++	cp $(KODI_DL_DIR)/apache-groovy-binary-4.0.16.zip $(@D)/buildroot-build/build/download
++	cp $(KODI_DL_DIR)/commons-lang3-3.14.0-bin.tar.gz $(@D)/buildroot-build/build/download
++	cp $(KODI_DL_DIR)/commons-text-1.11.0-bin.tar.gz $(@D)/buildroot-build/build/download
++endef
++KODI_POST_EXTRACT_HOOKS = KODI_PROVIDE_JAVA_TARBALLS
++
++
+ KODI_CONF_OPTS += \
+ 	-DCMAKE_C_FLAGS="$(TARGET_CFLAGS) $(KODI_C_FLAGS)" \
++	-DCMAKE_EXE_LINKER_FLAGS="$(KODI_EXTRA_LIBS)" \
+ 	-DENABLE_APP_AUTONAME=OFF \
+ 	-DENABLE_CCACHE=OFF \
+ 	-DENABLE_DVDCSS=ON \
+@@ -90,6 +104,7 @@
+ 	-DPYTHON_VER=$(PYTHON3_VERSION_MAJOR) \
+ 	-DWITH_JSONSCHEMABUILDER=$(HOST_DIR)/bin/ \
+ 	-DWITH_TEXTUREPACKER=$(HOST_DIR)/bin/ \
++	-DKODI_MIRROR="https://mirrors.kodi.tv" \
+ 	-DLIBDVDCSS_URL=$(KODI_DL_DIR)/kodi-libdvdcss-$(KODI_LIBDVDCSS_VERSION).tar.gz \
+ 	-DLIBDVDNAV_URL=$(KODI_DL_DIR)/kodi-libdvdnav-$(KODI_LIBDVDNAV_VERSION).tar.gz \
+ 	-DLIBDVDREAD_URL=$(KODI_DL_DIR)/kodi-libdvdread-$(KODI_LIBDVDREAD_VERSION).tar.gz
+@@ -104,13 +119,14 @@
+
+ ifeq ($(BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM),y)
+ KODI_CORE_PLATFORM_NAME += gbm
+-KODI_DEPENDENCIES += libgbm libinput libxkbcommon
++KODI_DEPENDENCIES += libdisplay-info libgbm libinput libxkbcommon
+ endif
+
+ ifeq ($(BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_WAYLAND),y)
+ KODI_CONF_OPTS += \
+ 	-DPC_WAYLANDPP_SCANNER=$(HOST_DIR)/bin/wayland-scanner \
+-	-DPC_WAYLANDPP_SCANNER_FOUND=ON
++	-DPC_WAYLANDPP_SCANNER_FOUND=ON \
++	-DWAYLANDPP_PROTOCOLS_DIR=$(STAGING_DIR)/usr/share/waylandpp/protocols
+ KODI_CORE_PLATFORM_NAME += wayland
+ KODI_DEPENDENCIES += libxkbcommon waylandpp
+ endif
+@@ -127,6 +143,7 @@
+
+ ifeq ($(BR2_ENABLE_LOCALE),)
+ KODI_DEPENDENCIES += libiconv
++KODI_EXTRA_LIBS += -liconv
+ endif
+
+ ifeq ($(BR2_arceb)$(BR2_arcle),y)
+@@ -205,11 +222,6 @@
+ KODI_CONF_OPTS += -D_AVX2_OK=OFF -D_AVX2_TRUE=OFF
+ endif
+
+-# mips: uses __atomic_load_8
+-ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
+-KODI_CONF_OPTS += -DCMAKE_EXE_LINKER_FLAGS=-latomic
+-endif
+-
+ ifeq ($(BR2_TOOLCHAIN_GCC_AT_LEAST_5),)
+ KODI_C_FLAGS += -std=gnu99
+ endif
+@@ -361,6 +373,13 @@
+ KODI_CONF_OPTS += -DENABLE_OPTICAL=OFF
+ endif
+
++ifeq ($(BR2_PACKAGE_KODI_PIPEWIRE),y)
++KODI_CONF_OPTS += -DENABLE_PIPEWIRE=ON
++KODI_DEPENDENCIES += pipewire
++else
++KODI_CONF_OPTS += -DENABLE_PIPEWIRE=OFF
++endif
++
+ ifeq ($(BR2_PACKAGE_KODI_PULSEAUDIO),y)
+ KODI_CONF_OPTS += -DENABLE_PULSEAUDIO=ON
+ KODI_DEPENDENCIES += pulseaudio
+@@ -369,9 +388,10 @@
+ endif
+
+ ifeq ($(BR2_PACKAGE_LIBUDFREAD),y)
++KODI_CONF_OPTS += -DENABLE_UDFREAD=ON
+ KODI_DEPENDENCIES += libudfread
+ else
+-KODI_CONF_OPTS += -DENABLE_INTERNAL_UDFREAD=OFF
++KODI_CONF_OPTS += -DENABLE_UDFREAD=OFF
+ endif
+
+ # Remove versioncheck addon, updating Kodi is done by building a new
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash MYD-LR3576/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash	2026-08-22 20:20:30.018198539 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  dfc291fbafe16444f3a5a5f886ba562b5d7b16ed77f4302017fbbe5f5ef9a82d  kodi-screensaver-biogenesis-20.1.0-Nexus.tar.gz
++sha256  fdd5a5abf98318e01e22c88f81ae3838b2f3b76f99b39e01fc94af528a200849  kodi-screensaver-biogenesis-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.mk MYD-LR3576/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.mk	2026-08-22 20:20:30.018198539 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_BIOGENESIS_VERSION = 20.1.0-Nexus
++KODI_SCREENSAVER_BIOGENESIS_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_BIOGENESIS_SITE = $(call github,xbmc,screensaver.biogenesis,$(KODI_SCREENSAVER_BIOGENESIS_VERSION))
+ KODI_SCREENSAVER_BIOGENESIS_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_BIOGENESIS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.hash MYD-LR3576/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.hash	2026-08-22 20:20:53.633268467 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  467363d7015d426f05fac3f514222d7ec03aa4b61a0935fd7f00e95e9c443514  kodi-pvr-vuplus-20.5.1-Nexus.tar.gz
++sha256  5d83bb04fdf6f41f3ebb63df19d9f5e21631de4726475df731fc665af789072c  kodi-pvr-vuplus-21.3.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.mk MYD-LR3576/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.mk	2026-08-22 20:20:53.633268467 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_VUPLUS_VERSION = 20.5.1-Nexus
++KODI_PVR_VUPLUS_VERSION = 21.3.2-Omega
+ KODI_PVR_VUPLUS_SITE = $(call github,kodi-pvr,pvr.vuplus,$(KODI_PVR_VUPLUS_VERSION))
+ KODI_PVR_VUPLUS_LICENSE = GPL-2.0+
+ KODI_PVR_VUPLUS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.hash MYD-LR3576/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.hash	2026-08-22 20:21:33.207385653 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  492d826efa7a252ce62a1bebf075fe9b0c0cf452929f4cd6f228003f6e445b82  kodi-screensaver-asteroids-20.2.0-Nexus.tar.gz
++sha256  468527220845a411af4dd021a907c6449327015fb848e61adfb46b47edde331a  kodi-screensaver-asteroids-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.mk MYD-LR3576/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-asteroids.mk	2026-08-22 20:21:33.208385656 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_ASTEROIDS_VERSION = 20.2.0-Nexus
++KODI_SCREENSAVER_ASTEROIDS_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_ASTEROIDS_SITE = $(call github,xbmc,screensaver.asteroids,$(KODI_SCREENSAVER_ASTEROIDS_VERSION))
+ KODI_SCREENSAVER_ASTEROIDS_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_ASTEROIDS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-adaptive/Config.in MYD-LR3576/buildroot/package/kodi-inputstream-adaptive/Config.in
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-adaptive/Config.in	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-adaptive/Config.in	2026-08-22 20:22:11.605499357 +0800
+@@ -4,7 +4,7 @@
+ 	depends on BR2_aarch64 || BR2_arm || BR2_i386 || BR2_mipsel \
+ 		|| BR2_mips64el || BR2_x86_64
+ 	select BR2_PACKAGE_BENTO4
+-	select BR2_PACKAGE_EXPAT
++	select BR2_PACKAGE_PUGIXML
+ 	help
+ 	  Kodi inputstream addon for several manifest types
+
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash MYD-LR3576/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash	2026-08-22 20:22:11.605499357 +0800
+@@ -1,5 +1,5 @@
+ # Locally computed
+-sha256  f67cfef057f8842716db4521a8cd3966c37a1da8fc3fb297527f6f25be20688a  kodi-inputstream-adaptive-20.3.17-Nexus.tar.gz
++sha256  1db831ebb0acbda2576e684f8af089c524025c6a410eefb7a015cbbb505aa04d  kodi-inputstream-adaptive-21.5.9-Omega.tar.gz
+ sha256  48632d57fbb6ab8f50cbf4deced5c91e733fa7ff292687c4816b77f28e483df9  LICENSE.md
+ sha256  02f864f3e07456785625968022ce811c5640301bfd2ae70963efea89d306790a  LICENSES/README.md
+ sha256  0b7f5dcb3d2c28ff78d999786028930e762df0baa2f52955782e378ec5b636a8  LICENSES/BSD-2-Clause-Views
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.mk MYD-LR3576/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.mk	2026-08-22 20:22:11.605499357 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_INPUTSTREAM_ADAPTIVE_VERSION = 20.3.17-Nexus
++KODI_INPUTSTREAM_ADAPTIVE_VERSION = 21.5.9-Omega
+ KODI_INPUTSTREAM_ADAPTIVE_SITE = $(call github,xbmc,inputstream.adaptive,$(KODI_INPUTSTREAM_ADAPTIVE_VERSION))
+ KODI_INPUTSTREAM_ADAPTIVE_LICENSE = \
+ 	BSD-2-Clause-Views \
+@@ -22,6 +22,6 @@
+ 	LICENSES/GPL-2.0-or-later \
+ 	LICENSES/RSA-MD
+
+-KODI_INPUTSTREAM_ADAPTIVE_DEPENDENCIES = bento4 expat kodi
++KODI_INPUTSTREAM_ADAPTIVE_DEPENDENCIES = bento4 kodi pugixml
+
+ $(eval $(cmake-package))
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash MYD-LR3576/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash	2026-08-22 20:22:37.380575682 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  0e398a30aac0e6316778d7bb93256b9a3758ac11bc42388ac4367417bf82ea55  kodi-screensaver-cpblobs-20.1.0-Nexus.tar.gz
++sha256  f56b57dfc8535331e36527462bd820e06e287a5a48ffdb33d00bdf1a2dc62b90  kodi-screensaver-cpblobs-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.mk MYD-LR3576/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.mk	2026-08-22 20:22:37.380575682 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_CPBLOBS_VERSION = 20.1.0-Nexus
++KODI_SCREENSAVER_CPBLOBS_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_CPBLOBS_SITE = $(call github,xbmc,screensaver.cpblobs,$(KODI_SCREENSAVER_CPBLOBS_VERSION))
+ KODI_SCREENSAVER_CPBLOBS_LICENSE = GPL-2.0
+ KODI_SCREENSAVER_CPBLOBS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.hash	2026-08-22 20:23:11.387676384 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  ab1f89237c91bc7157557f42dadcff50a7191eb7285ee668543defce9f1efcf2  kodi-audiodecoder-sidplay-20.2.0-Nexus.tar.gz
++sha256  c7d10dd65baed2db1272ff57fde76f0b268a4a434d57022539c4dc5bf6f8b54e  kodi-audiodecoder-sidplay-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidplay.mk	2026-08-22 20:23:11.387676384 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_SIDPLAY_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_SIDPLAY_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_SIDPLAY_SITE = $(call github,xbmc,audiodecoder.sidplay,$(KODI_AUDIODECODER_SIDPLAY_VERSION))
+ KODI_AUDIODECODER_SIDPLAY_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_SIDPLAY_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.hash MYD-LR3576/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.hash	2026-08-22 20:23:35.974749191 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  2c07219218fad17ef285577ff8309f7b6503302e52048d12ee20459dbcedf89c  kodi-screensaver-asterwave-20.2.0-Nexus.tar.gz
++sha256  de92f8773f23c77f388201d316273f1a06103965bdb9684cbda19a73180c1488  kodi-screensaver-asterwave-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.mk MYD-LR3576/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterwave.mk	2026-08-22 20:23:35.974749191 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_ASTERWAVE_VERSION = 20.2.0-Nexus
++KODI_SCREENSAVER_ASTERWAVE_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_ASTERWAVE_SITE = $(call github,xbmc,screensaver.asterwave,$(KODI_SCREENSAVER_ASTERWAVE_VERSION))
+ KODI_SCREENSAVER_ASTERWAVE_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_ASTERWAVE_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-texturepacker/0001-texturepacker.patch MYD-LR3576/buildroot/package/kodi-texturepacker/0001-texturepacker.patch
+--- MYD-LR3576.orig/buildroot/package/kodi-texturepacker/0001-texturepacker.patch	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-texturepacker/0001-texturepacker.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,16 +0,0 @@
+-Fix host compile
+-
+-Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+-
+-diff -uNr xbmc-656cba5d5c7c5edb166196b48560825b9b1f03fd.org/tools/depends/native/TexturePacker/Makefile xbmc-656cba5d5c7c5edb166196b48560825b9b1f03fd/tools/depends/native/TexturePacker/Makefile
+---- xbmc-656cba5d5c7c5edb166196b48560825b9b1f03fd.org/tools/depends/native/TexturePacker/Makefile	2015-01-25 09:00:48.000000000 +0100
+-+++ xbmc-656cba5d5c7c5edb166196b48560825b9b1f03fd/tools/depends/native/TexturePacker/Makefile	2015-01-25 13:03:23.606140953 +0100
+-@@ -36,7 +36,7 @@
+- 	-rm -rf $(PLATFORM)/*; mkdir -p $(PLATFORM)
+- 	cd $(PLATFORM); cp -a $(SOURCE)/* .
+- 	cd $(PLATFORM); ./autogen.sh
+--	cd $(PLATFORM); ./configure --prefix=$(PREFIX) $(EXTRA_CONFIGURE) EXTRA_DEFINES="$(NATIVE_ARCH_DEFINES)"
+-+	cd $(PLATFORM); ./configure --prefix=$(PREFIX) EXTRA_DEFINES="$(NATIVE_ARCH_DEFINES)"
+-
+-
+- $(APP): $(PLATFORM)
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch MYD-LR3576/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch
+--- MYD-LR3576.orig/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,27 +0,0 @@
+-Fix stand-alone build
+-
+-CMake Error at CMakeLists.txt:40 (add_executable):
+-  Cannot find source file:
+-
+-    /home/bernd/buildroot/output/build/host-kodi-texturepacker-18.4-Leia/tools/depends/native/TexturePacker/xbmc/guilib/XBTF.cpp
+-
+-  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+-  .hpp .hxx .in .txx
+-
+-CMake Error at CMakeLists.txt:40 (add_executable):
+-  No SOURCES given to target: TexturePacker
+-
+-Downloaded from
+-https://github.com/LibreELEC/LibreELEC.tv/blob/master/packages/mediacenter/kodi/patches/kodi-100.25-hack-fix-texture-packer-cmake-source-dir.patch
+-
+-Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+-
+-diff -Naur a/tools/depends/native/TexturePacker/CMakeLists.txt b/tools/depends/native/TexturePacker/CMakeLists.txt
+---- a/tools/depends/native/TexturePacker/CMakeLists.txt	2016-12-23 17:10:28.593185862 +0000
+-+++ b/tools/depends/native/TexturePacker/CMakeLists.txt	2016-12-23 17:10:39.469253011 +0000
+-@@ -1,3 +1,5 @@
+-+set(CMAKE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/../../../..)
+-+
+- list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
+-
+- if(APPLE)
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk MYD-LR3576/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk	2026-08-22 20:28:50.923681801 +0800
+@@ -6,13 +6,13 @@
+
+ # Not possible to directly refer to kodi variables, because of
+ # first/second expansion trickery...
+-KODI_TEXTUREPACKER_VERSION = 20.4-Nexus
++KODI_TEXTUREPACKER_VERSION = 21.2-Omega
+ KODI_TEXTUREPACKER_SITE = $(call github,xbmc,xbmc,$(KODI_TEXTUREPACKER_VERSION))
+ KODI_TEXTUREPACKER_SOURCE = kodi-$(KODI_TEXTUREPACKER_VERSION).tar.gz
+ KODI_TEXTUREPACKER_DL_SUBDIR = kodi
+ KODI_TEXTUREPACKER_LICENSE = GPL-2.0
+ KODI_TEXTUREPACKER_LICENSE_FILES = LICENSE.md
+-HOST_KODI_TEXTUREPACKER_SUBDIR = tools/depends/native/TexturePacker
++HOST_KODI_TEXTUREPACKER_SUBDIR = tools/depends/native/TexturePacker/src
+ HOST_KODI_TEXTUREPACKER_DEPENDENCIES = \
+ 	host-giflib \
+ 	host-libjpeg \
+@@ -21,7 +21,7 @@
+
+ HOST_KODI_TEXTUREPACKER_CXXFLAGS = \
+ 	$(HOST_CXXFLAGS) \
+-	-std=c++0x \
++	-std=c++17 \
+ 	-DTARGET_POSIX \
+ 	-DTARGET_LINUX \
+ 	-D_LINUX \
+@@ -30,11 +30,12 @@
+ HOST_KODI_TEXTUREPACKER_CONF_OPTS += \
+ 	-DCMAKE_CXX_FLAGS="$(HOST_KODI_TEXTUREPACKER_CXXFLAGS)" \
+ 	-DCMAKE_MODULE_PATH=$(@D)/cmake/modules \
++	-DKODI_SOURCE_DIR=$(@D) \
+ 	-Wno-dev
+
+ define HOST_KODI_TEXTUREPACKER_INSTALL_CMDS
+ 	$(INSTALL) -m 755 -D \
+-		$(@D)/tools/depends/native/TexturePacker/TexturePacker \
++		$(@D)/tools/depends/native/TexturePacker/src/TexturePacker \
+ 		$(HOST_DIR)/bin/kodi-TexturePacker
+ endef
+
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash MYD-LR3576/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash	2026-08-22 20:24:26.346898344 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  3872265e00fc748ba327aaa91beece747936f55d16356051cdd04b0b70a353c0  kodi-pvr-hdhomerun-20.4.0-Nexus.tar.gz
++sha256  0030e1d8a82d6fd5906dab45e2f4817fcdf9abcc13b3ae2fe2031e557a8bee91  kodi-pvr-hdhomerun-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.mk MYD-LR3576/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.mk	2026-08-22 20:24:26.346898344 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_HDHOMERUN_VERSION = 20.4.0-Nexus
++KODI_PVR_HDHOMERUN_VERSION = 21.0.2-Omega
+ KODI_PVR_HDHOMERUN_SITE = $(call github,kodi-pvr,pvr.hdhomerun,$(KODI_PVR_HDHOMERUN_VERSION))
+ KODI_PVR_HDHOMERUN_LICENSE = GPL-2.0+
+ KODI_PVR_HDHOMERUN_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.hash MYD-LR3576/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.hash	2026-08-22 20:24:45.447954905 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  04c50eba71426f062339491e7567545ec8c910b17c7055b28285eab14f26ca6f  kodi-pvr-vbox-20.4.2-Nexus.tar.gz
++sha256  6550fa41f1d7312619dd9f4620a4b5b6c47240d71273df34a4300e580f617635  kodi-pvr-vbox-21.1.5-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.mk MYD-LR3576/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.mk	2026-08-22 20:24:45.448954908 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_VBOX_VERSION = 20.4.2-Nexus
++KODI_PVR_VBOX_VERSION = 21.1.5-Omega
+ KODI_PVR_VBOX_SITE = $(call github,kodi-pvr,pvr.vbox,$(KODI_PVR_VBOX_VERSION))
+ KODI_PVR_VBOX_LICENSE = GPL-2.0+
+ KODI_PVR_VBOX_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.hash MYD-LR3576/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.hash	2026-08-22 20:25:05.981015707 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  168788d7cd292edf9c13c0e0e0148f19b2ecd35edd8f65f24240dff99f01677a  kodi-visualisation-fishbmc-20.2.0-Nexus.tar.gz
++sha256  d7433e4e88e29f1dd3524d2d0b660ce529852561f14f479f4b83a9c5ac436ffc  kodi-visualisation-fishbmc-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.mk MYD-LR3576/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fishbmc.mk	2026-08-22 20:25:05.981015707 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_FISHBMC_VERSION = 20.2.0-Nexus
++KODI_VISUALISATION_FISHBMC_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_FISHBMC_SITE = $(call github,xbmc,visualization.fishbmc,$(KODI_VISUALISATION_FISHBMC_VERSION))
+ KODI_VISUALISATION_FISHBMC_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_FISHBMC_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.hash MYD-LR3576/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.hash	2026-08-22 20:26:00.439176967 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  75102a8c3f066a889493b77fbe26070be78c6dff8e7d44ebda89295ddb2da3b0  kodi-visualisation-goom-20.1.1-Nexus.tar.gz
++sha256  f87356122f91ea40d096d559d1180571e701e39867448768d14d6c2ba3b2e264  kodi-visualisation-goom-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.mk MYD-LR3576/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.mk	2026-08-22 20:26:00.439176967 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_GOOM_VERSION = 20.1.1-Nexus
++KODI_VISUALISATION_GOOM_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_GOOM_SITE = $(call github,xbmc,visualization.goom,$(KODI_VISUALISATION_GOOM_VERSION))
+ KODI_VISUALISATION_GOOM_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_GOOM_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.hash MYD-LR3576/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.hash	2024-05-08 21:21:19.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.hash	2026-08-22 20:26:19.880234535 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  865e72a5f2ed8fd53469518280cbe26f9516467d091009fe5e012ea0d85d5edd  kodi-visualisation-waveform-20.2.1-Nexus.tar.gz
++sha256  fe6d2f3990ea5f2ea2d4a0a905f451b1c2c7f1300529d8957b5d93a97421f415  kodi-visualisation-waveform-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.mk MYD-LR3576/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.mk	2024-05-08 21:21:19.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-waveform.mk	2026-08-22 20:26:19.880234535 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_WAVEFORM_VERSION = 20.2.1-Nexus
++KODI_VISUALISATION_WAVEFORM_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_WAVEFORM_SITE = $(call github,xbmc,visualization.waveform,$(KODI_VISUALISATION_WAVEFORM_VERSION))
+ KODI_VISUALISATION_WAVEFORM_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_WAVEFORM_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.hash MYD-LR3576/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.hash	2026-08-22 20:26:43.233303687 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  11505556200029a48a293e97f94e0469a5f78580d0e56d5d0a1da05d61f0f5b5  kodi-pvr-plutotv-20.3.1a-Nexus.tar.gz
++sha256  9b65a30f4a5c0cfbf1ab669f06a3afb0cc7b2732ed6d6d4e768d16fd10a0da02  kodi-pvr-plutotv-21.3.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.mk MYD-LR3576/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.mk	2026-08-22 20:26:43.233303687 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_PLUTOTV_VERSION = 20.3.1a-Nexus
++KODI_PVR_PLUTOTV_VERSION = 21.3.3-Omega
+ KODI_PVR_PLUTOTV_SITE = $(call github,kodi-pvr,pvr.plutotv,$(KODI_PVR_PLUTOTV_VERSION))
+ KODI_PVR_PLUTOTV_LICENSE = GPL-2.0+
+ KODI_PVR_PLUTOTV_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.hash MYD-LR3576/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.hash	2026-08-22 20:27:06.016371152 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  0d63b38ba8d5b3bac542546b1ecfb7d722b79652da485d75b22086e26ef4f825  kodi-visualisation-starburst-20.2.0-Nexus.tar.gz
++sha256  a3f70985fee6b1014e7e7599431e646f36bd3870ead78bbc8936151b805e4241  kodi-visualisation-starburst-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.mk MYD-LR3576/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.mk	2024-05-08 21:21:19.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-starburst.mk	2026-08-22 20:27:06.016371152 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_STARBURST_VERSION = 20.2.0-Nexus
++KODI_VISUALISATION_STARBURST_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_STARBURST_SITE = $(call github,xbmc,visualization.starburst,$(KODI_VISUALISATION_STARBURST_VERSION))
+ KODI_VISUALISATION_STARBURST_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_STARBURST_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.hash MYD-LR3576/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.hash	2026-08-22 20:27:27.695435347 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  06be9bfcda3e676e0757ea9602351d67f2bf0aa9aa9e408b14d947772a615e4f  kodi-vfs-libarchive-20.3.0-Nexus.tar.gz
++sha256  aab35cb6b03191609a7e97df02f2f102659c12e414f7b95595f9bb2047554daf  kodi-vfs-libarchive-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.mk MYD-LR3576/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.mk	2026-08-22 20:27:27.695435347 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VFS_LIBARCHIVE_VERSION = 20.3.0-Nexus
++KODI_VFS_LIBARCHIVE_VERSION = 21.0.2-Omega
+ KODI_VFS_LIBARCHIVE_SITE = $(call github,xbmc,vfs.libarchive,$(KODI_VFS_LIBARCHIVE_VERSION))
+ KODI_VFS_LIBARCHIVE_LICENSE = GPL-2.0+
+ KODI_VFS_LIBARCHIVE_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.hash MYD-LR3576/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.hash	2026-08-22 20:29:13.861749725 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  71a9fa64bdf7d784afc28f8b686fcdc00d9fea536c2aad1464e76e3b7648ed41  kodi-pvr-dvblink-20.3.0-Nexus.tar.gz
++sha256  7c436b7a9a4e991f99c01e1fbe69761a1792e4aa703ec95e29ecdb9b7f251ae6  kodi-pvr-dvblink-21.1.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.mk MYD-LR3576/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.mk	2026-08-22 20:29:13.861749725 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_DVBLINK_VERSION = 20.3.0-Nexus
++KODI_PVR_DVBLINK_VERSION = 21.1.3-Omega
+ KODI_PVR_DVBLINK_SITE = $(call github,kodi-pvr,pvr.dvblink,$(KODI_PVR_DVBLINK_VERSION))
+ KODI_PVR_DVBLINK_LICENSE = GPL-2.0+
+ KODI_PVR_DVBLINK_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.hash	2026-08-22 20:29:44.904841640 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  619ba20ea19dd9aea15e7d30aa12a146b412c7fcd9e709528f6758e82a3d85e7  kodi-audiodecoder-modplug-20.2.0-Nexus.tar.gz
++sha256  b2828685f1c353bf7123d0f9e88b28f53064388f6ea3ee357b8fb22d5c237ac8  kodi-audiodecoder-modplug-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplug.mk	2026-08-22 20:29:44.904841640 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_MODPLUG_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_MODPLUG_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_MODPLUG_SITE = $(call github,xbmc,audiodecoder.modplug,$(KODI_AUDIODECODER_MODPLUG_VERSION))
+ KODI_AUDIODECODER_MODPLUG_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_MODPLUG_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.hash MYD-LR3576/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.hash	2026-08-22 20:29:59.627885235 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  9edf800d7d5e755c92e9e8f6d3771a74cf3fec23b3aaec5b8535f1a579941a5b  kodi-pvr-iptvsimple-20.13.0-Nexus.tar.gz
++sha256  4ab62a6ee946de406fa2ae502f9e7b1c591ff6aabc2777b5c26ad5b748e2cd02  kodi-pvr-iptvsimple-21.10.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.mk MYD-LR3576/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.mk	2026-08-22 20:29:59.627885235 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_IPTVSIMPLE_VERSION = 20.13.0-Nexus
++KODI_PVR_IPTVSIMPLE_VERSION = 21.10.2-Omega
+ KODI_PVR_IPTVSIMPLE_SITE = $(call github,kodi-pvr,pvr.iptvsimple,$(KODI_PVR_IPTVSIMPLE_VERSION))
+ KODI_PVR_IPTVSIMPLE_LICENSE = GPL-2.0+
+ KODI_PVR_IPTVSIMPLE_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.hash	2026-08-22 20:30:25.895963018 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  72367d7196f8049ef1fae426d32d3de1eac56bd4cb5a8fc38a6ba0c3da1b23d8  kodi-audiodecoder-vgmstream-20.2.0-Nexus.tar.gz
++sha256  6f5dddc0e6161426b8c40bfd1136ca555588db27ae78c02178b6ac5da93b377c  kodi-audiodecoder-vgmstream-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgmstream.mk	2026-08-22 20:30:25.895963018 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_VGMSTREAM_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_VGMSTREAM_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_VGMSTREAM_SITE = $(call github,xbmc,audiodecoder.vgmstream,$(KODI_AUDIODECODER_VGMSTREAM_VERSION))
+ KODI_AUDIODECODER_VGMSTREAM_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_VGMSTREAM_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.hash MYD-LR3576/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.hash	2026-08-22 20:30:49.777033733 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  5ea0d19c3ef94e9603a0e06c78ae01cd6f9227da7b505eaa7d4527ca6018ea03  kodi-screensaver-stars-20.1.0-Nexus.tar.gz
++sha256  86a479a4c6d0b27723a701330b83704f223566eabe7a25302ecf8f0a66e5b27e  kodi-screensaver-stars-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.mk MYD-LR3576/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.mk	2026-08-22 20:30:49.777033733 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_STARS_VERSION = 20.1.0-Nexus
++KODI_SCREENSAVER_STARS_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_STARS_SITE = $(call github,xbmc,screensaver.stars,$(KODI_SCREENSAVER_STARS_VERSION))
+ KODI_SCREENSAVER_STARS_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_STARS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.hash MYD-LR3576/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.hash	2026-08-22 20:31:10.748095831 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  f26e2a9f1e9d83c5b44a8875b1f9cd37a0dbe59faf08002f083a4db95c9f84e0  kodi-pvr-vdr-vnsi-20.4.1-Nexus.tar.gz
++sha256  4608cfd2339cfc52470575f7caf153a97502cb360b44fcef2921c0623a931ef8  kodi-pvr-vdr-vnsi-21.1.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.mk MYD-LR3576/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.mk	2026-08-22 20:31:10.748095831 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_VDR_VNSI_VERSION = 20.4.1-Nexus
++KODI_PVR_VDR_VNSI_VERSION = 21.1.3-Omega
+ KODI_PVR_VDR_VNSI_SITE = $(call github,kodi-pvr,pvr.vdr.vnsi,$(KODI_PVR_VDR_VNSI_VERSION))
+ KODI_PVR_VDR_VNSI_LICENSE = GPL-2.0+
+ KODI_PVR_VDR_VNSI_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.hash MYD-LR3576/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.hash	2026-08-22 20:31:34.332165667 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  66f139d3d06c06d03ceccdcee12b79d3886bd0ea7aec662341736f1c9bdd63e2  kodi-vfs-sftp-20.2.0-Nexus.tar.gz
++sha256  01a23958331cb0cd78fd2e9367d1269d4319c20b84db5b132632f9c1acd5f3c5  kodi-vfs-sftp-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.mk MYD-LR3576/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.mk	2026-08-22 20:31:34.332165667 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VFS_SFTP_VERSION = 20.2.0-Nexus
++KODI_VFS_SFTP_VERSION = 21.0.2-Omega
+ KODI_VFS_SFTP_SITE = $(call github,xbmc,vfs.sftp,$(KODI_VFS_SFTP_VERSION))
+ KODI_VFS_SFTP_LICENSE = GPL-2.0+
+ KODI_VFS_SFTP_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.hash	2026-08-22 20:31:56.794232181 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  a8138fb075a480c59d7041a9408eca6e52dc88f188daed519cd9e684b430f333  kodi-audiodecoder-stsound-20.2.0-Nexus.tar.gz
++sha256  089ddd6c890e571f69eda0a85077d8ffe91c4b31fd0f9e20f47d4053c1e984a8  kodi-audiodecoder-stsound-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsound.mk	2026-08-22 20:31:56.794232181 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_STSOUND_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_STSOUND_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_STSOUND_SITE = $(call github,xbmc,audiodecoder.stsound,$(KODI_AUDIODECODER_STSOUND_VERSION))
+ KODI_AUDIODECODER_STSOUND_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_STSOUND_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.hash MYD-LR3576/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.hash	2026-08-22 20:32:17.991295084 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  7292431b26e3ea969967a02f42ce48cae7742398b148ca041470c17934d06272  kodi-peripheral-joystick-20.1.15-Nexus.tar.gz
++sha256  deb7fb41408ff06989b8fa2db7bd5bea210756a1f2f8a9037cc12f6518fddd94  kodi-peripheral-joystick-21.1.22-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.mk MYD-LR3576/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.mk	2026-08-22 20:32:17.991295084 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PERIPHERAL_JOYSTICK_VERSION = 20.1.15-Nexus
++KODI_PERIPHERAL_JOYSTICK_VERSION = 21.1.22-Omega
+ KODI_PERIPHERAL_JOYSTICK_SITE = $(call github,xbmc,peripheral.joystick,$(KODI_PERIPHERAL_JOYSTICK_VERSION))
+ KODI_PERIPHERAL_JOYSTICK_LICENSE = GPL-2.0+
+ KODI_PERIPHERAL_JOYSTICK_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.hash MYD-LR3576/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.hash	2026-08-22 20:32:39.223358143 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  e6be386ebba44e214b91784ba6e1560020daac82024c18bea7be4719340b12bd  kodi-peripheral-xarcade-20.1.3-Nexus.tar.gz
++sha256  5f74b0493e0f17e297f271b0befd01406dcaae121305bc7cb9d0ece6200cc675  kodi-peripheral-xarcade-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.mk MYD-LR3576/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.mk	2026-08-22 20:32:39.223358143 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PERIPHERAL_XARCADE_VERSION = 20.1.3-Nexus
++KODI_PERIPHERAL_XARCADE_VERSION = 21.0.2-Omega
+ KODI_PERIPHERAL_XARCADE_SITE = $(call github,kodi-game,peripheral.xarcade,$(KODI_PERIPHERAL_XARCADE_VERSION))
+ KODI_PERIPHERAL_XARCADE_LICENSE = GPL-2.0+
+ KODI_PERIPHERAL_XARCADE_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.hash MYD-LR3576/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.hash	2026-08-22 20:32:57.867413516 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  f216a7d25c864986618118236c575687ab62d129a16cb1f73c15860948d9ac92  kodi-audiodecoder-snesapu-20.2.0-Nexus.tar.gz
++sha256  98afd81a9653efd9c6fe69dd7918755c75a4671322b793a35bce610acac0d128  kodi-audiodecoder-snesapu-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.mk MYD-LR3576/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesapu.mk	2026-08-22 20:32:57.867413516 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIODECODER_SNESAPU_VERSION = 20.2.0-Nexus
++KODI_AUDIODECODER_SNESAPU_VERSION = 21.0.2-Omega
+ KODI_AUDIODECODER_SNESAPU_SITE = $(call github,xbmc,audiodecoder.snesapu,$(KODI_AUDIODECODER_SNESAPU_VERSION))
+ KODI_AUDIODECODER_SNESAPU_LICENSE = GPL-2.0+
+ KODI_AUDIODECODER_SNESAPU_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.hash MYD-LR3576/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.hash	2026-08-22 20:33:21.678484234 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  6235c0be431bbb814b3e464753af9ad17febf6001f77cbf030e6c6e1cdc41a04  kodi-imagedecoder-raw-20.1.0-Nexus.tar.gz
++sha256  421812f6ca8d70e6736c920935461b43f1338ee04a919dcf7e5f7ce1879b54e2  kodi-imagedecoder-raw-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.mk MYD-LR3576/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.mk	2026-08-22 20:33:21.678484234 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_IMAGEDECODER_RAW_VERSION = 20.1.0-Nexus
++KODI_IMAGEDECODER_RAW_VERSION = 21.0.2-Omega
+ KODI_IMAGEDECODER_RAW_SITE = $(call github,xbmc,imagedecoder.raw,$(KODI_IMAGEDECODER_RAW_VERSION))
+ KODI_IMAGEDECODER_RAW_LICENSE = GPL-2.0+
+ KODI_IMAGEDECODER_RAW_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.hash MYD-LR3576/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.hash	2026-08-22 20:33:46.338557475 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  c4b18a0abf4ba0a797509d79c4291c4e69589a6482c6ec85f5d9bdae63ea3f35  kodi-pvr-argustv-20.5.0-Nexus.tar.gz
++sha256  8ec41a956a4348ded0ee650aaa20eb5ec746102b77da46515dcdfd5fa724c157  kodi-pvr-argustv-21.1.1-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.mk MYD-LR3576/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.mk	2026-08-22 20:33:46.338557475 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_ARGUSTV_VERSION = 20.5.0-Nexus
++KODI_PVR_ARGUSTV_VERSION = 21.1.1-Omega
+ KODI_PVR_ARGUSTV_SITE = $(call github,kodi-pvr,pvr.argustv,$(KODI_PVR_ARGUSTV_VERSION))
+ KODI_PVR_ARGUSTV_LICENSE = GPL-2.0+
+ KODI_PVR_ARGUSTV_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.hash MYD-LR3576/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.hash	2026-08-22 20:36:13.899995725 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  6a6129dca822e1447c0945ddf9cc6dbff1203dab313395d27efb4669a0ef3370  kodi-inputstream-rtmp-20.3.0-Nexus.tar.gz
++sha256  b7223a30d2774e4c7cbd6c4f8a266bf4d186d160590077be627bd0490d80645c  kodi-inputstream-rtmp-21.1.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.mk MYD-LR3576/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.mk	2026-08-22 20:36:13.899995725 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_INPUTSTREAM_RTMP_VERSION = 20.3.0-Nexus
++KODI_INPUTSTREAM_RTMP_VERSION = 21.1.2-Omega
+ KODI_INPUTSTREAM_RTMP_SITE = $(call github,xbmc,inputstream.rtmp,$(KODI_INPUTSTREAM_RTMP_VERSION))
+ KODI_INPUTSTREAM_RTMP_LICENSE = GPL-2.0+
+ KODI_INPUTSTREAM_RTMP_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.hash MYD-LR3576/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.hash	2026-08-22 20:37:10.315163278 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  359e972ddcc498727620ff224a82f970fa2ae22b71ea6ab30b96898dffe6f1f9  kodi-audioencoder-vorbis-20.2.0-Nexus.tar.gz
++sha256  5acd05c5e90459c1f07abe60c1df40f72ebcb3519287f104968c7cad17aca07d  kodi-audioencoder-vorbis-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.mk MYD-LR3576/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.mk	2026-08-22 20:37:10.316163281 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_AUDIOENCODER_VORBIS_VERSION = 20.2.0-Nexus
++KODI_AUDIOENCODER_VORBIS_VERSION = 21.0.2-Omega
+ KODI_AUDIOENCODER_VORBIS_SITE = $(call github,xbmc,audioencoder.vorbis,$(KODI_AUDIOENCODER_VORBIS_VERSION))
+ KODI_AUDIOENCODER_VORBIS_LICENSE = GPL-2.0+
+ KODI_AUDIOENCODER_VORBIS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.hash MYD-LR3576/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.hash	2026-08-22 20:37:33.150231098 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  72b3c9be5b65afe7fbc6d496eb7700786d88811bfafcd131a3219a646d30805d  kodi-screensaver-pingpong-20.2.0-Nexus.tar.gz
++sha256  4d7c15a0070e4792b4b56726d9a37ab6ca8c569186e0beebd256a57203d5e362  kodi-screensaver-pingpong-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.mk MYD-LR3576/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpong.mk	2026-08-22 20:37:33.151231101 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_PINGPONG_VERSION = 20.2.0-Nexus
++KODI_SCREENSAVER_PINGPONG_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_PINGPONG_SITE = $(call github,xbmc,screensaver.pingpong,$(KODI_SCREENSAVER_PINGPONG_VERSION))
+ KODI_SCREENSAVER_PINGPONG_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_PINGPONG_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.hash MYD-LR3576/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.hash	2026-08-22 20:37:51.488285563 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  15d68d928e0794fb42fd0f3483403fb0290c5c94aa3d3b648a8a2f8e8316dfff  kodi-pvr-hts-20.7.0-Nexus.tar.gz
++sha256  c98e29433bf4a007662b20279748dccd95da7817ab73b7e78c0b45fbe31c22b1  kodi-pvr-hts-21.2.6-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.mk MYD-LR3576/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.mk	2026-08-22 20:37:51.489285566 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_HTS_VERSION = 20.7.0-Nexus
++KODI_PVR_HTS_VERSION = 21.2.6-Omega
+ KODI_PVR_HTS_SITE = $(call github,kodi-pvr,pvr.hts,$(KODI_PVR_HTS_VERSION))
+ KODI_PVR_HTS_LICENSE = GPL-2.0+
+ KODI_PVR_HTS_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.hash MYD-LR3576/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.hash	2026-08-22 20:38:03.940322545 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  dfd2a7b64d2b647ba3f7bfba05676a593c3284e2298becfed68b82e441a69b33  kodi-pvr-filmon-20.3.0-Nexus.tar.gz
++sha256  323702037d65d2820dbe7c589f395d1d1321a4fec61738745dd104ae569088df  kodi-pvr-filmon-21.0.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.mk MYD-LR3576/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.mk	2026-08-22 20:38:03.940322545 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_FILMON_VERSION = 20.3.0-Nexus
++KODI_PVR_FILMON_VERSION = 21.0.3-Omega
+ KODI_PVR_FILMON_SITE = $(call github,kodi-pvr,pvr.filmon,$(KODI_PVR_FILMON_VERSION))
+ KODI_PVR_FILMON_LICENSE = GPL-2.0+
+ KODI_PVR_FILMON_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.hash MYD-LR3576/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.hash	2026-08-22 20:38:17.372362438 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  dc79db0486c7ef75b4b23c4dfe94115cb12e1903c3700ef4eef04fc517fcd039  kodi-pvr-dvbviewer-20.4.0-Nexus.tar.gz
++sha256  9e567eb074b885621266d2eb1e67e79a19f47ef503aad110d9bf92ba2bd75084  kodi-pvr-dvbviewer-21.1.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.mk MYD-LR3576/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.mk	2026-08-22 20:38:17.372362438 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_DVBVIEWER_VERSION = 20.4.0-Nexus
++KODI_PVR_DVBVIEWER_VERSION = 21.1.3-Omega
+ KODI_PVR_DVBVIEWER_SITE = $(call github,kodi-pvr,pvr.dvbviewer,$(KODI_PVR_DVBVIEWER_VERSION))
+ KODI_PVR_DVBVIEWER_LICENSE = GPL-2.0+
+ KODI_PVR_DVBVIEWER_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.hash MYD-LR3576/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.hash	2026-08-22 20:38:36.099418058 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  1d55079d2b021b16ae8494497684abab184a86302426af588655577a641074ac  kodi-skin-confluence-a155597cb6bb0f9d46b26ad881be1148929a03af.tar.gz
++sha256  ae7177ad7f06fdb38ba0e217b2ac3e4375cf29a7792f2eaa70003286410521a0  kodi-skin-confluence-b049aa8b6bab50518de72783efd219680047d6d9.tar.gz
+ sha256  89931c1fb1f3716694175763cf3221cfcd63d6935031cf6b4512d17ffe5d9860  LICENSE.txt
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.mk MYD-LR3576/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.mk	2026-08-22 20:38:36.099418058 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SKIN_CONFLUENCE_VERSION = a155597cb6bb0f9d46b26ad881be1148929a03af
++KODI_SKIN_CONFLUENCE_VERSION = b049aa8b6bab50518de72783efd219680047d6d9
+ KODI_SKIN_CONFLUENCE_SITE = $(call github,xbmc,skin.confluence,$(KODI_SKIN_CONFLUENCE_VERSION))
+ KODI_SKIN_CONFLUENCE_LICENSE = GPL-2.0
+ KODI_SKIN_CONFLUENCE_LICENSE_FILES = LICENSE.txt
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.hash MYD-LR3576/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.hash	2026-08-22 20:38:50.864461910 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  eb21e185d1333a8696565138bc58df3d37970c9a3615193396e9f296a56a24c4  kodi-pvr-mythtv-20.5.10-Nexus.tar.gz
++sha256  15c772adbf79fd92bd6b7d597fd85a23df00b26bd433531c997101ee8ddde86c  kodi-pvr-mythtv-21.1.11-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.mk MYD-LR3576/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.mk	2026-08-22 20:38:50.864461910 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_MYTHTV_VERSION = 20.5.10-Nexus
++KODI_PVR_MYTHTV_VERSION = 21.1.11-Omega
+ KODI_PVR_MYTHTV_SITE = $(call github,janbar,pvr.mythtv,$(KODI_PVR_MYTHTV_VERSION))
+ KODI_PVR_MYTHTV_LICENSE = GPL-2.0+
+ KODI_PVR_MYTHTV_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.hash MYD-LR3576/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.hash	2026-08-22 20:39:11.628523579 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  a61efdadb56c65e081f8b2e99f2d5b32b3c932ca1954243548710be57c8b70b8  kodi-pvr-mediaportal-tvserver-20.3.0-Nexus.tar.gz
++sha256  38727f8ea1ac350ced769b21919eb4b1409479f82ceeadf5140dbbdb7d5af415  kodi-pvr-mediaportal-tvserver-21.0.5-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.mk MYD-LR3576/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal-tvserver.mk	2026-08-22 20:39:11.628523579 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_MEDIAPORTAL_TVSERVER_VERSION = 20.3.0-Nexus
++KODI_PVR_MEDIAPORTAL_TVSERVER_VERSION = 21.0.5-Omega
+ KODI_PVR_MEDIAPORTAL_TVSERVER_SITE = $(call github,kodi-pvr,pvr.mediaportal.tvserver,$(KODI_PVR_MEDIAPORTAL_TVSERVER_VERSION))
+ KODI_PVR_MEDIAPORTAL_TVSERVER_LICENSE = GPL-2.0+
+ KODI_PVR_MEDIAPORTAL_TVSERVER_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.hash MYD-LR3576/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.hash	2026-08-22 20:40:12.596704654 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  e060f69a7c403a5d7bb59058dc38e8c6a6ea1aa7bc9b82f8ffa7c5e94ede0866  kodi-screensaver-greynetic-20.2.0-Nexus.tar.gz
++sha256  9ed9dba2040268bfd82648856b3e07da5cf51f39909c71c2579475221477e3a6  kodi-screensaver-greynetic-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.mk MYD-LR3576/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greynetic.mk	2026-08-22 20:40:12.596704654 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_SCREENSAVER_GREYNETIC_VERSION = 20.2.0-Nexus
++KODI_SCREENSAVER_GREYNETIC_VERSION = 21.0.2-Omega
+ KODI_SCREENSAVER_GREYNETIC_SITE = $(call github,xbmc,screensaver.greynetic,$(KODI_SCREENSAVER_GREYNETIC_VERSION))
+ KODI_SCREENSAVER_GREYNETIC_LICENSE = GPL-2.0+
+ KODI_SCREENSAVER_GREYNETIC_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-ffmpegdirect/0001-include-missing-cstdint-to-support-gcc-13.patch MYD-LR3576/buildroot/package/kodi-inputstream-ffmpegdirect/0001-include-missing-cstdint-to-support-gcc-13.patch
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-ffmpegdirect/0001-include-missing-cstdint-to-support-gcc-13.patch	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-ffmpegdirect/0001-include-missing-cstdint-to-support-gcc-13.patch	1970-01-01 08:00:00.000000000 +0800
+@@ -1,49 +0,0 @@
+-From fd7bd5ad86fd0006ad571a051fa5d5603a47e4b4 Mon Sep 17 00:00:00 2001
+-From: Rudi Heitbaum <rudi@heitbaum.com>
+-Date: Wed, 26 Apr 2023 17:15:00 +0000
+-Subject: [PATCH] include missing <cstdint> to support gcc-13
+-
+-gcc 13 moved some includes around and as a result <cstdint> is no longer transitively
+-included [1]. Explicitly include it for uint{32,64}_t.
+-
+-[1] https://gcc.gnu.org/gcc-13/porting_to.html#header-dep-changes
+-
+-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
+-Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
+-Upstream: https://github.com/xbmc/inputstream.ffmpegdirect/commit/fd7bd5ad86fd0006ad571a051fa5d5603a47e4b4
+----
+- src/utils/DiskUtils.h | 1 +
+- src/utils/HttpProxy.h | 3 ++-
+- 2 files changed, 3 insertions(+), 1 deletion(-)
+-
+-diff --git a/src/utils/DiskUtils.h b/src/utils/DiskUtils.h
+-index 79e34268..f900ec58 100644
+---- a/src/utils/DiskUtils.h
+-+++ b/src/utils/DiskUtils.h
+-@@ -7,6 +7,7 @@
+-
+- #pragma once
+-
+-+#include <cstdint>
+- #include <string>
+-
+- namespace ffmpegdirect
+-diff --git a/src/utils/HttpProxy.h b/src/utils/HttpProxy.h
+-index eb0c99cb..d203ce36 100644
+---- a/src/utils/HttpProxy.h
+-+++ b/src/utils/HttpProxy.h
+-@@ -7,6 +7,7 @@
+-
+- #pragma once
+-
+-+#include <cstdint>
+- #include <string>
+-
+- namespace ffmpegdirect
+-@@ -36,4 +37,4 @@ namespace ffmpegdirect
+-     std::string m_user;
+-     std::string m_password;
+-   };
+--} //namespace ffmpegdirect
+-\ No newline at end of file
+-+} //namespace ffmpegdirect
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.hash MYD-LR3576/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.hash	2026-08-22 20:39:45.360623763 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  a849b6b4d5ce740ec3552d244acc4c7a4d64792358428f5154236052473d5734  kodi-inputstream-ffmpegdirect-20.5.0-Nexus.tar.gz
++sha256  5b8684792d33115e7169778ac3d9b846a8a750d4077cf0d9af57003b2e8e014b  kodi-inputstream-ffmpegdirect-21.3.7-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.mk MYD-LR3576/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffmpegdirect.mk	2026-08-22 20:39:45.360623763 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_INPUTSTREAM_FFMPEGDIRECT_VERSION = 20.5.0-Nexus
++KODI_INPUTSTREAM_FFMPEGDIRECT_VERSION = 21.3.7-Omega
+ KODI_INPUTSTREAM_FFMPEGDIRECT_SITE = $(call github,xbmc,inputstream.ffmpegdirect,$(KODI_INPUTSTREAM_FFMPEGDIRECT_VERSION))
+ KODI_INPUTSTREAM_FFMPEGDIRECT_LICENSE = GPL-2.0+
+ KODI_INPUTSTREAM_FFMPEGDIRECT_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.hash MYD-LR3576/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.hash	2026-08-22 20:40:37.431778414 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  752dff532a277797f3fefc1ced7fea6efb8d92982d9040c4080c1e6dbab203a0  kodi-pvr-nextpvr-20.4.3-Nexus.tar.gz
++sha256  6315a7bfe038b02c80efe4fe3ee33f92ee2454af8668ce3847e9bcaca38d2147  kodi-pvr-nextpvr-21.3.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.mk MYD-LR3576/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.mk	2026-08-22 20:40:37.431778414 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_NEXTPVR_VERSION = 20.4.3-Nexus
++KODI_PVR_NEXTPVR_VERSION = 21.3.2-Omega
+ KODI_PVR_NEXTPVR_SITE = $(call github,kodi-pvr,pvr.nextpvr,$(KODI_PVR_NEXTPVR_VERSION))
+ KODI_PVR_NEXTPVR_LICENSE = GPL-2.0+
+ KODI_PVR_NEXTPVR_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.hash MYD-LR3576/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.hash	2026-08-22 20:40:52.062821868 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  cc83ada3b3d1dbf3d42fa41f2b221c640cdc9fd505a1c76e7b479f99fe1ec8c5  kodi-pvr-octonet-20.3.0-Nexus.tar.gz
++sha256  4fd97ff7f0fa021a45958dcd1f922e39dbf5e7366732a74caf782621b97aaa07  kodi-pvr-octonet-21.0.1-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.mk MYD-LR3576/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.mk	2026-08-22 20:40:52.062821868 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_OCTONET_VERSION = 20.3.0-Nexus
++KODI_PVR_OCTONET_VERSION = 21.0.1-Omega
+ KODI_PVR_OCTONET_SITE = $(call github,DigitalDevices,pvr.octonet,$(KODI_PVR_OCTONET_VERSION))
+ KODI_PVR_OCTONET_LICENSE = GPL-2.0+
+ KODI_PVR_OCTONET_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.hash MYD-LR3576/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.hash	2026-08-22 20:41:22.931913549 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  2f97a34f74ee3e3e1d9fe8cfd37796564f8f88eb4c07d60b27ff635d64a5a724  kodi-visualisation-shadertoy-20.3.0-Nexus.tar.gz
++sha256  30a5081365cea1dbdf49ccbb059076d4c7abc28604a58749fcd0d025e2faa760  kodi-visualisation-shadertoy-21.0.2-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.mk MYD-LR3576/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-shadertoy.mk	2026-08-22 20:41:22.932913552 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_VISUALISATION_SHADERTOY_VERSION = 20.3.0-Nexus
++KODI_VISUALISATION_SHADERTOY_VERSION = 21.0.2-Omega
+ KODI_VISUALISATION_SHADERTOY_SITE = $(call github,xbmc,visualization.shadertoy,$(KODI_VISUALISATION_SHADERTOY_VERSION))
+ KODI_VISUALISATION_SHADERTOY_LICENSE = GPL-2.0+
+ KODI_VISUALISATION_SHADERTOY_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.hash MYD-LR3576/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.hash
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.hash	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.hash	2026-08-22 20:41:40.277965067 +0800
+@@ -1,3 +1,3 @@
+ # Locally computed
+-sha256  8fdd4ab4cf28d7255550b4c351a397b7ce8eb1aa1f12e93bce7d61a951fbd6f3  kodi-pvr-stalker-20.3.1-Nexus.tar.gz
++sha256  567b0d8bc7d79a166a65e3c47ecb3f73e3aa57db840465ea2e6c70c74421c162  kodi-pvr-stalker-21.1.3-Omega.tar.gz
+ sha256  310782e1abd43c4de6217c513e328bddf999d39302d67c6e05b10a59959827af  LICENSE.md
+diff -ruN MYD-LR3576.orig/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.mk MYD-LR3576/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.mk
+--- MYD-LR3576.orig/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.mk	2024-05-08 21:21:18.000000000 +0800
++++ MYD-LR3576/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.mk	2026-08-22 20:41:40.277965067 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-KODI_PVR_STALKER_VERSION = 20.3.1-Nexus
++KODI_PVR_STALKER_VERSION = 21.1.3-Omega
+ KODI_PVR_STALKER_SITE = $(call github,kodi-pvr,pvr.stalker,$(KODI_PVR_STALKER_VERSION))
+ KODI_PVR_STALKER_LICENSE = GPL-2.0+
+ KODI_PVR_STALKER_LICENSE_FILES = LICENSE.md
+diff -ruN MYD-LR3576/buildroot/package/bento4/bento4.hash buildroot/package/bento4/bento4.hash
+--- MYD-LR3576/buildroot/package/bento4/bento4.hash	2026-08-14 13:16:54.420793591 +0800
++++ buildroot/package/bento4/bento4.hash	2026-07-16 03:19:23.000000000 +0800
+@@ -1,3 +1,3 @@
+ # Locally calculated
+-sha256  4464cd47b597e6dedbfc231bb6eb097c45cfe5ee0051082460d9ac53e9d74dc3  bento4-1.6.0-639-7-Omega.tar.gz
++sha256  f1f8cfa4f7cb651b609e587f825607cb4b06fe5b08af876fd0154a434f9a5315  bento4-1.6.0-641-Omega.tar.gz
+ sha256  7daae92c8628ada28def8d096fe2fde298b72ec3e2d64a3c408afce38edb361b  Documents/LICENSE.txt
+diff -ruN MYD-LR3576.orig/buildroot/package/bento4/bento4.mk MYD-LR3576/buildroot/package/bento4/bento4.mk
+--- MYD-LR3576.orig/buildroot/package/bento4/bento4.mk	2026-08-14 13:16:54.420793591 +0800
++++ MYD-LR3576/buildroot/package/bento4/bento4.mk	2026-07-16 03:19:23.000000000 +0800
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+
+-BENTO4_VERSION = 1.6.0-639-7-Omega
++BENTO4_VERSION = 1.6.0-641-Omega
+ BENTO4_SITE = $(call github,xbmc,Bento4,$(BENTO4_VERSION))
+ BENTO4_INSTALL_STAGING = YES
+ BENTO4_LICENSE = GPL-2.0+
