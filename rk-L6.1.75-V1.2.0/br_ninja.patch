@@ -1,0 +1,15 @@
+diff -ruN MYD-LR3576.orig/buildroot/package/ninja/0001-re2c.patch MYD-LR3576.mpv/buildroot/package/ninja/0001-re2c.patch
+--- MYD-LR3576.orig/buildroot/package/ninja/0001-re2c.patch	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/ninja/0001-re2c.patch	2026-08-28 17:31:25.317836935 +0800
+@@ -0,0 +1,11 @@
++--- a/CMakeLists.txt	2026-08-14 15:43:36.244183696 +0800
+++++ b/CMakeLists.txt	2026-08-14 15:44:14.858295193 +0800
++@@ -39,7 +39,7 @@
++ 	# the depfile parser and ninja lexers are generated using re2c.
++ 	function(re2c IN OUT)
++ 		add_custom_command(DEPENDS ${IN} OUTPUT ${OUT}
++-			COMMAND ${RE2C} -b -i --no-generation-date --no-version -o ${OUT} ${IN}
+++			COMMAND ${RE2C} -b -i --no-generation-date -o ${OUT} ${IN}
++ 		)
++ 	endfunction()
++ 	re2c(${PROJECT_SOURCE_DIR}/src/depfile_parser.in.cc ${PROJECT_BINARY_DIR}/depfile_parser.cc)
