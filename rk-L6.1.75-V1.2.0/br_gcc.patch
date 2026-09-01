@@ -1,0 +1,86 @@
+diff -ruN MYD-LR3576.orig/buildroot/package/Config.in MYD-LR3576.mpv/buildroot/package/Config.in
+--- MYD-LR3576.orig/buildroot/package/Config.in	2025-07-14 14:08:16.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/Config.in	2026-08-29 00:04:18.287067294 +0800
+@@ -2163,6 +2163,7 @@
+ 	source "package/highway/Config.in"
+ 	source "package/ifuse/Config.in"
+ 	source "package/iniparser/Config.in"
++	source "package/isl/Config.in"
+ 	source "package/jemalloc/Config.in"
+ 	source "package/lapack/Config.in"
+ 	source "package/libabseil-cpp/Config.in"
+diff -ruN MYD-LR3576.orig/buildroot/package/gcc/Config.in MYD-LR3576.mpv/buildroot/package/gcc/Config.in
+--- MYD-LR3576.orig/buildroot/package/gcc/Config.in	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/gcc/Config.in	2026-08-28 17:30:57.464747684 +0800
+@@ -10,6 +10,7 @@
+ 	select BR2_PACKAGE_GMP
+ 	select BR2_PACKAGE_MPFR
+ 	select BR2_PACKAGE_MPC
++	select BR2_PACKAGE_ISL if BR2_GCC_ENABLE_GRAPHITE
+ 	help
+ 	  If you want the target system to be able to run
+ 	  binutils/gcc and compile native code, say Y here.
+diff -ruN MYD-LR3576.orig/buildroot/package/gcc/gcc-target/gcc-target.mk MYD-LR3576.mpv/buildroot/package/gcc/gcc-target/gcc-target.mk
+--- MYD-LR3576.orig/buildroot/package/gcc/gcc-target/gcc-target.mk	2024-05-08 21:21:15.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/gcc/gcc-target/gcc-target.mk	2026-08-29 18:48:39.955557753 +0800
+@@ -12,6 +12,9 @@
+ GCC_TARGET_DL_SUBDIR = gcc
+ 
+ GCC_TARGET_DEPENDENCIES = binutils gmp mpfr mpc
++ifeq ($(BR2_GCC_ENABLE_GRAPHITE),y)
++GCC_TARGET_DEPENDENCIES += isl
++endif
+ 
+ # First, we use HOST_GCC_COMMON_MAKE_OPTS to get a lot of correct flags (such as
+ # the arch, abi, float support, etc.) which are based on the config used to
+@@ -25,6 +28,9 @@
+ 	--with-gmp=$(STAGING_DIR) \
+ 	--with-mpc=$(STAGING_DIR) \
+ 	--with-mpfr=$(STAGING_DIR)
++ifeq ($(BR2_PACKAGE_ISL),y)
++GCC_TARGET_CONF_OPTS += --with-isl=$(STAGING_DIR)
++endif
+ # Then, we force certain flags that may appear in HOST_GCC_COMMON_CONF_OPTS
+ GCC_TARGET_CONF_OPTS += \
+ 	--disable-libquadmath \
+@@ -47,6 +53,7 @@
+ 
+ # Install standard C headers (from glibc)
+ define GCC_TARGET_INSTALL_HEADERS
++	chmod -R u+w $(TARGET_DIR)/usr/include
+ 	cp -r $(STAGING_DIR)/usr/include $(TARGET_DIR)/usr
+ endef
+ GCC_TARGET_POST_INSTALL_TARGET_HOOKS += GCC_TARGET_INSTALL_HEADERS
+@@ -69,7 +76,6 @@
+ # already in `/lib`)
+ define GCC_TARGET_RM_FILES
+ 	rm -f $(TARGET_DIR)/usr/bin/$(ARCH)-buildroot-linux-gnu-gcc*
+-	rm -f $(TARGET_DIR)/usr/lib/libgcc_s*.so*
+ 	rm -f $(TARGET_DIR)/usr/$(ARCH)-buildroot-linux-gnu/lib/ldscripts/elf32*
+ 	rm -f $(TARGET_DIR)/usr/$(ARCH)-buildroot-linux-gnu/lib/ldscripts/elf64b*
+ endef
+diff -ruN MYD-LR3576.orig/buildroot/package/isl/Config.in MYD-LR3576.mpv/buildroot/package/isl/Config.in
+--- MYD-LR3576.orig/buildroot/package/isl/Config.in	1970-01-01 08:00:00.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/isl/Config.in	2026-08-28 17:30:57.470747703 +0800
+@@ -0,0 +1,8 @@
++config BR2_PACKAGE_ISL
++	bool "isl"
++	select BR2_PACKAGE_GMP
++	help
++	  Integer Set Library is a library for manipulating sets and relations
++	  of integer points bounded by linear constraints
++
++	  https://libisl.sourceforge.io/
+diff -ruN MYD-LR3576.orig/buildroot/package/isl/isl.mk MYD-LR3576.mpv/buildroot/package/isl/isl.mk
+--- MYD-LR3576.orig/buildroot/package/isl/isl.mk	2024-05-08 21:21:17.000000000 +0800
++++ MYD-LR3576.mpv/buildroot/package/isl/isl.mk	2026-08-28 17:30:57.472747709 +0800
+@@ -9,6 +9,9 @@
+ ISL_SITE = https://libisl.sourceforge.io
+ ISL_LICENSE = MIT
+ ISL_LICENSE_FILES = LICENSE
++ISL_INSTALL_STAGING = YES
++ISL_DEPENDENCIES = gmp
+ HOST_ISL_DEPENDENCIES = host-gmp
+ 
++$(eval $(autotools-package))
+ $(eval $(host-autotools-package))
