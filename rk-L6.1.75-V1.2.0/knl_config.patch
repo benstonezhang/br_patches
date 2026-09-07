@@ -1,5 +1,5 @@
---- MYD-LR3576.orig/kernel-6.1/arch/arm64/configs/rk3576.config	2024-05-08 21:21:59.000000000 +0800
-+++ MYD-LR3576.mpv/kernel-6.1/arch/arm64/configs/rk3576.config	2026-09-01 13:09:02.741311684 +0800
+--- a/kernel-6.1/arch/arm64/configs/rk3576.config	2024-05-08 21:21:59.000000000 +0800
++++ b/kernel-6.1/arch/arm64/configs/rk3576.config	2026-09-01 13:09:02.741311684 +0800
 @@ -1 +1,9 @@
  # CONFIG_MALI_CSF_SUPPORT is not set
 +CONFIG_CIFS=y

@@ -1,18 +1,18 @@
-diff -ruN MYD-LR3576.orig/buildroot/package/opencv4/opencv4.hash MYD-LR3576.mpv/buildroot/package/opencv4/opencv4.hash
---- MYD-LR3576.orig/buildroot/package/opencv4/opencv4.hash	2024-05-08 21:21:24.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/opencv4/opencv4.hash	2026-08-29 10:53:05.435758279 +0800
+diff -ruN a/buildroot/package/opencv4/opencv4.hash b/buildroot/package/opencv4/opencv4.hash
+--- a/buildroot/package/opencv4/opencv4.hash	2024-05-08 21:21:24.000000000 +0800
++++ b/buildroot/package/opencv4/opencv4.hash	2026-08-29 10:53:05.435758279 +0800
 @@ -1,3 +1,2 @@
  # Locally calculated
 -sha256  ddf76f9dffd322c7c3cb1f721d0887f62d747b82059342213138dc190f28bc6c  opencv4-4.9.0.tar.gz
 -sha256  cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30  LICENSE
 +sha256  ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e  opencv4-4.14.0.tar.gz
-diff -ruN MYD-LR3576.orig/buildroot/package/opencv4/opencv4.mk MYD-LR3576.mpv/buildroot/package/opencv4/opencv4.mk
---- MYD-LR3576.orig/buildroot/package/opencv4/opencv4.mk	2024-05-08 21:21:24.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/opencv4/opencv4.mk	2026-08-29 10:52:11.200596993 +0800
+diff -ruN a/buildroot/package/opencv4/opencv4.mk b/buildroot/package/opencv4/opencv4.mk
+--- a/buildroot/package/opencv4/opencv4.mk	2024-05-08 21:21:24.000000000 +0800
++++ b/buildroot/package/opencv4/opencv4.mk	2026-08-29 10:52:11.200596993 +0800
 @@ -4,7 +4,7 @@
  #
  ################################################################################
- 
+
 -OPENCV4_VERSION = 4.9.0
 +OPENCV4_VERSION = 4.14.0
  OPENCV4_SITE = $(call github,opencv,opencv,$(OPENCV4_VERSION))

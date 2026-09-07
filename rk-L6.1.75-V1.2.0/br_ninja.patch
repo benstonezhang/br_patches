@@ -1,6 +1,6 @@
-diff -ruN MYD-LR3576.orig/buildroot/package/ninja/0001-re2c.patch MYD-LR3576.mpv/buildroot/package/ninja/0001-re2c.patch
---- MYD-LR3576.orig/buildroot/package/ninja/0001-re2c.patch	1970-01-01 08:00:00.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ninja/0001-re2c.patch	2026-08-28 17:31:25.317836935 +0800
+diff -ruN a/buildroot/package/ninja/0001-re2c.patch b/buildroot/package/ninja/0001-re2c.patch
+--- a/buildroot/package/ninja/0001-re2c.patch	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/ninja/0001-re2c.patch	2026-08-28 17:31:25.317836935 +0800
 @@ -0,0 +1,11 @@
 +--- a/CMakeLists.txt	2026-08-14 15:43:36.244183696 +0800
 ++++ b/CMakeLists.txt	2026-08-14 15:44:14.858295193 +0800

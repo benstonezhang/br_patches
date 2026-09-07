@@ -1,5 +1,5 @@
---- MYD-LR3576.orig/buildroot/package/Config.in	2025-07-14 14:08:16.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/Config.in	2026-08-29 00:04:18.287067294 +0800
+--- a/buildroot/package/Config.in	2025-07-14 14:08:16.000000000 +0800
++++ b/buildroot/package/Config.in	2026-08-29 00:04:18.287067294 +0800
 @@ -1511,6 +1511,7 @@
  	source "package/libmad/Config.in"
  	source "package/libmodplug/Config.in"
@@ -8,9 +8,9 @@
  	source "package/libreplaygain/Config.in"
  	source "package/libsamplerate/Config.in"
  	source "package/libsidplay2/Config.in"
-diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch MYD-LR3576.mpv/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch
---- MYD-LR3576.orig/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch	1970-01-01 08:00:00.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch	2026-08-24 04:59:48.000000000 +0800
+diff -ruN a/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch b/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch
+--- a/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uclibc-sparc.patch	2026-08-24 04:59:48.000000000 +0800
 @@ -0,0 +1,45 @@
 +From 4386f3e3b3d02c55776e3f674d8447fd24388c2c Mon Sep 17 00:00:00 2001
 +From: Javad Rahimipetroudi <javad.rahimipetroudi@mind.be>
@@ -20,7 +20,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0001-meson.build-fix-link
 +This PR fixes the problem related to not finding the libatomic during the
 +build. Some combinations or architecture and libc (e.g. uClibc on SPARC)
 +operations in a separate library and don't link with it automatically.
-+An optional find_library to meson.build has been added to 
++An optional find_library to meson.build has been added to
 +discover this.
 +
 +
@@ -48,18 +48,18 @@ diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0001-meson.build-fix-link
 +@@ -475,7 +476,7 @@ else
 +     )
 + endif
-+ 
++
 +-build_deps = [ libm, threads ]
 ++build_deps = [ libm, threads, atomic]
-+ 
++
 + subdir('tools')
 + subdir('src')
-+-- 
++--
 +2.45.2
 +
-diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch MYD-LR3576.mpv/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch
---- MYD-LR3576.orig/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch	1970-01-01 08:00:00.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch	2026-08-24 04:59:48.000000000 +0800
+diff -ruN a/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch b/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch
+--- a/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch	2026-08-24 04:59:48.000000000 +0800
 @@ -0,0 +1,36 @@
 +From 0182e2b94bbc6bb964f96527d18e93c9b4709a3a Mon Sep 17 00:00:00 2001
 +From: Javad Rahimipetroudi <javad.rahimipetroudi@mind.be>
@@ -84,7 +84,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0002-src-pl_assert.h-add-
 +@@ -20,6 +20,12 @@
 + #include <stdio.h>
 + #include <assert.h>
-+ 
++
 ++#if !defined (__cplusplus)
 ++#if (__STDC_VERSION__ < 202301L)
 ++#define static_assert _Static_assert
@@ -94,12 +94,12 @@ diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/0002-src-pl_assert.h-add-
 + #ifndef NDEBUG
 + # define pl_assert assert
 + #else
-+-- 
++--
 +2.45.2
 +
-diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/Config.in MYD-LR3576.mpv/buildroot/package/libplacebo/Config.in
---- MYD-LR3576.orig/buildroot/package/libplacebo/Config.in	1970-01-01 08:00:00.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/libplacebo/Config.in	2026-08-24 04:59:48.000000000 +0800
+diff -ruN a/buildroot/package/libplacebo/Config.in b/buildroot/package/libplacebo/Config.in
+--- a/buildroot/package/libplacebo/Config.in	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/libplacebo/Config.in	2026-08-24 04:59:48.000000000 +0800
 @@ -0,0 +1,21 @@
 +config BR2_PACKAGE_LIBPLACEBO
 +	bool "libplacebo"
@@ -122,15 +122,15 @@ diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/Config.in MYD-LR3576.mpv/
 +	depends on BR2_TOOLCHAIN_HAS_ATOMIC
 +	depends on !BR2_INSTALL_LIBSTDCPP || BR2_STATIC_LIBS || \
 +		!BR2_TOOLCHAIN_HAS_THREADS_NPTL || BR2_TOOLCHAIN_GCC_AT_LEAST_10
-diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.hash MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.hash
---- MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.hash	1970-01-01 08:00:00.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.hash	2026-08-29 00:10:56.363267458 +0800
+diff -ruN a/buildroot/package/libplacebo/libplacebo.hash b/buildroot/package/libplacebo/libplacebo.hash
+--- a/buildroot/package/libplacebo/libplacebo.hash	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/libplacebo/libplacebo.hash	2026-08-29 00:10:56.363267458 +0800
 @@ -0,0 +1,2 @@
 +# Locally calculated
 +sha256  31a693adf11791151f0b2bd5e1a4bdc1a2e2060017932f6ccf7a8a86e899cf2f  libplacebo-v7.360.1-br1.tar.gz
-diff -ruN MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.mk MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.mk
---- MYD-LR3576.orig/buildroot/package/libplacebo/libplacebo.mk	1970-01-01 08:00:00.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/libplacebo/libplacebo.mk	2026-08-24 04:59:48.000000000 +0800
+diff -ruN a/buildroot/package/libplacebo/libplacebo.mk b/buildroot/package/libplacebo/libplacebo.mk
+--- a/buildroot/package/libplacebo/libplacebo.mk	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/libplacebo/libplacebo.mk	2026-08-24 04:59:48.000000000 +0800
 @@ -0,0 +1,15 @@
 +################################################################################
 +#

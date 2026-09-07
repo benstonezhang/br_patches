@@ -1,6 +1,6 @@
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch MYD-LR3576.mpv/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch
---- MYD-LR3576.orig/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch	2026-08-28 20:45:39.250667715 +0800
+diff -ruN a/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch b/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch
+--- a/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-build-without-SSSE3.patch	2026-08-28 20:45:39.250667715 +0800
 @@ -22,7 +22,7 @@
  index c12e88cbb5..4791e5b93a 100644
  --- a/libswscale/x86/yuv2rgb.c
@@ -9,7 +9,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-
 +@@ -70,6 +70,7 @@ av_cold SwsFunc ff_yuv2rgb_init_x86(SwsContext *c)
   #if HAVE_X86ASM
       int cpu_flags = av_get_cpu_flags();
-  
+
 @@ -30,7 +30,7 @@
       if (EXTERNAL_SSSE3(cpu_flags)) {
           switch (c->dstFormat) {
@@ -19,9 +19,9 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0001-swscale-x86-yuv2rgb-Fix-
               return yuv420_rgb15_ssse3;
           }
       }
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch MYD-LR3576.mpv/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch
---- MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch	1970-01-01 08:00:00.000000000 +0800
+diff -ruN a/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch b/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch
+--- a/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build.patch	1970-01-01 08:00:00.000000000 +0800
 @@ -1,72 +0,0 @@
 -From 6e8daf0d502a2a822f1f08f42368d7d676dc1a9e Mon Sep 17 00:00:00 2001
 -From: Bernd Kuhls <bernd.kuhls@t-online.de>
@@ -58,7 +58,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build
 - check_headers X11/extensions/XvMClib.h
 - check_headers asm/types.h
 -+check_headers sys/auxv.h
-- 
+-
 - # it seems there are versions of clang in some distros that try to use the
 - # gcc headers, which explodes for stdatomic
 -diff --git a/libavutil/mips/cpu.c b/libavutil/mips/cpu.c
@@ -77,14 +77,14 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build
 -@@ -28,7 +28,7 @@
 - #include "libavutil/avstring.h"
 - #endif
-- 
+-
 --#if defined __linux__ || defined __ANDROID__
 -+#if (defined __linux__ || defined __ANDROID__) && HAVE_SYS_AUXV_H
-- 
+-
 - #define HWCAP_LOONGSON_CPUCFG (1 << 14)
-- 
+-
 -@@ -105,7 +105,7 @@ static int cpu_flags_cpuinfo(void)
-- 
+-
 - int ff_get_cpu_flags_mips(void)
 - {
 --#if defined __linux__ || defined __ANDROID__
@@ -92,12 +92,12 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0003-libavutil-Fix-mips-build
 -     if (cpucfg_available())
 -         return cpu_flags_cpucfg();
 -     else
---- 
+---
 -2.29.2
 -
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch MYD-LR3576.mpv/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch
---- MYD-LR3576.orig/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch	1970-01-01 08:00:00.000000000 +0800
+diff -ruN a/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch b/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch
+--- a/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/0004-configure-add-extralibs-to-extralibs_xxx.patch	1970-01-01 08:00:00.000000000 +0800
 @@ -1,47 +0,0 @@
 -From 0c288853630b7b4e004774c39945d4a804afcfa8 Mon Sep 17 00:00:00 2001
 -From: Fabrice Fontaine <fontaine.fabrice@gmail.com>
@@ -141,14 +141,14 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0004-configure-add-extralibs-
 -+extralibs_swscale="$swscale_extralibs $extralibs"
 -+extralibs_swresample="$swresample_extralibs $extralibs"
 - EOF
-- 
+-
 - for lib in $LIBRARY_LIST; do
---- 
+---
 -2.30.2
 -
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch MYD-LR3576.mpv/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch
---- MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch	1970-01-01 08:00:00.000000000 +0800
+diff -ruN a/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch b/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch
+--- a/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/0005-Fixes-assembling-with-binutils-as-2.41.patch	1970-01-01 08:00:00.000000000 +0800
 @@ -1,84 +0,0 @@
 -From effadce6c756247ea8bae32dc13bb3e6f464f0eb Mon Sep 17 00:00:00 2001
 -From: =?utf8?q?R=C3=A9mi=20Denis-Courmont?= <remi@remlab.net>
@@ -196,7 +196,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-bi
 -+        );
 -     return rt;
 - }
-- 
+-
 -@@ -113,19 +121,31 @@ __asm__ volatile(\
 - // avoid +32 for shift optimization (gcc should do that ...)
 - #define NEG_SSR32 NEG_SSR32
@@ -214,7 +214,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-bi
 -+        );
 -     return a;
 - }
-- 
+-
 - #define NEG_USR32 NEG_USR32
 - static inline uint32_t NEG_USR32(uint32_t a, int8_t s){
 -+    if (__builtin_constant_p(s))
@@ -230,17 +230,17 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/0005-Fixes-assembling-with-bi
 -+        );
 -     return a;
 - }
-- 
---- 
+-
+---
 -2.30.2
 -
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/Config.in MYD-LR3576.mpv/buildroot/package/ffmpeg/Config.in
---- MYD-LR3576.orig/buildroot/package/ffmpeg/Config.in	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/Config.in	2026-08-28 20:20:12.350073056 +0800
+diff -ruN a/buildroot/package/ffmpeg/Config.in b/buildroot/package/ffmpeg/Config.in
+--- a/buildroot/package/ffmpeg/Config.in	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/Config.in	2026-08-28 20:20:12.350073056 +0800
 @@ -26,6 +26,17 @@
- 
+
  if BR2_PACKAGE_FFMPEG
- 
+
 +config BR2_PACKAGE_FFMPEG_RKMPP
 +	bool "Enable Rockchip MPP"
 +	help
@@ -258,7 +258,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/Config.in MYD-LR3576.mpv/buil
 @@ -79,12 +90,6 @@
  	help
  	  Avresample is a audio conversion library for compatibility.
- 
+
 -config BR2_PACKAGE_FFMPEG_POSTPROC
 -	bool "Build libpostproc"
 -	depends on BR2_PACKAGE_FFMPEG_GPL
@@ -268,9 +268,9 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/Config.in MYD-LR3576.mpv/buil
  config BR2_PACKAGE_FFMPEG_SWSCALE
  	bool "Build libswscale"
  	help
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.hash MYD-LR3576.mpv/buildroot/package/ffmpeg/ffmpeg.hash
---- MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.hash	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/ffmpeg.hash	2026-08-28 22:06:45.935472322 +0800
+diff -ruN a/buildroot/package/ffmpeg/ffmpeg.hash b/buildroot/package/ffmpeg/ffmpeg.hash
+--- a/buildroot/package/ffmpeg/ffmpeg.hash	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/ffmpeg.hash	2026-08-28 22:06:45.935472322 +0800
 @@ -1,5 +1,2 @@
  # Locally calculated
 -sha256  e80b380d595c809060f66f96a5d849511ef4a76a26b76eacf5778b94c3570309  ffmpeg-4.4.4.tar.xz
@@ -278,13 +278,13 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.hash MYD-LR3576.mpv/bu
 -sha256  b634ab5640e258563c536e658cad87080553df6f34f62269a21d554844e58bfe  COPYING.LGPLv2.1
 -sha256  cb48bf09a11f5fb576cddb0431c8f5ed0a60157a9ec942adffc13907cbe083f2  LICENSE.md
 +sha256  6d3926300b575bc86492e1a216ac0612d125e8e0901aee0dbe7b7c30871b26be  ffmpeg-8.1.tar.gz
-diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk MYD-LR3576.mpv/buildroot/package/ffmpeg/ffmpeg.mk
---- MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk	2024-05-08 21:21:15.000000000 +0800
-+++ MYD-LR3576.mpv/buildroot/package/ffmpeg/ffmpeg.mk	2026-08-28 20:32:20.626262535 +0800
+diff -ruN a/buildroot/package/ffmpeg/ffmpeg.mk b/buildroot/package/ffmpeg/ffmpeg.mk
+--- a/buildroot/package/ffmpeg/ffmpeg.mk	2024-05-08 21:21:15.000000000 +0800
++++ b/buildroot/package/ffmpeg/ffmpeg.mk	2026-08-28 20:32:20.626262535 +0800
 @@ -4,9 +4,15 @@
  #
  ################################################################################
- 
+
 +ifeq ($(BR2_PACKAGE_FFMPEG_RKMPP),y)
 +FFMPEG_VERSION = 8.1
 +FFMPEG_SITE = $(call github,nyanmisaka,ffmpeg-rockchip,$(FFMPEG_VERSION))
@@ -295,7 +295,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk MYD-LR3576.mpv/buil
  FFMPEG_SITE = https://ffmpeg.org/releases
 +endif
  FFMPEG_INSTALL_STAGING = YES
- 
+
  FFMPEG_LICENSE = LGPL-2.1+, libjpeg license
 @@ -32,11 +38,6 @@
  	--disable-gray \
@@ -315,15 +315,15 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk MYD-LR3576.mpv/buil
  	--disable-symver \
 +	--enable-libxml2 \
  	--disable-doc
- 
+
 -FFMPEG_DEPENDENCIES += host-pkgconf
 +FFMPEG_DEPENDENCIES += host-pkgconf libxml2
- 
+
  ifeq ($(BR2_PACKAGE_FFMPEG_GPL),y)
  FFMPEG_CONF_OPTS += --enable-gpl
 @@ -94,9 +96,9 @@
  endif
- 
+
  ifeq ($(BR2_PACKAGE_FFMPEG_AVRESAMPLE),y)
 -FFMPEG_CONF_OPTS += --enable-avresample
 +FFMPEG_CONF_OPTS += --enable-swresample
@@ -331,12 +331,12 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk MYD-LR3576.mpv/buil
 -FFMPEG_CONF_OPTS += --disable-avresample
 +FFMPEG_CONF_OPTS += --disable-swresample
  endif
- 
+
  ifeq ($(BR2_PACKAGE_FFMPEG_FFPROBE),y)
 @@ -116,12 +118,6 @@
  FFMPEG_CONF_OPTS += --disable-libxcb
  endif
- 
+
 -ifeq ($(BR2_PACKAGE_FFMPEG_POSTPROC),y)
 -FFMPEG_CONF_OPTS += --enable-postproc
 -else
@@ -349,7 +349,7 @@ diff -ruN MYD-LR3576.orig/buildroot/package/ffmpeg/ffmpeg.mk MYD-LR3576.mpv/buil
 @@ -561,6 +557,11 @@
  FFMPEG_CONF_ENV += CFLAGS="$(FFMPEG_CFLAGS)"
  FFMPEG_CONF_OPTS += $(call qstrip,$(BR2_PACKAGE_FFMPEG_EXTRACONF))
- 
+
 +ifeq ($(BR2_PACKAGE_FFMPEG_RKMPP),y)
 +FFMPEG_DEPENDENCIES += rockchip-mpp rockchip-rga
 +FFMPEG_CONF_OPTS += --enable-version3 --enable-rkmpp --enable-rkrga
