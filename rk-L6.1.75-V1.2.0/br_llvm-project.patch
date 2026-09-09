@@ -1,10 +1,10 @@
 diff -ruN a/buildroot/package/llvm-project/clang/0001-lib-Driver-ToolChains-Gnu-Use-GCC_INSTALL_PREFIX-in-.patch b/buildroot/package/llvm-project/clang/0001-lib-Driver-ToolChains-Gnu-Use-GCC_INSTALL_PREFIX-in-.patch
 --- a/buildroot/package/llvm-project/clang/0001-lib-Driver-ToolChains-Gnu-Use-GCC_INSTALL_PREFIX-in-.patch	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/clang/0001-lib-Driver-ToolChains-Gnu-Use-GCC_INSTALL_PREFIX-in-.patch	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/clang/0001-lib-Driver-ToolChains-Gnu-Use-GCC_INSTALL_PREFIX-in-.patch	2026-09-08 23:44:57.014250289 +0800
 @@ -44,7 +44,7 @@
  +++ b/lib/Driver/ToolChains/Gnu.cpp
  @@ -1725,6 +1725,8 @@ void Generic_GCC::GCCInstallationDetector::init(
-
+  
 -     Prefixes.push_back(GCCToolchainDir);
 +     Prefixes.push_back(std::string(GCCToolchainDir));
     } else {
@@ -12,7 +12,7 @@ diff -ruN a/buildroot/package/llvm-project/clang/0001-lib-Driver-ToolChains-Gnu-
  +
 diff -ruN a/buildroot/package/llvm-project/clang/clang.hash b/buildroot/package/llvm-project/clang/clang.hash
 --- a/buildroot/package/llvm-project/clang/clang.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/clang/clang.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/clang/clang.hash	2026-09-08 23:44:57.015250293 +0800
 @@ -1,3 +1,3 @@
  # locally calculated
 -sha256  96036052694e703d159c995bda203b59d1ff185c6879189b9eba837726e1738c  clang-15.0.3.src.tar.xz
@@ -20,7 +20,7 @@ diff -ruN a/buildroot/package/llvm-project/clang/clang.hash b/buildroot/package/
  sha256  ebcd9bbf783a73d05c53ba4d586b8d5813dcdf3bbec50265860ccc885e606f47  LICENSE.TXT
 diff -ruN a/buildroot/package/llvm-project/compiler-rt/0001-include-cstdint.patch b/buildroot/package/llvm-project/compiler-rt/0001-include-cstdint.patch
 --- a/buildroot/package/llvm-project/compiler-rt/0001-include-cstdint.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/llvm-project/compiler-rt/0001-include-cstdint.patch	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/compiler-rt/0001-include-cstdint.patch	2026-09-08 23:46:33.155607159 +0800
 @@ -0,0 +1,31 @@
 +From 735207ac16bb15d88116bf00283eb0135ed2585a Mon Sep 17 00:00:00 2001
 +From: Paul Zander <negril.nx+gentoo@gmail.com>
@@ -45,17 +45,17 @@ diff -ruN a/buildroot/package/llvm-project/compiler-rt/0001-include-cstdint.patc
 ++++ b/lib/orc/error.h
 +@@ -14,6 +14,7 @@
 + #include "stl_extras.h"
-+
++ 
 + #include <cassert>
 ++#include <cstdint>
 + #include <memory>
 + #include <string>
 + #include <type_traits>
-+--
++-- 
 +2.46.0
 diff -ruN a/buildroot/package/llvm-project/compiler-rt/compiler-rt.hash b/buildroot/package/llvm-project/compiler-rt/compiler-rt.hash
 --- a/buildroot/package/llvm-project/compiler-rt/compiler-rt.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/compiler-rt/compiler-rt.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/compiler-rt/compiler-rt.hash	2026-09-08 22:55:18.362066073 +0800
 @@ -1,3 +1,3 @@
  # Locally computed:
 -sha256  db958eee92d1571d8b7f76c1be8513817f1a888dcf6ced88aca871acfb0eeddd  compiler-rt-15.0.3.src.tar.xz
@@ -63,7 +63,7 @@ diff -ruN a/buildroot/package/llvm-project/compiler-rt/compiler-rt.hash b/buildr
  sha256  1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d  LICENSE.TXT
 diff -ruN a/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk b/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk
 --- a/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk	2026-09-08 22:55:18.368066096 +0800
 @@ -10,13 +10,13 @@
  COMPILER_RT_LICENSE = NCSA MIT
  COMPILER_RT_LICENSE_FILES = LICENSE.TXT
@@ -71,10 +71,10 @@ diff -ruN a/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk b/buildroo
 -COMPILER_RT_DEPENDENCIES = host-clang llvm
 +COMPILER_RT_DEPENDENCIES = host-clang libxcrypt llvm
  COMPILER_RT_SUPPORTS_IN_SOURCE_BUILD = NO
-
+ 
  COMPILER_RT_INSTALL_STAGING = YES
  COMPILER_RT_INSTALL_TARGET = NO
-
+ 
 -COMPILER_RT_CONF_OPTS=-DCOMPILER_RT_STANDALONE_BUILD=OFF \
 +COMPILER_RT_CONF_OPTS = \
  	-DCOMPILER_RT_STANDALONE_BUILD=ON \
@@ -82,7 +82,7 @@ diff -ruN a/buildroot/package/llvm-project/compiler-rt/compiler-rt.mk b/buildroo
  	-DLLVM_CONFIG_PATH=$(HOST_DIR)/bin/llvm-config \
 diff -ruN a/buildroot/package/llvm-project/compiler-rt/Config.in b/buildroot/package/llvm-project/compiler-rt/Config.in
 --- a/buildroot/package/llvm-project/compiler-rt/Config.in	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/compiler-rt/Config.in	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/compiler-rt/Config.in	2026-09-08 22:55:18.369066100 +0800
 @@ -3,6 +3,7 @@
  	depends on BR2_PACKAGE_LLVM
  	depends on BR2_TOOLCHAIN_USES_GLIBC # asan lib requires
@@ -93,7 +93,7 @@ diff -ruN a/buildroot/package/llvm-project/compiler-rt/Config.in b/buildroot/pac
  	  llvm to provide builtins, sanitizer runtimes, and profiling
 diff -ruN a/buildroot/package/llvm-project/libclc/libclc.hash b/buildroot/package/llvm-project/libclc/libclc.hash
 --- a/buildroot/package/llvm-project/libclc/libclc.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/libclc/libclc.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/libclc/libclc.hash	2026-09-08 22:55:18.369066100 +0800
 @@ -1,3 +1,3 @@
  # locally calculated
 -sha256  07e8a2b31e07a8cc8a976a6bfd87797d2543d5a9530f449755bf5119acbdbe8e  libclc-15.0.3.src.tar.xz
@@ -101,7 +101,7 @@ diff -ruN a/buildroot/package/llvm-project/libclc/libclc.hash b/buildroot/packag
  sha256  3c536c052db9afd997809e38785c9f2a9e54e2892330fa7c5b438e18a7413479  LICENSE.TXT
 diff -ruN a/buildroot/package/llvm-project/lld/lld.hash b/buildroot/package/llvm-project/lld/lld.hash
 --- a/buildroot/package/llvm-project/lld/lld.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/lld/lld.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/lld/lld.hash	2026-09-08 22:55:18.377066130 +0800
 @@ -1,3 +1,3 @@
  # locally calculated
 -sha256  cd5d0894a74b957ce78d62212c1df0b3876a7297593aaece6b0512285e3b8732  lld-15.0.3.src.tar.xz
@@ -109,7 +109,7 @@ diff -ruN a/buildroot/package/llvm-project/lld/lld.hash b/buildroot/package/llvm
  sha256  f7891568956e34643eb6a0db1462db30820d40d7266e2a78063f2fe233ece5a0  LICENSE.TXT
 diff -ruN a/buildroot/package/llvm-project/lld/lld.mk b/buildroot/package/llvm-project/lld/lld.mk
 --- a/buildroot/package/llvm-project/lld/lld.mk	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/lld/lld.mk	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/lld/lld.mk	2026-09-08 22:55:18.383066153 +0800
 @@ -18,8 +18,8 @@
  # GCC looks for tools in a different path from LLD's default installation path
  define HOST_LLD_CREATE_SYMLINKS
@@ -119,11 +119,11 @@ diff -ruN a/buildroot/package/llvm-project/lld/lld.mk b/buildroot/package/llvm-p
 +	ln -sfr $(HOST_DIR)/bin/lld $(HOST_DIR)/$(GNU_TARGET_NAME)/bin/lld
 +	ln -sfr $(HOST_DIR)/bin/lld $(HOST_DIR)/$(GNU_TARGET_NAME)/bin/ld.lld
  endef
-
+ 
  HOST_LLD_POST_INSTALL_HOOKS += HOST_LLD_CREATE_SYMLINKS
 diff -ruN a/buildroot/package/llvm-project/llvm/0001-ADT-Add-cstdint-to-SmallVector-101761.patch b/buildroot/package/llvm-project/llvm/0001-ADT-Add-cstdint-to-SmallVector-101761.patch
 --- a/buildroot/package/llvm-project/llvm/0001-ADT-Add-cstdint-to-SmallVector-101761.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm/0001-ADT-Add-cstdint-to-SmallVector-101761.patch	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm/0001-ADT-Add-cstdint-to-SmallVector-101761.patch	2026-09-08 23:46:58.822702433 +0800
 @@ -0,0 +1,35 @@
 +From 51d88407c1ae86c3b3c7b497d049f8980f2a3510 Mon Sep 17 00:00:00 2001
 +From: Sam James <sam@gentoo.org>
@@ -158,11 +158,11 @@ diff -ruN a/buildroot/package/llvm-project/llvm/0001-ADT-Add-cstdint-to-SmallVec
 + #include <cstdlib>
 + #include <cstring>
 + #include <functional>
-+--
++-- 
 +2.46.0
 diff -ruN a/buildroot/package/llvm-project/llvm/0002-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch b/buildroot/package/llvm-project/llvm/0002-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch
 --- a/buildroot/package/llvm-project/llvm/0002-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm/0002-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm/0002-AMDGPU-Include-cstdint-in-AMDGPUMCTargetDesc-101766.patch	2026-09-08 23:47:56.631917026 +0800
 @@ -0,0 +1,31 @@
 +From 000f92beb459096534a7bfaa8c5e99d77b7594c1 Mon Sep 17 00:00:00 2001
 +From: Sam James <sam@gentoo.org>
@@ -188,16 +188,16 @@ diff -ruN a/buildroot/package/llvm-project/llvm/0002-AMDGPU-Include-cstdint-in-A
 +@@ -15,6 +15,7 @@
 + #ifndef LLVM_LIB_TARGET_AMDGPU_MCTARGETDESC_AMDGPUMCTARGETDESC_H
 + #define LLVM_LIB_TARGET_AMDGPU_MCTARGETDESC_AMDGPUMCTARGETDESC_H
-+
++ 
 ++#include <cstdint>
 + #include <memory>
-+
++ 
 + namespace llvm {
-+--
++-- 
 +2.46.0
 diff -ruN a/buildroot/package/llvm-project/llvm/0003-Another-gcc-15-fix-from-Sam-James.patch b/buildroot/package/llvm-project/llvm/0003-Another-gcc-15-fix-from-Sam-James.patch
 --- a/buildroot/package/llvm-project/llvm/0003-Another-gcc-15-fix-from-Sam-James.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm/0003-Another-gcc-15-fix-from-Sam-James.patch	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm/0003-Another-gcc-15-fix-from-Sam-James.patch	2026-09-08 23:47:26.230804171 +0800
 @@ -0,0 +1,31 @@
 +From 67fc0069c285b37f09d408aae43c37b8afdf11f7 Mon Sep 17 00:00:00 2001
 +From: =?UTF-8?q?Micha=C5=82=20G=C3=B3rny?= <mgorny@gentoo.org>
@@ -223,16 +223,16 @@ diff -ruN a/buildroot/package/llvm-project/llvm/0003-Another-gcc-15-fix-from-Sam
 +@@ -13,6 +13,7 @@
 + #ifndef LLVM_LIB_TARGET_X86_MCTARGETDESC_X86MCTARGETDESC_H
 + #define LLVM_LIB_TARGET_X86_MCTARGETDESC_X86MCTARGETDESC_H
-+
++ 
 ++#include <cstdint>
 + #include <memory>
 + #include <string>
-+
-+--
++ 
++-- 
 +2.46.0
 diff -ruN a/buildroot/package/llvm-project/llvm/llvm.hash b/buildroot/package/llvm-project/llvm/llvm.hash
 --- a/buildroot/package/llvm-project/llvm/llvm.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm/llvm.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm/llvm.hash	2026-09-08 22:55:18.391066184 +0800
 @@ -1,3 +1,3 @@
  # locally calculated
 -sha256  c39aec729662416dcbf0bfe53a9786b34e7d93d02908a0779a2f6d83ad0a4a27  llvm-15.0.3.src.tar.xz
@@ -240,18 +240,18 @@ diff -ruN a/buildroot/package/llvm-project/llvm/llvm.hash b/buildroot/package/ll
  sha256  8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee  LICENSE.TXT
 diff -ruN a/buildroot/package/llvm-project/llvm/llvm.mk b/buildroot/package/llvm-project/llvm/llvm.mk
 --- a/buildroot/package/llvm-project/llvm/llvm.mk	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm/llvm.mk	2026-09-06 14:58:54.195225616 +0800
++++ b/buildroot/package/llvm-project/llvm/llvm.mk	2026-09-08 22:55:18.397066206 +0800
 @@ -16,14 +16,13 @@
  HOST_LLVM_DEPENDENCIES = host-python3 host-llvm-cmake
  LLVM_DEPENDENCIES = host-llvm
-
+ 
 +# workaround as bad defsym issue
 +HOST_LLVM_CONF_OPTS += -DCMAKE_ASM_COMPILER=gcc
 +
  # Path to cmake modules from host-llvm-cmake
  HOST_LLVM_CONF_OPTS += -DCMAKE_MODULE_PATH=$(HOST_DIR)/lib/cmake/llvm
  LLVM_CONF_OPTS += -DCMAKE_MODULE_PATH=$(HOST_DIR)/lib/cmake/llvm
-
+ 
 -# Assembly files for x64 in lib/Support/BLAKE3 need to be compiled
 -# by a C compiler
 -HOST_LLVM_CONF_OPTS += -DCMAKE_ASM_COMPILER="$(CMAKE_HOST_C_COMPILER)"
@@ -261,14 +261,14 @@ diff -ruN a/buildroot/package/llvm-project/llvm/llvm.mk b/buildroot/package/llvm
  HOST_LLVM_CONF_OPTS += -DLLVM_ENABLE_PROJECTS=""
 diff -ruN a/buildroot/package/llvm-project/llvm-cmake/llvm-cmake.hash b/buildroot/package/llvm-project/llvm-cmake/llvm-cmake.hash
 --- a/buildroot/package/llvm-project/llvm-cmake/llvm-cmake.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm-cmake/llvm-cmake.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm-cmake/llvm-cmake.hash	2026-09-08 22:55:18.397066206 +0800
 @@ -1,2 +1,2 @@
  # locally calculated
 -sha256  21cf3f52c53dc8b8972122ae35a5c18de09c7df693b48b5cd8553c3e3fed090d  cmake-15.0.3.src.tar.xz
 +sha256  8986f29b634fdaa9862eedda78513969fe9788301c9f2d938f4c10a3e7a3e7ea  cmake-15.0.7.src.tar.xz
 diff -ruN a/buildroot/package/llvm-project/llvm-libunwind/llvm-libunwind.hash b/buildroot/package/llvm-project/llvm-libunwind/llvm-libunwind.hash
 --- a/buildroot/package/llvm-project/llvm-libunwind/llvm-libunwind.hash	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm-libunwind/llvm-libunwind.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm-libunwind/llvm-libunwind.hash	2026-09-08 22:55:18.398066210 +0800
 @@ -1,3 +1,3 @@
  # locally computed
 -sha256  0ab6e07bf05359e242e9ea80e4089b819914867fa997a715e324e584bcfdf114  libunwind-15.0.3.src.tar.xz
@@ -276,13 +276,13 @@ diff -ruN a/buildroot/package/llvm-project/llvm-libunwind/llvm-libunwind.hash b/
  sha256  b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d  LICENSE.TXT
 diff -ruN a/buildroot/package/llvm-project/llvm-project.mk b/buildroot/package/llvm-project/llvm-project.mk
 --- a/buildroot/package/llvm-project/llvm-project.mk	2024-05-08 21:21:22.000000000 +0800
-+++ b/buildroot/package/llvm-project/llvm-project.mk	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/llvm-project/llvm-project.mk	2026-09-08 22:55:18.398066210 +0800
 @@ -5,7 +5,7 @@
  ################################################################################
-
+ 
  LLVM_PROJECT_VERSION_MAJOR = 15
 -LLVM_PROJECT_VERSION = $(LLVM_PROJECT_VERSION_MAJOR).0.3
 +LLVM_PROJECT_VERSION = $(LLVM_PROJECT_VERSION_MAJOR).0.7
  LLVM_PROJECT_SITE = https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LLVM_PROJECT_VERSION)
-
+ 
  include $(sort $(wildcard package/llvm-project/*/*.mk))

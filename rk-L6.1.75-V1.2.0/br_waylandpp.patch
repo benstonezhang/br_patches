@@ -10,9 +10,9 @@ diff -ru a/buildroot/package/waylandpp/Config.in b/buildroot/package/waylandpp/C
  	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9
  	depends on BR2_INSTALL_LIBSTDCPP
 @@ -10,9 +10,9 @@
-
+ 
  	  https://github.com/NilsBrause/waylandpp
-
+ 
 -comment "waylandpp needs an OpenGL-EGL/wayland backend, a toolchain w/ gcc >= 4.9, host gcc >= 4.9, C++ support"
 +comment "waylandpp needs an OpenGL-EGL backend, a toolchain w/ gcc >= 4.9, host gcc >= 4.9, C++ support"
  	depends on BR2_PACKAGE_WAYLAND

@@ -31,10 +31,10 @@ diff -ruN a/buildroot/package/libdisplay-info/0001-cta-include-sys-types.h.patch
 + #include <stdlib.h>
 + #include <string.h>
 ++#include <sys/types.h>
-+
++ 
 + #include "bits.h"
 + #include "cta.h"
-+--
++-- 
 +2.47.3
 +
 diff -ruN a/buildroot/package/libdisplay-info/0001-displayid.c-Include-sys-types.h.patch b/buildroot/package/libdisplay-info/0001-displayid.c-Include-sys-types.h.patch
@@ -71,10 +71,10 @@ diff -ruN a/buildroot/package/libdisplay-info/0001-displayid.c-Include-sys-types
 - #include <stdlib.h>
 - #include <string.h>
 -+#include <sys/types.h>
--
+- 
 - #include "bits.h"
 - #include "displayid.h"
----
+--- 
 -2.39.2
 -
 diff -ruN a/buildroot/package/libdisplay-info/libdisplay-info.hash b/buildroot/package/libdisplay-info/libdisplay-info.hash
@@ -94,7 +94,7 @@ diff -ruN a/buildroot/package/libdisplay-info/libdisplay-info.mk b/buildroot/pac
 @@ -4,9 +4,9 @@
  #
  ################################################################################
-
+ 
 -LIBDISPLAY_INFO_VERSION = 0.1.1
 -LIBDISPLAY_INFO_SOURCE = libdisplay-info-$(LIBDISPLAY_INFO_VERSION).tar.bz2
 -LIBDISPLAY_INFO_SITE = https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/$(LIBDISPLAY_INFO_VERSION)

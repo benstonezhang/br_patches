@@ -20,7 +20,7 @@ diff -ruN a/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uc
 +This PR fixes the problem related to not finding the libatomic during the
 +build. Some combinations or architecture and libc (e.g. uClibc on SPARC)
 +operations in a separate library and don't link with it automatically.
-+An optional find_library to meson.build has been added to
++An optional find_library to meson.build has been added to 
 +discover this.
 +
 +
@@ -48,13 +48,13 @@ diff -ruN a/buildroot/package/libplacebo/0001-meson.build-fix-linker-error-in-uc
 +@@ -475,7 +476,7 @@ else
 +     )
 + endif
-+
++ 
 +-build_deps = [ libm, threads ]
 ++build_deps = [ libm, threads, atomic]
-+
++ 
 + subdir('tools')
 + subdir('src')
-+--
++-- 
 +2.45.2
 +
 diff -ruN a/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch b/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-define-for-ulibc.patch
@@ -84,7 +84,7 @@ diff -ruN a/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-
 +@@ -20,6 +20,12 @@
 + #include <stdio.h>
 + #include <assert.h>
-+
++ 
 ++#if !defined (__cplusplus)
 ++#if (__STDC_VERSION__ < 202301L)
 ++#define static_assert _Static_assert
@@ -94,7 +94,7 @@ diff -ruN a/buildroot/package/libplacebo/0002-src-pl_assert.h-add-static_assert-
 + #ifndef NDEBUG
 + # define pl_assert assert
 + #else
-+--
++-- 
 +2.45.2
 +
 diff -ruN a/buildroot/package/libplacebo/Config.in b/buildroot/package/libplacebo/Config.in

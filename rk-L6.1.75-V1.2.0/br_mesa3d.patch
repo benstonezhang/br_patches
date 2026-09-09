@@ -1,272 +1,6 @@
-diff -ruN a/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-suppor.patch b/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-suppor.patch
---- a/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-suppor.patch	2024-05-08 21:21:23.000000000 +0800
-+++ b/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-suppor.patch	1970-01-01 08:00:00.000000000 +0800
-@@ -1,86 +0,0 @@
--From f719e942dde0a46a9ff0080001cb3466012ffcc0 Mon Sep 17 00:00:00 2001
--From: Peter Seiderer <ps.report@gmx.net>
--Date: Mon, 9 Mar 2020 13:01:14 +0100
--Subject: [PATCH] vc4: add meson option to disable optional neon support
--
--Not all toolchains are able to compile the runtime
--optional vc4 neon support, so add an meson option
--to force disabling it at compile time.
--
--Upstream: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/4114
--Signed-off-by: Peter Seiderer <ps.report@gmx.net>
--Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
--[rebased for 20.2.0, 20.3.0, 21.1.0, 23.1.0 & 23.2.0]
--Signed-off-by: Peter Seiderer <ps.report@gmx.net>
--[fix syntax error after previous rebases]
-----
-- meson_options.txt                    | 7 +++++++
-- src/gallium/drivers/vc4/meson.build  | 4 ++--
-- src/gallium/drivers/vc4/vc4_tiling.h | 4 ++--
-- 3 files changed, 11 insertions(+), 4 deletions(-)
--
--diff --git a/meson_options.txt b/meson_options.txt
--index 8e0bf2a..1cf0e07 100644
----- a/meson_options.txt
--+++ b/meson_options.txt
--@@ -124,6 +124,13 @@ option(
--   description : 'enable gallium va frontend.',
-- )
--
--+option(
--+  'gallium-vc4-neon',
--+  type : 'feature',
--+  deprecated: {'true': 'enabled', 'false': 'disabled'},
--+  description : 'enable gallium vc4 optional neon support.',
--+)
--+
-- option(
--   'va-libs-path',
--   type : 'string',
--diff --git a/src/gallium/drivers/vc4/meson.build b/src/gallium/drivers/vc4/meson.build
--index 84da951..7f950de 100644
----- a/src/gallium/drivers/vc4/meson.build
--+++ b/src/gallium/drivers/vc4/meson.build
--@@ -84,7 +84,7 @@ files_libvc4 = files(
-- vc4_c_args = []
--
-- libvc4_neon = []
---if host_machine.cpu_family() == 'arm'
--+if host_machine.cpu_family() == 'arm' and not get_option('gallium-vc4-neon').disabled()
--   libvc4_neon = static_library(
--     'vc4_neon',
--     'vc4_tiling_lt_neon.c',
--@@ -93,7 +93,7 @@ if host_machine.cpu_family() == 'arm'
--     ],
--     c_args : '-mfpu=neon',
--   )
---  vc4_c_args += '-DUSE_ARM_ASM'
--+  vc4_c_args += '-DVC4_TILING_LT_NEON'
-- endif
--
-- if dep_simpenrose.found()
--diff --git a/src/gallium/drivers/vc4/vc4_tiling.h b/src/gallium/drivers/vc4/vc4_tiling.h
--index 5afe329..919b299 100644
----- a/src/gallium/drivers/vc4/vc4_tiling.h
--+++ b/src/gallium/drivers/vc4/vc4_tiling.h
--@@ -89,7 +89,7 @@ vc4_load_lt_image(void *dst, uint32_t dst_stride,
--                   void *src, uint32_t src_stride,
--                   int cpp, const struct pipe_box *box)
-- {
---#ifdef USE_ARM_ASM
--+#ifdef VC4_TILING_LT_NEON
--         if (util_get_cpu_caps()->has_neon) {
--                 vc4_load_lt_image_neon(dst, dst_stride, src, src_stride,
--                                        cpp, box);
--@@ -105,7 +105,7 @@ vc4_store_lt_image(void *dst, uint32_t dst_stride,
--                    void *src, uint32_t src_stride,
--                    int cpp, const struct pipe_box *box)
-- {
---#ifdef USE_ARM_ASM
--+#ifdef VC4_TILING_LT_NEON
--         if (util_get_cpu_caps()->has_neon) {
--                 vc4_store_lt_image_neon(dst, dst_stride, src, src_stride,
--                                         cpp, box);
----
--2.41.0
--
-diff -ruN a/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-support.patch b/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-support.patch
---- a/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-support.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0002-vc4-add-meson-option-to-disable-optional-neon-support.patch	2026-09-07 18:39:17.785301498 +0800
-@@ -0,0 +1,86 @@
-+From f719e942dde0a46a9ff0080001cb3466012ffcc0 Mon Sep 17 00:00:00 2001
-+From: Peter Seiderer <ps.report@gmx.net>
-+Date: Mon, 9 Mar 2020 13:01:14 +0100
-+Subject: [PATCH] vc4: add meson option to disable optional neon support
-+
-+Not all toolchains are able to compile the runtime
-+optional vc4 neon support, so add an meson option
-+to force disabling it at compile time.
-+
-+Upstream: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/4114
-+Signed-off-by: Peter Seiderer <ps.report@gmx.net>
-+Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
-+[rebased for 20.2.0, 20.3.0, 21.1.0, 23.1.0 & 23.2.0]
-+Signed-off-by: Peter Seiderer <ps.report@gmx.net>
-+[fix syntax error after previous rebases]
-+---
-+ meson_options.txt                    | 7 +++++++
-+ src/gallium/drivers/vc4/meson.build  | 4 ++--
-+ src/gallium/drivers/vc4/vc4_tiling.h | 4 ++--
-+ 3 files changed, 11 insertions(+), 4 deletions(-)
-+
-+diff --git a/meson_options.txt b/meson_options.txt
-+index 8e0bf2a..1cf0e07 100644
-+--- a/meson_options.txt
-++++ b/meson_options.txt
-+@@ -124,6 +124,13 @@ option(
-+   description : 'enable gallium va frontend.',
-+ )
-+
-++option(
-++  'gallium-vc4-neon',
-++  type : 'feature',
-++  deprecated: {'true': 'enabled', 'false': 'disabled'},
-++  description : 'enable gallium vc4 optional neon support.',
-++)
-++
-+ option(
-+   'va-libs-path',
-+   type : 'string',
-+diff --git a/src/gallium/drivers/vc4/meson.build b/src/gallium/drivers/vc4/meson.build
-+index 84da951..7f950de 100644
-+--- a/src/gallium/drivers/vc4/meson.build
-++++ b/src/gallium/drivers/vc4/meson.build
-+@@ -84,7 +84,7 @@ files_libvc4 = files(
-+ vc4_c_args = []
-+
-+ libvc4_neon = []
-+-if host_machine.cpu_family() == 'arm'
-++if host_machine.cpu_family() == 'arm' and not get_option('gallium-vc4-neon').disabled()
-+   libvc4_neon = static_library(
-+     'vc4_neon',
-+     'vc4_tiling_lt_neon.c',
-+@@ -93,7 +93,7 @@ if host_machine.cpu_family() == 'arm'
-+     ],
-+     c_args : '-mfpu=neon',
-+   )
-+-  vc4_c_args += '-DUSE_ARM_ASM'
-++  vc4_c_args += '-DVC4_TILING_LT_NEON'
-+ endif
-+
-+ if dep_simpenrose.found()
-+diff --git a/src/gallium/drivers/vc4/vc4_tiling.h b/src/gallium/drivers/vc4/vc4_tiling.h
-+index 5afe329..919b299 100644
-+--- a/src/gallium/drivers/vc4/vc4_tiling.h
-++++ b/src/gallium/drivers/vc4/vc4_tiling.h
-+@@ -89,7 +89,7 @@ vc4_load_lt_image(void *dst, uint32_t dst_stride,
-+                   void *src, uint32_t src_stride,
-+                   int cpp, const struct pipe_box *box)
-+ {
-+-#ifdef USE_ARM_ASM
-++#ifdef VC4_TILING_LT_NEON
-+         if (util_get_cpu_caps()->has_neon) {
-+                 vc4_load_lt_image_neon(dst, dst_stride, src, src_stride,
-+                                        cpp, box);
-+@@ -105,7 +105,7 @@ vc4_store_lt_image(void *dst, uint32_t dst_stride,
-+                    void *src, uint32_t src_stride,
-+                    int cpp, const struct pipe_box *box)
-+ {
-+-#ifdef USE_ARM_ASM
-++#ifdef VC4_TILING_LT_NEON
-+         if (util_get_cpu_caps()->has_neon) {
-+                 vc4_store_lt_image_neon(dst, dst_stride, src, src_stride,
-+                                         cpp, box);
-+--
-+2.41.0
-+
-diff -ruN a/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-erro.patch b/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-erro.patch
---- a/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-erro.patch	2024-05-08 21:21:23.000000000 +0800
-+++ b/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-erro.patch	1970-01-01 08:00:00.000000000 +0800
-@@ -1,39 +0,0 @@
--From fdc8b5a205e2116408aeb9fd305e57f656e2e89d Mon Sep 17 00:00:00 2001
--From: Bernd Kuhls <bernd.kuhls@t-online.de>
--Date: Sun, 9 Aug 2020 17:06:26 +0200
--Subject: [PATCH] src/util/rand_xor: Include stddef.h to fix build error
--MIME-Version: 1.0
--Content-Type: text/plain; charset=UTF-8
--Content-Transfer-Encoding: 8bit
--
--Fixes
--
--In file included from ../src/util/rand_xor.c:29:
--output/host/x86_64-buildroot-linux-uclibc/sysroot/usr/include/sys/random.h:27:35:
-- error: unknown type name ‘size_t’
-- extern int getrandom(void *__buf, size_t count, unsigned int flags)
--
--seen with gcc version 8.3.0 (Buildroot 2020.02) and uClibc.
--
--Upstream: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/6248
--
--Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
-----
-- src/util/rand_xor.c | 1 +
-- 1 file changed, 1 insertion(+)
--
--diff --git a/src/util/rand_xor.c b/src/util/rand_xor.c
--index 81b64f1ea71..fcb481487fa 100644
----- a/src/util/rand_xor.c
--+++ b/src/util/rand_xor.c
--@@ -25,6 +25,7 @@
-- #include "detect_os.h"
--
-- #if !DETECT_OS_WINDOWS
--+#include <stddef.h>
-- #if defined(HAVE_GETRANDOM)
-- #include <sys/random.h>
-- #endif
----
--2.27.0
--
-diff -ruN a/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-error.patch b/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-error.patch
---- a/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-error.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0003-src-util-rand_xor-Include-stddef.h-to-fix-build-error.patch	2026-09-07 18:39:17.785301498 +0800
-@@ -0,0 +1,39 @@
-+From fdc8b5a205e2116408aeb9fd305e57f656e2e89d Mon Sep 17 00:00:00 2001
-+From: Bernd Kuhls <bernd.kuhls@t-online.de>
-+Date: Sun, 9 Aug 2020 17:06:26 +0200
-+Subject: [PATCH] src/util/rand_xor: Include stddef.h to fix build error
-+MIME-Version: 1.0
-+Content-Type: text/plain; charset=UTF-8
-+Content-Transfer-Encoding: 8bit
-+
-+Fixes
-+
-+In file included from ../src/util/rand_xor.c:29:
-+output/host/x86_64-buildroot-linux-uclibc/sysroot/usr/include/sys/random.h:27:35:
-+ error: unknown type name ‘size_t’
-+ extern int getrandom(void *__buf, size_t count, unsigned int flags)
-+
-+seen with gcc version 8.3.0 (Buildroot 2020.02) and uClibc.
-+
-+Upstream: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/6248
-+
-+Signed-off-by: Bernd Kuhls <bernd.kuhls@t-online.de>
-+---
-+ src/util/rand_xor.c | 1 +
-+ 1 file changed, 1 insertion(+)
-+
-+diff --git a/src/util/rand_xor.c b/src/util/rand_xor.c
-+index 81b64f1ea71..fcb481487fa 100644
-+--- a/src/util/rand_xor.c
-++++ b/src/util/rand_xor.c
-+@@ -25,6 +25,7 @@
-+ #include "detect_os.h"
-+
-+ #if !DETECT_OS_WINDOWS
-++#include <stddef.h>
-+ #if defined(HAVE_GETRANDOM)
-+ #include <sys/random.h>
-+ #endif
-+--
-+2.27.0
-+
 diff -ruN a/buildroot/package/mesa3d/0005-blake3-add-blake3_neon.c-only-for-little-endian-arch.patch b/buildroot/package/mesa3d/0005-blake3-add-blake3_neon.c-only-for-little-endian-arch.patch
 --- a/buildroot/package/mesa3d/0005-blake3-add-blake3_neon.c-only-for-little-endian-arch.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0005-blake3-add-blake3_neon.c-only-for-little-endian-arch.patch	2026-09-07 18:42:13.360076424 +0800
++++ b/buildroot/package/mesa3d/0005-blake3-add-blake3_neon.c-only-for-little-endian-arch.patch	2026-09-09 12:28:15.639498582 +0800
 @@ -0,0 +1,47 @@
 +From c4292cc5af3278b294c2baa5464c9985228205fe Mon Sep 17 00:00:00 2001
 +From: Bernd Kuhls <bernd@kuhls.net>
@@ -311,8 +45,8 @@ diff -ruN a/buildroot/package/mesa3d/0005-blake3-add-blake3_neon.c-only-for-litt
 ++elif cpu_family == 'aarch64' and target_machine.endian() == 'little'
 +   files_blake3 += ['blake3_neon.c']
 + endif
-+
-+--
++ 
++-- 
 +2.47.3
 +
 diff -ruN a/buildroot/package/mesa3d/0006-drisw-fix-build-without-dri3.patch b/buildroot/package/mesa3d/0006-drisw-fix-build-without-dri3.patch
@@ -361,7 +95,7 @@ diff -ruN a/buildroot/package/mesa3d/0006-drisw-fix-build-without-dri3.patch b/b
 -@@ -995,6 +997,7 @@ driswCreateScreenDriver(int screen, struct glx_display *priv,
 -        goto handle_error;
 -    }
--
+- 
 -+#ifdef HAVE_DRI3
 -    if (pdpyp->zink) {
 -       bool err;
@@ -371,15 +105,15 @@ diff -ruN a/buildroot/package/mesa3d/0006-drisw-fix-build-without-dri3.patch b/b
 -       }
 -    }
 -+#endif
--
+- 
 -    glx_config_destroy_list(psc->base.configs);
 -    psc->base.configs = configs;
----
+--- 
 -2.43.0
 -
 diff -ruN a/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion-for-cpp-restr.patch b/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion-for-cpp-restr.patch
 --- a/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion-for-cpp-restr.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion-for-cpp-restr.patch	2026-09-07 18:42:13.366076450 +0800
++++ b/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion-for-cpp-restr.patch	2026-09-09 12:28:15.649498621 +0800
 @@ -0,0 +1,32 @@
 +From 85d8bab69a7812908d9984c2783dc9a447e0d1ea Mon Sep 17 00:00:00 2001
 +From: Aaron Ruby <aruby@qnx.com>
@@ -403,7 +137,7 @@ diff -ruN a/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion
 +@@ -23,9 +23,11 @@
 + #ifndef VK_UTIL_H
 + #define VK_UTIL_H
-+
++ 
 ++#include "compiler/shader_enums.h"
 + #include "util/bitscan.h"
 + #include "util/macros.h"
@@ -412,7 +146,7 @@ diff -ruN a/buildroot/package/mesa3d/0006-vulkan-util-Add-c99_compat.h-inclusion
 ++
 + #include <stdlib.h>
 + #include <string.h>
-+
++ 
 diff -ruN a/buildroot/package/mesa3d/0007-glxext-don-t-try-zink-if-not-enabled-in-mesa.patch b/buildroot/package/mesa3d/0007-glxext-don-t-try-zink-if-not-enabled-in-mesa.patch
 --- a/buildroot/package/mesa3d/0007-glxext-don-t-try-zink-if-not-enabled-in-mesa.patch	2024-05-08 21:21:23.000000000 +0800
 +++ b/buildroot/package/mesa3d/0007-glxext-don-t-try-zink-if-not-enabled-in-mesa.patch	1970-01-01 08:00:00.000000000 +0800
@@ -456,12 +190,12 @@ diff -ruN a/buildroot/package/mesa3d/0007-glxext-don-t-try-zink-if-not-enabled-i
 -    }
 - #endif /* GLX_USE_DRM */
 -    if (glx_direct)
----
+--- 
 -2.43.0
 -
 diff -ruN a/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch b/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch
 --- a/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch	2026-09-07 18:42:13.368076459 +0800
++++ b/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch	2026-09-09 12:28:15.650498625 +0800
 @@ -0,0 +1,120 @@
 +From 1f3496053b13451bd992c3ca390edb4d39c5ffa2 Mon Sep 17 00:00:00 2001
 +From: Faith Ekstrand <faith.ekstrand@collabora.com>
@@ -558,12 +292,12 @@ diff -ruN a/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch 
 + #include "util/macros.h"
 ++#include "util/stack_array.h"
 + #include "c99_compat.h"
-+
++ 
 + #include <stdlib.h>
 +@@ -358,22 +359,6 @@ struct nir_spirv_specialization*
 + vk_spec_info_to_nir_spirv(const VkSpecializationInfo *spec_info,
 +                           uint32_t *out_num_spec_entries);
-+
++ 
 +-#define STACK_ARRAY_SIZE 8
 +-
 +-/* Sometimes gcc may claim -Wmaybe-uninitialized for the stack array in some
@@ -585,7 +319,7 @@ diff -ruN a/buildroot/package/mesa3d/0008-util-Move-STACK_ARRAY-into-util.patch 
 + {
 diff -ruN a/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch b/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch
 --- a/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch	2026-09-07 21:45:32.103764253 +0800
++++ b/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch	2026-09-09 15:35:03.697572464 +0800
 @@ -0,0 +1,108 @@
 +From 17d07f85828eca081d7fe1bcd9cbbf747fcc1300 Mon Sep 17 00:00:00 2001
 +From: Ian Romanick <ian.d.romanick@intel.com>
@@ -620,7 +354,7 @@ diff -ruN a/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_V
 +--- a/src/compiler/spirv/spirv_to_nir.c
 ++++ b/src/compiler/spirv/spirv_to_nir.c
 +@@ -27,7 +27,6 @@
-+
++ 
 + #include "glsl_types.h"
 + #include "vtn_private.h"
 +-#include "nir/nir_vla.h"
@@ -632,9 +366,9 @@ diff -ruN a/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_V
 + #include "util/u_debug.h"
 + #include "util/mesa-blake3.h"
 ++#include "util/stack_array.h"
-+
++ 
 + #include <stdio.h>
-+
++ 
 +@@ -1013,7 +1013,7 @@ vtn_type_get_nir_type(struct vtn_builder *b, struct vtn_type *type,
 +       case vtn_base_type_struct: {
 +          bool need_new_struct = false;
@@ -675,12 +409,12 @@ diff -ruN a/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_V
 ++         STACK_ARRAY_FINISH(fields);
 ++         return result;
 +       }
-+
++ 
 +       case vtn_base_type_image:
 +@@ -1647,7 +1652,7 @@ vtn_handle_type(struct vtn_builder *b, SpvOp opcode,
 +       val->type->offsets = vtn_alloc_array(b, unsigned, num_fields);
 +       val->type->packed = false;
-+
++ 
 +-      NIR_VLA(struct glsl_struct_field, fields, count);
 ++      STACK_ARRAY(struct glsl_struct_field, fields, count);
 +       for (unsigned i = 0; i < num_fields; i++) {
@@ -694,10 +428,10 @@ diff -ruN a/buildroot/package/mesa3d/0009-spirv-Use-STACK_ARRAY-instead-of-NIR_V
 ++      STACK_ARRAY_FINISH(fields);
 +       break;
 +    }
-+
++ 
 diff -ruN a/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch b/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch
 --- a/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch	1970-01-01 08:00:00.000000000 +0800
-+++ b/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch	2026-09-07 18:42:13.368076459 +0800
++++ b/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch	2026-09-09 12:28:15.651498629 +0800
 @@ -0,0 +1,57 @@
 +From ead2f775271612a5d06664355dd09e5fcfd09b08 Mon Sep 17 00:00:00 2001
 +From: Ian Romanick <ian.d.romanick@intel.com>
@@ -732,13 +466,13 @@ diff -ruN a/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA
 +@@ -21,10 +21,10 @@
 +  * IN THE SOFTWARE.
 +  */
-+
++ 
 ++#include "util/stack_array.h"
 + #include "nir.h"
 + #include "nir_builder.h"
 + #include "nir_control_flow.h"
 +-#include "nir_vla.h"
-+
++ 
 + /*
 +  * TODO: write a proper inliner for GPUs.
 +@@ -177,12 +177,13 @@ static bool inline_functions_pass(nir_builder *b,
@@ -750,19 +484,19 @@ diff -ruN a/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA
 +    for (unsigned i = 0; i < num_params; i++) {
 +       params[i] = call->params[i].ssa;
 +    }
-+
++ 
 +    nir_inline_function_impl(b, call->callee->impl, params, NULL);
 ++   STACK_ARRAY_FINISH(params);
 +    return true;
 + }
-+
++ 
 diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config.in
 --- a/buildroot/package/mesa3d/Config.in	2024-05-08 21:21:23.000000000 +0800
-+++ b/buildroot/package/mesa3d/Config.in	2026-09-07 18:42:13.369076464 +0800
++++ b/buildroot/package/mesa3d/Config.in	2026-09-09 12:28:15.652498633 +0800
 @@ -56,11 +56,7 @@
  	select BR2_PACKAGE_LIBCLC
  	select BR2_PACKAGE_HAS_LIBOPENCL
-
+ 
 -# inform the .mk file of gallium, dri, dri3 or vulkan driver selection
 -config BR2_PACKAGE_MESA3D_DRI3
 -	bool
@@ -773,15 +507,15 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
  	bool
  	select BR2_PACKAGE_MESA3D_DRIVER
 @@ -71,6 +67,7 @@
-
+ 
  config BR2_PACKAGE_MESA3D_DRIVER
  	bool
 +	select BR2_PACKAGE_XLIB_LIBXSHMFENCE if BR2_PACKAGE_XORG7
-
+ 
  # Gallium xa state tracker.
  # Quote from mesa3d meson.build: "XA state tracker requires at least
 @@ -102,8 +99,7 @@
-
+ 
  config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_ETNAVIV
  	bool "Gallium Etnaviv driver"
 -	depends on (BR2_TOOLCHAIN_HAS_SYNC_4 && !BR2_RISCV_32) || !BR2_PACKAGE_XORG7 # libxshmfence
@@ -799,7 +533,7 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
  	select BR2_PACKAGE_LIBDRM_FREEDRENO
  	help
 @@ -140,12 +135,23 @@
-
+ 
  config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_LIMA
  	bool "Gallium lima driver"
 -	depends on (BR2_TOOLCHAIN_HAS_SYNC_4 && !BR2_RISCV_32) || !BR2_PACKAGE_XORG7 # libxshmfence
@@ -808,7 +542,7 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
  	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER
  	help
  	  Mesa driver for ARM Mali Utgard GPUs.
-
+ 
 +config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_KMSRO
 +	bool "Gallium kmsro drivers"
 +	depends on BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_ETNAVIV \
@@ -825,7 +559,7 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
  	bool "Gallium nouveau driver"
  	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER
 @@ -157,8 +163,7 @@
-
+ 
  config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_PANFROST
  	bool "Gallium panfrost driver"
 -	depends on (BR2_TOOLCHAIN_HAS_SYNC_4 && !BR2_RISCV_32) || !BR2_PACKAGE_XORG7 # libxshmfence
@@ -845,11 +579,11 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
  	help
 -	  Driver for Broadcom VC6 (rpi4) GPUs (needs vc4).
 +	  Driver for Broadcom VC6/7 (rpi4/5) GPUs (needs vc4).
-
+ 
  	  It requires a kernel 4.18+ with DRM V3D support enabled:
-
+ 
 @@ -253,14 +257,14 @@
-
+ 
  config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VC4
  	bool "Gallium vc4 driver"
 -	depends on (BR2_arm && BR2_ARM_CPU_HAS_NEON) || BR2_aarch64
@@ -864,12 +598,12 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
 +	  Driver for Broadcom VC4 (rpi0/1/2/3) GPUs.
 +
  	  It requires a vanilla 4.5+ kernel with drm vc4 (open) support.
-
+ 
  config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VIRGL
 @@ -271,6 +275,16 @@
  	  virgl is the 3D acceleration backend for the virtio-gpu
  	  shipping with qemu.
-
+ 
 +config BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_ZINK
 +	bool "Gallium zink driver"
 +	select BR2_PACKAGE_MESA3D_GALLIUM_DRIVER
@@ -902,7 +636,7 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
 @@ -325,6 +337,12 @@
  	help
  	  Vulkan swrast driver.
-
+ 
 +config BR2_PACKAGE_MESA3D_VULKAN_DRIVER_VIRTIO
 +	bool "Vulkan VirtIO driver (Venus)"
 +	select BR2_PACKAGE_MESA3D_VULKAN_DRIVER
@@ -910,7 +644,7 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
 +	  Vulkan VirtIO (venus) driver.
 +
  comment "Off-screen Rendering"
-
+ 
  config BR2_PACKAGE_MESA3D_OSMESA_GALLIUM
 @@ -367,7 +385,6 @@
  	depends on BR2_PACKAGE_MESA3D_GALLIUM_DRIVER
@@ -921,8 +655,8 @@ diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config
  	help
  	  Use the Khronos EGL APIs. EGL is a window manager for OpenGL
 diff -ruN a/buildroot/package/mesa3d/mesa3d.hash b/buildroot/package/mesa3d/mesa3d.hash
---- a/buildroot/package/mesa3d/mesa3d.hash	2026-09-07 20:34:04.294583521 +0800
-+++ b/buildroot/package/mesa3d/mesa3d.hash	2026-09-07 20:34:22.724662340 +0800
+--- a/buildroot/package/mesa3d/mesa3d.hash	2024-05-08 21:21:23.000000000 +0800
++++ b/buildroot/package/mesa3d/mesa3d.hash	2026-09-09 12:28:15.652498633 +0800
 @@ -1,5 +1,5 @@
 -# From https://lists.freedesktop.org/archives/mesa-announce/2024-February/000747.html
 -sha256  dc7e8c077bc5884df95478263b34bdebb7e88e600689cb56fb07be2b8c304c36  mesa-24.0.0.tar.xz
@@ -934,10 +668,10 @@ diff -ruN a/buildroot/package/mesa3d/mesa3d.hash b/buildroot/package/mesa3d/mesa
  sha256  a00275a53178e2645fb65be99a785c110513446a5071ff2c698ed260ad917d75  docs/license.rst
 diff -ruN a/buildroot/package/mesa3d/mesa3d.mk b/buildroot/package/mesa3d/mesa3d.mk
 --- a/buildroot/package/mesa3d/mesa3d.mk	2024-05-08 21:21:23.000000000 +0800
-+++ b/buildroot/package/mesa3d/mesa3d.mk	2026-09-07 22:21:40.869093528 +0800
++++ b/buildroot/package/mesa3d/mesa3d.mk	2026-09-09 12:28:15.653498636 +0800
 @@ -5,7 +5,7 @@
  ################################################################################
-
+ 
  # When updating the version, please also update mesa3d-headers
 -MESA3D_VERSION = 24.0.0
 +MESA3D_VERSION = 24.3.4
@@ -952,7 +686,7 @@ diff -ruN a/buildroot/package/mesa3d/mesa3d.mk b/buildroot/package/mesa3d/mesa3d
  	expat \
  	libdrm \
  	zlib
-
+ 
 -MESA3D_CONF_OPTS = \
 -	-Dgallium-omx=disabled \
 -	-Dpower8=disabled
@@ -963,7 +697,7 @@ diff -ruN a/buildroot/package/mesa3d/mesa3d.mk b/buildroot/package/mesa3d/mesa3d
 -MESA3D_CONF_OPTS += -Db_asneeded=false
 -endif
 +MESA3D_CONF_OPTS = -Dpower8=disabled
-
+ 
 -ifeq ($(BR2_PACKAGE_MESA3D_DRI3),y)
 -MESA3D_CONF_OPTS += -Ddri3=enabled
 -ifeq ($(BR2_PACKAGE_XLIB_LIBXSHMFENCE),y)
@@ -973,7 +707,7 @@ diff -ruN a/buildroot/package/mesa3d/mesa3d.mk b/buildroot/package/mesa3d/mesa3d
 -else
 -MESA3D_CONF_OPTS += -Ddri3=disabled
 -endif
-
+ 
  ifeq ($(BR2_PACKAGE_MESA3D_LLVM),y)
  MESA3D_DEPENDENCIES += host-llvm llvm
 @@ -107,6 +95,7 @@
@@ -994,7 +728,7 @@ diff -ruN a/buildroot/package/mesa3d/mesa3d.mk b/buildroot/package/mesa3d/mesa3d
  MESA3D_VULKAN_DRIVERS-$(BR2_PACKAGE_MESA3D_VULKAN_DRIVER_INTEL)   += intel
  MESA3D_VULKAN_DRIVERS-$(BR2_PACKAGE_MESA3D_VULKAN_DRIVER_SWRAST) += swrast
 +MESA3D_VULKAN_DRIVERS-$(BR2_PACKAGE_MESA3D_VULKAN_DRIVER_VIRTIO) += virtio
-
+ 
  ifeq ($(BR2_PACKAGE_MESA3D_GALLIUM_DRIVER),)
  MESA3D_CONF_OPTS += \
 @@ -259,12 +250,16 @@
@@ -1011,7 +745,7 @@ diff -ruN a/buildroot/package/mesa3d/mesa3d.mk b/buildroot/package/mesa3d/mesa3d
 -MESA3D_CONF_OPTS += -Dglvnd=false
 +MESA3D_CONF_OPTS += -Dglvnd=disabled
  endif
-
+ 
 +# 0009-spirv-Use-STACK_ARRAY-instead-of-NIR_VLA.patch
 +# 0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA.patch
 +MESA3D_IGNORE_CVES += CVE-2026-40393

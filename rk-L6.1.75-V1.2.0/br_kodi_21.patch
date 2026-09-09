@@ -12,7 +12,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-pyro/kodi-screensaver-pyro.mk b/b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_PYRO_VERSION = 20.1.0-Nexus
 +KODI_SCREENSAVER_PYRO_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_PYRO_SITE = $(call github,xbmc,screensaver.pyro,$(KODI_SCREENSAVER_PYRO_VERSION))
@@ -32,7 +32,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-matrixtrails/kodi-screensaver-mat
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_MATRIXTRAILS_VERSION = 20.1.0-Nexus
 +KODI_SCREENSAVER_MATRIXTRAILS_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_MATRIXTRAILS_SITE = $(call github,xbmc,screensaver.matrixtrails,$(KODI_SCREENSAVER_MATRIXTRAILS_VERSION))
@@ -52,7 +52,7 @@ diff -ruN a/buildroot/package/kodi-pvr-waipu/kodi-pvr-waipu.mk b/buildroot/packa
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_WAIPU_VERSION = 20.11.0-Nexus
 +KODI_PVR_WAIPU_VERSION = 21.9.2-Omega
  KODI_PVR_WAIPU_SITE = $(call github,flubshi,pvr.waipu,$(KODI_PVR_WAIPU_VERSION))
@@ -72,7 +72,7 @@ diff -ruN a/buildroot/package/kodi-audioencoder-wav/kodi-audioencoder-wav.mk b/b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIOENCODER_WAV_VERSION = 20.2.0-Nexus
 +KODI_AUDIOENCODER_WAV_VERSION = 21.0.2-Omega
  KODI_AUDIOENCODER_WAV_SITE = $(call github,xbmc,audioencoder.wav,$(KODI_AUDIOENCODER_WAV_VERSION))
@@ -92,7 +92,7 @@ diff -ruN a/buildroot/package/kodi-audioencoder-lame/kodi-audioencoder-lame.mk b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIOENCODER_LAME_VERSION = 20.3.0-Nexus
 +KODI_AUDIOENCODER_LAME_VERSION = 21.0.2-Omega
  KODI_AUDIOENCODER_LAME_SITE = $(call github,xbmc,audioencoder.lame,$(KODI_AUDIOENCODER_LAME_VERSION))
@@ -112,7 +112,7 @@ diff -ruN a/buildroot/package/kodi-pvr-pctv/kodi-pvr-pctv.mk b/buildroot/package
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_PCTV_VERSION = 20.4.0-Nexus
 +KODI_PVR_PCTV_VERSION = 21.0.2-Omega
  KODI_PVR_PCTV_SITE = $(call github,kodi-pvr,pvr.pctv,$(KODI_PVR_PCTV_VERSION))
@@ -148,11 +148,11 @@ diff -ruN a/buildroot/package/kodi-imagedecoder-heif/0001-include-missing-cstdin
 -@@ -34,6 +34,7 @@
 - #ifndef __TINYEXIF_H__
 - #define __TINYEXIF_H__
--
+- 
 -+#include <cstdint>
 - #include <string>
 - #include <vector>
--
+- 
 diff -ruN a/buildroot/package/kodi-imagedecoder-heif/Config.in b/buildroot/package/kodi-imagedecoder-heif/Config.in
 --- a/buildroot/package/kodi-imagedecoder-heif/Config.in	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-imagedecoder-heif/Config.in	2026-08-22 20:12:19.762746830 +0800
@@ -169,9 +169,9 @@ diff -ruN a/buildroot/package/kodi-imagedecoder-heif/Config.in b/buildroot/packa
  	select BR2_PACKAGE_LIBHEIF
  	select BR2_PACKAGE_TINYXML2
 @@ -12,7 +12,7 @@
-
+ 
  	  https://github.com/xbmc/imagedecoder.heif
-
+ 
 -comment "kodi-imagedecoder-heif needs a toolchain w/ C++, threads, gcc >= 4.8"
 +comment "kodi-imagedecoder-heif needs a toolchain w/ C++, threads, gcc >= 10"
  	depends on !BR2_TOOLCHAIN_HAS_BINUTILS_BUG_30730 # libheif
@@ -192,7 +192,7 @@ diff -ruN a/buildroot/package/kodi-imagedecoder-heif/kodi-imagedecoder-heif.mk b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_IMAGEDECODER_HEIF_VERSION = 20.1.0-Nexus
 +KODI_IMAGEDECODER_HEIF_VERSION = 21.0.2-Omega
  KODI_IMAGEDECODER_HEIF_SITE = $(call github,xbmc,imagedecoder.heif,$(KODI_IMAGEDECODER_HEIF_VERSION))
@@ -212,7 +212,7 @@ diff -ruN a/buildroot/package/kodi-pvr-njoy/kodi-pvr-njoy.mk b/buildroot/package
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_NJOY_VERSION = 20.3.0-Nexus
 +KODI_PVR_NJOY_VERSION = 21.0.2-Omega
  KODI_PVR_NJOY_SITE = $(call github,kodi-pvr,pvr.njoy,$(KODI_PVR_NJOY_VERSION))
@@ -232,7 +232,7 @@ diff -ruN a/buildroot/package/kodi-pvr-zattoo/kodi-pvr-zattoo.mk b/buildroot/pac
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_ZATTOO_VERSION = 20.3.14-Nexus
 +KODI_PVR_ZATTOO_VERSION = 21.0.4-Omega
  KODI_PVR_ZATTOO_SITE = $(call github,rbuehlma,pvr.zattoo,$(KODI_PVR_ZATTOO_VERSION))
@@ -252,7 +252,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-nosefart/kodi-audiodecoder-nosef
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_NOSEFART_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_NOSEFART_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_NOSEFART_SITE = $(call github,xbmc,audiodecoder.nosefart,$(KODI_AUDIODECODER_NOSEFART_VERSION))
@@ -284,7 +284,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.mk b/b
 @@ -4,10 +4,10 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_RSXS_VERSION = 20.1.0-Nexus
 +KODI_SCREENSAVER_RSXS_VERSION = 21.1.2-Omega
  KODI_SCREENSAVER_RSXS_SITE = $(call github,xbmc,screensavers.rsxs,$(KODI_SCREENSAVER_RSXS_VERSION))
@@ -292,13 +292,13 @@ diff -ruN a/buildroot/package/kodi-screensaver-rsxs/kodi-screensaver-rsxs.mk b/b
  KODI_SCREENSAVER_RSXS_LICENSE_FILES = LICENSE.md
 -KODI_SCREENSAVER_RSXS_DEPENDENCIES = bzip2 gli glm kodi
 +KODI_SCREENSAVER_RSXS_DEPENDENCIES = bzip2 kodi
-
+ 
  $(eval $(cmake-package))
 diff -ruN a/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk b/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk
 --- a/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk	2026-08-22 20:42:00.090023908 +0800
 @@ -6,20 +6,20 @@
-
+ 
  # Not possible to directly refer to kodi variables, because of
  # first/second expansion trickery...
 -KODI_JSONSCHEMABUILDER_VERSION = 20.4-Nexus
@@ -310,17 +310,17 @@ diff -ruN a/buildroot/package/kodi-jsonschemabuilder/kodi-jsonschemabuilder.mk b
  KODI_JSONSCHEMABUILDER_LICENSE_FILES = LICENSE.md
 -HOST_KODI_JSONSCHEMABUILDER_SUBDIR = tools/depends/native/JsonSchemaBuilder
 +HOST_KODI_JSONSCHEMABUILDER_SUBDIR = tools/depends/native/JsonSchemaBuilder/src
-
+ 
  HOST_KODI_JSONSCHEMABUILDER_CONF_OPTS = \
  	-DCMAKE_MODULE_PATH=$(@D)/project/cmake/modules
-
+ 
  define HOST_KODI_JSONSCHEMABUILDER_INSTALL_CMDS
  	$(INSTALL) -m 755 -D \
 -		$(@D)/tools/depends/native/JsonSchemaBuilder/JsonSchemaBuilder \
 +		$(@D)/tools/depends/native/JsonSchemaBuilder/src/JsonSchemaBuilder \
  		$(HOST_DIR)/bin/kodi-JsonSchemaBuilder
  endef
-
+ 
 diff -ruN a/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash b/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash
 --- a/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.hash	2026-08-22 20:14:25.204118270 +0800
@@ -337,7 +337,7 @@ diff -ruN a/buildroot/package/kodi-vfs-rar/kodi-vfs-rar.mk b/buildroot/package/k
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VFS_RAR_VERSION = 20.1.0-Nexus
 +KODI_VFS_RAR_VERSION = 21.0.2-Omega
  KODI_VFS_RAR_SITE = $(call github,xbmc,vfs.rar,$(KODI_VFS_RAR_VERSION))
@@ -357,7 +357,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-matrix/kodi-visualisation-matri
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_MATRIX_VERSION = 20.2.0-Nexus
 +KODI_VISUALISATION_MATRIX_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_MATRIX_SITE = $(call github,xbmc,visualization.matrix,$(KODI_VISUALISATION_MATRIX_VERSION))
@@ -377,7 +377,7 @@ diff -ruN a/buildroot/package/kodi-audioencoder-flac/kodi-audioencoder-flac.mk b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIOENCODER_FLAC_VERSION = 20.2.0-Nexus
 +KODI_AUDIOENCODER_FLAC_VERSION = 21.0.2-Omega
  KODI_AUDIOENCODER_FLAC_SITE = $(call github,xbmc,audioencoder.flac,$(KODI_AUDIOENCODER_FLAC_VERSION))
@@ -397,7 +397,7 @@ diff -ruN a/buildroot/package/kodi-pvr-wmc/kodi-pvr-wmc.mk b/buildroot/package/k
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_WMC_VERSION = 20.3.0-Nexus
 +KODI_PVR_WMC_VERSION = 21.0.3-Omega
  KODI_PVR_WMC_SITE = $(call github,kodi-pvr,pvr.wmc,$(KODI_PVR_WMC_VERSION))
@@ -429,13 +429,13 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-timidity/0001-MidiScan-include-m
 ---- a/src/MidiScan.h
 -+++ b/src/MidiScan.h
 -@@ -8,6 +8,7 @@
--
+- 
 - #pragma once
--
+- 
 -+#include <cstdint>
 - #include <string>
 - #include <vector>
--
+- 
 diff -ruN a/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash b/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash
 --- a/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timidity.hash	2026-08-22 20:16:59.806576077 +0800
@@ -450,7 +450,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-timidity/kodi-audiodecoder-timid
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_TIMIDITY_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_TIMIDITY_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_TIMIDITY_SITE = $(call github,xbmc,audiodecoder.timidity,$(KODI_AUDIODECODER_TIMIDITY_VERSION))
@@ -470,7 +470,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-spectrum/kodi-visualisation-spe
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_SPECTRUM_VERSION = 20.2.0-Nexus
 +KODI_VISUALISATION_SPECTRUM_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_SPECTRUM_SITE = $(call github,xbmc,visualization.spectrum,$(KODI_VISUALISATION_SPECTRUM_VERSION))
@@ -482,7 +482,7 @@ diff -ruN a/buildroot/package/kodi/Config.in b/buildroot/package/kodi/Config.in
 @@ -5,12 +5,13 @@
  	depends on !(BR2_i386 && !BR2_X86_CPU_HAS_SSE)
  	depends on BR2_USE_MMU # libcdio, and others
-
+ 
 -comment "kodi needs python3 w/ .py modules, a uClibc or glibc toolchain w/ C++, threads, wchar, dynamic library, gcc >= 9.x"
 +comment "kodi needs python3 w/ .py modules, a uClibc or glibc toolchain w/ C++, threads, wchar, dynamic library, gcc >= 9.x, host gcc >= 9.x"
  	depends on BR2_PACKAGE_KODI_ARCH_SUPPORTS
@@ -494,6 +494,15 @@ diff -ruN a/buildroot/package/kodi/Config.in b/buildroot/package/kodi/Config.in
  		|| BR2_TOOLCHAIN_USES_MUSL \
  		|| !BR2_PACKAGE_PYTHON3 \
  		|| BR2_PACKAGE_PYTHON3_PYC_ONLY
+@@ -34,7 +35,7 @@
+ 	bool
+ 	default y
+ 	depends on BR2_PACKAGE_HAS_LIBGL || BR2_PACKAGE_HAS_LIBGLES
+-	depends on BR2_PACKAGE_HAS_LIBEGL_WAYLAND # waylandpp
++	depends on BR2_PACKAGE_HAS_LIBEGL_WAYLAND || BR2_PACKAGE_MESA3D_OPENGL_EGL
+ 	depends on BR2_HOST_GCC_AT_LEAST_4_9 # waylandpp
+ 	depends on BR2_TOOLCHAIN_GCC_AT_LEAST_4_9 # waylandpp
+ 	depends on BR2_INSTALL_LIBSTDCPP # waylandpp
 @@ -103,8 +104,10 @@
  	select BR2_PACKAGE_SQLITE
  	select BR2_PACKAGE_TAGLIB
@@ -506,9 +515,9 @@ diff -ruN a/buildroot/package/kodi/Config.in b/buildroot/package/kodi/Config.in
  	select BR2_PACKAGE_LIBXKBCOMMON if BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM
  	select BR2_PACKAGE_LIBXKBCOMMON if BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_WAYLAND
 @@ -217,6 +220,12 @@
-
+ 
  endchoice
-
+ 
 +config BR2_PACKAGE_KODI_PIPEWIRE
 +	bool "pipewire"
 +	depends on BR2_PACKAGE_PIPEWIRE
@@ -536,7 +545,7 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
 --- a/buildroot/package/kodi/kodi.mk	2024-05-08 21:21:19.000000000 +0800
 +++ b/buildroot/package/kodi/kodi.mk	2026-09-01 10:34:52.321392515 +0800
 @@ -6,8 +6,8 @@
-
+ 
  # When updating the version, please also update kodi-jsonschemabuilder
  # and kodi-texturepacker
 -KODI_VERSION_MAJOR = 20.4
@@ -552,7 +561,7 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
  	tinyxml \
 +	tinyxml2 \
  	zlib
-
+ 
  # taken from tools/depends/target/*/*-VERSION
 @@ -61,12 +62,25 @@
  KODI_LIBDVDNAV_VERSION = 6.1.1-Next-Nexus-Alpha2-2
@@ -564,14 +573,14 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
  	$(call github,xbmc,libdvdcss,$(KODI_LIBDVDCSS_VERSION))/kodi-libdvdcss-$(KODI_LIBDVDCSS_VERSION).tar.gz \
  	$(call github,xbmc,libdvdnav,$(KODI_LIBDVDNAV_VERSION))/kodi-libdvdnav-$(KODI_LIBDVDNAV_VERSION).tar.gz \
  	$(call github,xbmc,libdvdread,$(KODI_LIBDVDREAD_VERSION))/kodi-libdvdread-$(KODI_LIBDVDREAD_VERSION).tar.gz
-
+ 
 +define KODI_PROVIDE_JAVA_TARBALLS
 +	mkdir -p $(@D)/buildroot-build/build/download
 +	cp $(KODI_DL_DIR)/apache-groovy-binary-4.0.16.zip $(@D)/buildroot-build/build/download
 +	cp $(KODI_DL_DIR)/commons-lang3-3.14.0-bin.tar.gz $(@D)/buildroot-build/build/download
 +	cp $(KODI_DL_DIR)/commons-text-1.11.0-bin.tar.gz $(@D)/buildroot-build/build/download
 +endef
-+KODI_POST_EXTRACT_HOOKS = KODI_PROVIDE_JAVA_TARBALLS
++KODI_POST_EXTRACT_HOOKS += KODI_PROVIDE_JAVA_TARBALLS
 +
 +
  KODI_CONF_OPTS += \
@@ -589,13 +598,13 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
  	-DLIBDVDNAV_URL=$(KODI_DL_DIR)/kodi-libdvdnav-$(KODI_LIBDVDNAV_VERSION).tar.gz \
  	-DLIBDVDREAD_URL=$(KODI_DL_DIR)/kodi-libdvdread-$(KODI_LIBDVDREAD_VERSION).tar.gz
 @@ -104,13 +119,14 @@
-
+ 
  ifeq ($(BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_GBM),y)
  KODI_CORE_PLATFORM_NAME += gbm
 -KODI_DEPENDENCIES += libgbm libinput libxkbcommon
 +KODI_DEPENDENCIES += libdisplay-info libgbm libinput libxkbcommon
  endif
-
+ 
  ifeq ($(BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_WAYLAND),y)
  KODI_CONF_OPTS += \
  	-DPC_WAYLANDPP_SCANNER=$(HOST_DIR)/bin/wayland-scanner \
@@ -606,17 +615,17 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
  KODI_DEPENDENCIES += libxkbcommon waylandpp
  endif
 @@ -127,6 +143,7 @@
-
+ 
  ifeq ($(BR2_ENABLE_LOCALE),)
  KODI_DEPENDENCIES += libiconv
 +KODI_EXTRA_LIBS += -liconv
  endif
-
+ 
  ifeq ($(BR2_arceb)$(BR2_arcle),y)
 @@ -205,11 +222,6 @@
  KODI_CONF_OPTS += -D_AVX2_OK=OFF -D_AVX2_TRUE=OFF
  endif
-
+ 
 -# mips: uses __atomic_load_8
 -ifeq ($(BR2_TOOLCHAIN_HAS_LIBATOMIC),y)
 -KODI_CONF_OPTS += -DCMAKE_EXE_LINKER_FLAGS=-latomic
@@ -628,7 +637,7 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
 @@ -361,6 +373,13 @@
  KODI_CONF_OPTS += -DENABLE_OPTICAL=OFF
  endif
-
+ 
 +ifeq ($(BR2_PACKAGE_KODI_PIPEWIRE),y)
 +KODI_CONF_OPTS += -DENABLE_PIPEWIRE=ON
 +KODI_DEPENDENCIES += pipewire
@@ -641,7 +650,7 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
  KODI_DEPENDENCIES += pulseaudio
 @@ -369,9 +388,10 @@
  endif
-
+ 
  ifeq ($(BR2_PACKAGE_LIBUDFREAD),y)
 +KODI_CONF_OPTS += -DENABLE_UDFREAD=ON
  KODI_DEPENDENCIES += libudfread
@@ -649,7 +658,7 @@ diff -ruN a/buildroot/package/kodi/kodi.mk b/buildroot/package/kodi/kodi.mk
 -KODI_CONF_OPTS += -DENABLE_INTERNAL_UDFREAD=OFF
 +KODI_CONF_OPTS += -DENABLE_UDFREAD=OFF
  endif
-
+ 
  # Remove versioncheck addon, updating Kodi is done by building a new
 diff -ruN a/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash b/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash
 --- a/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-biogenesis.hash	2024-05-08 21:21:18.000000000 +0800
@@ -665,7 +674,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-biogenesis/kodi-screensaver-bioge
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_BIOGENESIS_VERSION = 20.1.0-Nexus
 +KODI_SCREENSAVER_BIOGENESIS_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_BIOGENESIS_SITE = $(call github,xbmc,screensaver.biogenesis,$(KODI_SCREENSAVER_BIOGENESIS_VERSION))
@@ -685,7 +694,7 @@ diff -ruN a/buildroot/package/kodi-pvr-vuplus/kodi-pvr-vuplus.mk b/buildroot/pac
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_VUPLUS_VERSION = 20.5.1-Nexus
 +KODI_PVR_VUPLUS_VERSION = 21.3.2-Omega
  KODI_PVR_VUPLUS_SITE = $(call github,kodi-pvr,pvr.vuplus,$(KODI_PVR_VUPLUS_VERSION))
@@ -705,7 +714,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-asteroids/kodi-screensaver-astero
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_ASTEROIDS_VERSION = 20.2.0-Nexus
 +KODI_SCREENSAVER_ASTEROIDS_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_ASTEROIDS_SITE = $(call github,xbmc,screensaver.asteroids,$(KODI_SCREENSAVER_ASTEROIDS_VERSION))
@@ -722,7 +731,7 @@ diff -ruN a/buildroot/package/kodi-inputstream-adaptive/Config.in b/buildroot/pa
 +	select BR2_PACKAGE_PUGIXML
  	help
  	  Kodi inputstream addon for several manifest types
-
+ 
 diff -ruN a/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash b/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash
 --- a/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptive.hash	2026-08-22 20:22:11.605499357 +0800
@@ -739,7 +748,7 @@ diff -ruN a/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptiv
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_INPUTSTREAM_ADAPTIVE_VERSION = 20.3.17-Nexus
 +KODI_INPUTSTREAM_ADAPTIVE_VERSION = 21.5.9-Omega
  KODI_INPUTSTREAM_ADAPTIVE_SITE = $(call github,xbmc,inputstream.adaptive,$(KODI_INPUTSTREAM_ADAPTIVE_VERSION))
@@ -748,10 +757,10 @@ diff -ruN a/buildroot/package/kodi-inputstream-adaptive/kodi-inputstream-adaptiv
 @@ -22,6 +22,6 @@
  	LICENSES/GPL-2.0-or-later \
  	LICENSES/RSA-MD
-
+ 
 -KODI_INPUTSTREAM_ADAPTIVE_DEPENDENCIES = bento4 expat kodi
 +KODI_INPUTSTREAM_ADAPTIVE_DEPENDENCIES = bento4 kodi pugixml
-
+ 
  $(eval $(cmake-package))
 diff -ruN a/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash b/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash
 --- a/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.hash	2024-05-08 21:21:18.000000000 +0800
@@ -767,7 +776,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-cpblobs/kodi-screensaver-cpblobs.
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_CPBLOBS_VERSION = 20.1.0-Nexus
 +KODI_SCREENSAVER_CPBLOBS_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_CPBLOBS_SITE = $(call github,xbmc,screensaver.cpblobs,$(KODI_SCREENSAVER_CPBLOBS_VERSION))
@@ -787,7 +796,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-sidplay/kodi-audiodecoder-sidpla
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_SIDPLAY_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_SIDPLAY_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_SIDPLAY_SITE = $(call github,xbmc,audiodecoder.sidplay,$(KODI_AUDIODECODER_SIDPLAY_VERSION))
@@ -807,7 +816,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-asterwave/kodi-screensaver-asterw
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_ASTERWAVE_VERSION = 20.2.0-Nexus
 +KODI_SCREENSAVER_ASTERWAVE_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_ASTERWAVE_SITE = $(call github,xbmc,screensaver.asterwave,$(KODI_SCREENSAVER_ASTERWAVE_VERSION))
@@ -830,8 +839,8 @@ diff -ruN a/buildroot/package/kodi-texturepacker/0001-texturepacker.patch b/buil
 - 	cd $(PLATFORM); ./autogen.sh
 --	cd $(PLATFORM); ./configure --prefix=$(PREFIX) $(EXTRA_CONFIGURE) EXTRA_DEFINES="$(NATIVE_ARCH_DEFINES)"
 -+	cd $(PLATFORM); ./configure --prefix=$(PREFIX) EXTRA_DEFINES="$(NATIVE_ARCH_DEFINES)"
--
--
+- 
+- 
 - $(APP): $(PLATFORM)
 diff -ruN a/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch b/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch
 --- a/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-source-dir.patch	2024-05-08 21:21:18.000000000 +0800
@@ -862,13 +871,13 @@ diff -ruN a/buildroot/package/kodi-texturepacker/0002-fix-texture-packer-cmake-s
 -+set(CMAKE_SOURCE_DIR ${CMAKE_SOURCE_DIR}/../../../..)
 -+
 - list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
--
+- 
 - if(APPLE)
 diff -ruN a/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk b/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk
 --- a/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk	2026-08-22 20:28:50.923681801 +0800
 @@ -6,13 +6,13 @@
-
+ 
  # Not possible to directly refer to kodi variables, because of
  # first/second expansion trickery...
 -KODI_TEXTUREPACKER_VERSION = 20.4-Nexus
@@ -884,7 +893,7 @@ diff -ruN a/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk b/buildro
  	host-giflib \
  	host-libjpeg \
 @@ -21,7 +21,7 @@
-
+ 
  HOST_KODI_TEXTUREPACKER_CXXFLAGS = \
  	$(HOST_CXXFLAGS) \
 -	-std=c++0x \
@@ -898,14 +907,14 @@ diff -ruN a/buildroot/package/kodi-texturepacker/kodi-texturepacker.mk b/buildro
  	-DCMAKE_MODULE_PATH=$(@D)/cmake/modules \
 +	-DKODI_SOURCE_DIR=$(@D) \
  	-Wno-dev
-
+ 
  define HOST_KODI_TEXTUREPACKER_INSTALL_CMDS
  	$(INSTALL) -m 755 -D \
 -		$(@D)/tools/depends/native/TexturePacker/TexturePacker \
 +		$(@D)/tools/depends/native/TexturePacker/src/TexturePacker \
  		$(HOST_DIR)/bin/kodi-TexturePacker
  endef
-
+ 
 diff -ruN a/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash b/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash
 --- a/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash	2024-05-08 21:21:18.000000000 +0800
 +++ b/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.hash	2026-08-22 20:24:26.346898344 +0800
@@ -920,7 +929,7 @@ diff -ruN a/buildroot/package/kodi-pvr-hdhomerun/kodi-pvr-hdhomerun.mk b/buildro
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_HDHOMERUN_VERSION = 20.4.0-Nexus
 +KODI_PVR_HDHOMERUN_VERSION = 21.0.2-Omega
  KODI_PVR_HDHOMERUN_SITE = $(call github,kodi-pvr,pvr.hdhomerun,$(KODI_PVR_HDHOMERUN_VERSION))
@@ -940,7 +949,7 @@ diff -ruN a/buildroot/package/kodi-pvr-vbox/kodi-pvr-vbox.mk b/buildroot/package
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_VBOX_VERSION = 20.4.2-Nexus
 +KODI_PVR_VBOX_VERSION = 21.1.5-Omega
  KODI_PVR_VBOX_SITE = $(call github,kodi-pvr,pvr.vbox,$(KODI_PVR_VBOX_VERSION))
@@ -960,7 +969,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-fishbmc/kodi-visualisation-fish
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_FISHBMC_VERSION = 20.2.0-Nexus
 +KODI_VISUALISATION_FISHBMC_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_FISHBMC_SITE = $(call github,xbmc,visualization.fishbmc,$(KODI_VISUALISATION_FISHBMC_VERSION))
@@ -980,7 +989,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-goom/kodi-visualisation-goom.mk
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_GOOM_VERSION = 20.1.1-Nexus
 +KODI_VISUALISATION_GOOM_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_GOOM_SITE = $(call github,xbmc,visualization.goom,$(KODI_VISUALISATION_GOOM_VERSION))
@@ -1000,7 +1009,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-waveform/kodi-visualisation-wav
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_WAVEFORM_VERSION = 20.2.1-Nexus
 +KODI_VISUALISATION_WAVEFORM_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_WAVEFORM_SITE = $(call github,xbmc,visualization.waveform,$(KODI_VISUALISATION_WAVEFORM_VERSION))
@@ -1020,7 +1029,7 @@ diff -ruN a/buildroot/package/kodi-pvr-plutotv/kodi-pvr-plutotv.mk b/buildroot/p
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_PLUTOTV_VERSION = 20.3.1a-Nexus
 +KODI_PVR_PLUTOTV_VERSION = 21.3.3-Omega
  KODI_PVR_PLUTOTV_SITE = $(call github,kodi-pvr,pvr.plutotv,$(KODI_PVR_PLUTOTV_VERSION))
@@ -1040,7 +1049,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-starburst/kodi-visualisation-st
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_STARBURST_VERSION = 20.2.0-Nexus
 +KODI_VISUALISATION_STARBURST_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_STARBURST_SITE = $(call github,xbmc,visualization.starburst,$(KODI_VISUALISATION_STARBURST_VERSION))
@@ -1060,7 +1069,7 @@ diff -ruN a/buildroot/package/kodi-vfs-libarchive/kodi-vfs-libarchive.mk b/build
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VFS_LIBARCHIVE_VERSION = 20.3.0-Nexus
 +KODI_VFS_LIBARCHIVE_VERSION = 21.0.2-Omega
  KODI_VFS_LIBARCHIVE_SITE = $(call github,xbmc,vfs.libarchive,$(KODI_VFS_LIBARCHIVE_VERSION))
@@ -1080,7 +1089,7 @@ diff -ruN a/buildroot/package/kodi-pvr-dvblink/kodi-pvr-dvblink.mk b/buildroot/p
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_DVBLINK_VERSION = 20.3.0-Nexus
 +KODI_PVR_DVBLINK_VERSION = 21.1.3-Omega
  KODI_PVR_DVBLINK_SITE = $(call github,kodi-pvr,pvr.dvblink,$(KODI_PVR_DVBLINK_VERSION))
@@ -1100,7 +1109,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-modplug/kodi-audiodecoder-modplu
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_MODPLUG_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_MODPLUG_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_MODPLUG_SITE = $(call github,xbmc,audiodecoder.modplug,$(KODI_AUDIODECODER_MODPLUG_VERSION))
@@ -1120,7 +1129,7 @@ diff -ruN a/buildroot/package/kodi-pvr-iptvsimple/kodi-pvr-iptvsimple.mk b/build
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_IPTVSIMPLE_VERSION = 20.13.0-Nexus
 +KODI_PVR_IPTVSIMPLE_VERSION = 21.10.2-Omega
  KODI_PVR_IPTVSIMPLE_SITE = $(call github,kodi-pvr,pvr.iptvsimple,$(KODI_PVR_IPTVSIMPLE_VERSION))
@@ -1140,7 +1149,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-vgmstream/kodi-audiodecoder-vgms
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_VGMSTREAM_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_VGMSTREAM_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_VGMSTREAM_SITE = $(call github,xbmc,audiodecoder.vgmstream,$(KODI_AUDIODECODER_VGMSTREAM_VERSION))
@@ -1160,7 +1169,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-stars/kodi-screensaver-stars.mk b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_STARS_VERSION = 20.1.0-Nexus
 +KODI_SCREENSAVER_STARS_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_STARS_SITE = $(call github,xbmc,screensaver.stars,$(KODI_SCREENSAVER_STARS_VERSION))
@@ -1180,7 +1189,7 @@ diff -ruN a/buildroot/package/kodi-pvr-vdr-vnsi/kodi-pvr-vdr-vnsi.mk b/buildroot
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_VDR_VNSI_VERSION = 20.4.1-Nexus
 +KODI_PVR_VDR_VNSI_VERSION = 21.1.3-Omega
  KODI_PVR_VDR_VNSI_SITE = $(call github,kodi-pvr,pvr.vdr.vnsi,$(KODI_PVR_VDR_VNSI_VERSION))
@@ -1200,7 +1209,7 @@ diff -ruN a/buildroot/package/kodi-vfs-sftp/kodi-vfs-sftp.mk b/buildroot/package
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VFS_SFTP_VERSION = 20.2.0-Nexus
 +KODI_VFS_SFTP_VERSION = 21.0.2-Omega
  KODI_VFS_SFTP_SITE = $(call github,xbmc,vfs.sftp,$(KODI_VFS_SFTP_VERSION))
@@ -1220,7 +1229,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-stsound/kodi-audiodecoder-stsoun
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_STSOUND_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_STSOUND_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_STSOUND_SITE = $(call github,xbmc,audiodecoder.stsound,$(KODI_AUDIODECODER_STSOUND_VERSION))
@@ -1240,7 +1249,7 @@ diff -ruN a/buildroot/package/kodi-peripheral-joystick/kodi-peripheral-joystick.
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PERIPHERAL_JOYSTICK_VERSION = 20.1.15-Nexus
 +KODI_PERIPHERAL_JOYSTICK_VERSION = 21.1.22-Omega
  KODI_PERIPHERAL_JOYSTICK_SITE = $(call github,xbmc,peripheral.joystick,$(KODI_PERIPHERAL_JOYSTICK_VERSION))
@@ -1260,7 +1269,7 @@ diff -ruN a/buildroot/package/kodi-peripheral-xarcade/kodi-peripheral-xarcade.mk
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PERIPHERAL_XARCADE_VERSION = 20.1.3-Nexus
 +KODI_PERIPHERAL_XARCADE_VERSION = 21.0.2-Omega
  KODI_PERIPHERAL_XARCADE_SITE = $(call github,kodi-game,peripheral.xarcade,$(KODI_PERIPHERAL_XARCADE_VERSION))
@@ -1280,7 +1289,7 @@ diff -ruN a/buildroot/package/kodi-audiodecoder-snesapu/kodi-audiodecoder-snesap
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIODECODER_SNESAPU_VERSION = 20.2.0-Nexus
 +KODI_AUDIODECODER_SNESAPU_VERSION = 21.0.2-Omega
  KODI_AUDIODECODER_SNESAPU_SITE = $(call github,xbmc,audiodecoder.snesapu,$(KODI_AUDIODECODER_SNESAPU_VERSION))
@@ -1300,7 +1309,7 @@ diff -ruN a/buildroot/package/kodi-imagedecoder-raw/kodi-imagedecoder-raw.mk b/b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_IMAGEDECODER_RAW_VERSION = 20.1.0-Nexus
 +KODI_IMAGEDECODER_RAW_VERSION = 21.0.2-Omega
  KODI_IMAGEDECODER_RAW_SITE = $(call github,xbmc,imagedecoder.raw,$(KODI_IMAGEDECODER_RAW_VERSION))
@@ -1320,7 +1329,7 @@ diff -ruN a/buildroot/package/kodi-pvr-argustv/kodi-pvr-argustv.mk b/buildroot/p
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_ARGUSTV_VERSION = 20.5.0-Nexus
 +KODI_PVR_ARGUSTV_VERSION = 21.1.1-Omega
  KODI_PVR_ARGUSTV_SITE = $(call github,kodi-pvr,pvr.argustv,$(KODI_PVR_ARGUSTV_VERSION))
@@ -1340,7 +1349,7 @@ diff -ruN a/buildroot/package/kodi-inputstream-rtmp/kodi-inputstream-rtmp.mk b/b
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_INPUTSTREAM_RTMP_VERSION = 20.3.0-Nexus
 +KODI_INPUTSTREAM_RTMP_VERSION = 21.1.2-Omega
  KODI_INPUTSTREAM_RTMP_SITE = $(call github,xbmc,inputstream.rtmp,$(KODI_INPUTSTREAM_RTMP_VERSION))
@@ -1360,7 +1369,7 @@ diff -ruN a/buildroot/package/kodi-audioencoder-vorbis/kodi-audioencoder-vorbis.
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_AUDIOENCODER_VORBIS_VERSION = 20.2.0-Nexus
 +KODI_AUDIOENCODER_VORBIS_VERSION = 21.0.2-Omega
  KODI_AUDIOENCODER_VORBIS_SITE = $(call github,xbmc,audioencoder.vorbis,$(KODI_AUDIOENCODER_VORBIS_VERSION))
@@ -1380,7 +1389,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-pingpong/kodi-screensaver-pingpon
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_PINGPONG_VERSION = 20.2.0-Nexus
 +KODI_SCREENSAVER_PINGPONG_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_PINGPONG_SITE = $(call github,xbmc,screensaver.pingpong,$(KODI_SCREENSAVER_PINGPONG_VERSION))
@@ -1400,7 +1409,7 @@ diff -ruN a/buildroot/package/kodi-pvr-hts/kodi-pvr-hts.mk b/buildroot/package/k
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_HTS_VERSION = 20.7.0-Nexus
 +KODI_PVR_HTS_VERSION = 21.2.6-Omega
  KODI_PVR_HTS_SITE = $(call github,kodi-pvr,pvr.hts,$(KODI_PVR_HTS_VERSION))
@@ -1420,7 +1429,7 @@ diff -ruN a/buildroot/package/kodi-pvr-filmon/kodi-pvr-filmon.mk b/buildroot/pac
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_FILMON_VERSION = 20.3.0-Nexus
 +KODI_PVR_FILMON_VERSION = 21.0.3-Omega
  KODI_PVR_FILMON_SITE = $(call github,kodi-pvr,pvr.filmon,$(KODI_PVR_FILMON_VERSION))
@@ -1440,7 +1449,7 @@ diff -ruN a/buildroot/package/kodi-pvr-dvbviewer/kodi-pvr-dvbviewer.mk b/buildro
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_DVBVIEWER_VERSION = 20.4.0-Nexus
 +KODI_PVR_DVBVIEWER_VERSION = 21.1.3-Omega
  KODI_PVR_DVBVIEWER_SITE = $(call github,kodi-pvr,pvr.dvbviewer,$(KODI_PVR_DVBVIEWER_VERSION))
@@ -1460,7 +1469,7 @@ diff -ruN a/buildroot/package/kodi-skin-confluence/kodi-skin-confluence.mk b/bui
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SKIN_CONFLUENCE_VERSION = a155597cb6bb0f9d46b26ad881be1148929a03af
 +KODI_SKIN_CONFLUENCE_VERSION = b049aa8b6bab50518de72783efd219680047d6d9
  KODI_SKIN_CONFLUENCE_SITE = $(call github,xbmc,skin.confluence,$(KODI_SKIN_CONFLUENCE_VERSION))
@@ -1480,7 +1489,7 @@ diff -ruN a/buildroot/package/kodi-pvr-mythtv/kodi-pvr-mythtv.mk b/buildroot/pac
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_MYTHTV_VERSION = 20.5.10-Nexus
 +KODI_PVR_MYTHTV_VERSION = 21.1.11-Omega
  KODI_PVR_MYTHTV_SITE = $(call github,janbar,pvr.mythtv,$(KODI_PVR_MYTHTV_VERSION))
@@ -1500,7 +1509,7 @@ diff -ruN a/buildroot/package/kodi-pvr-mediaportal-tvserver/kodi-pvr-mediaportal
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_MEDIAPORTAL_TVSERVER_VERSION = 20.3.0-Nexus
 +KODI_PVR_MEDIAPORTAL_TVSERVER_VERSION = 21.0.5-Omega
  KODI_PVR_MEDIAPORTAL_TVSERVER_SITE = $(call github,kodi-pvr,pvr.mediaportal.tvserver,$(KODI_PVR_MEDIAPORTAL_TVSERVER_VERSION))
@@ -1520,7 +1529,7 @@ diff -ruN a/buildroot/package/kodi-screensaver-greynetic/kodi-screensaver-greyne
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_SCREENSAVER_GREYNETIC_VERSION = 20.2.0-Nexus
 +KODI_SCREENSAVER_GREYNETIC_VERSION = 21.0.2-Omega
  KODI_SCREENSAVER_GREYNETIC_SITE = $(call github,xbmc,screensaver.greynetic,$(KODI_SCREENSAVER_GREYNETIC_VERSION))
@@ -1553,24 +1562,24 @@ diff -ruN a/buildroot/package/kodi-inputstream-ffmpegdirect/0001-include-missing
 ---- a/src/utils/DiskUtils.h
 -+++ b/src/utils/DiskUtils.h
 -@@ -7,6 +7,7 @@
--
+- 
 - #pragma once
--
+- 
 -+#include <cstdint>
 - #include <string>
--
+- 
 - namespace ffmpegdirect
 -diff --git a/src/utils/HttpProxy.h b/src/utils/HttpProxy.h
 -index eb0c99cb..d203ce36 100644
 ---- a/src/utils/HttpProxy.h
 -+++ b/src/utils/HttpProxy.h
 -@@ -7,6 +7,7 @@
--
+- 
 - #pragma once
--
+- 
 -+#include <cstdint>
 - #include <string>
--
+- 
 - namespace ffmpegdirect
 -@@ -36,4 +37,4 @@ namespace ffmpegdirect
 -     std::string m_user;
@@ -1593,7 +1602,7 @@ diff -ruN a/buildroot/package/kodi-inputstream-ffmpegdirect/kodi-inputstream-ffm
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_INPUTSTREAM_FFMPEGDIRECT_VERSION = 20.5.0-Nexus
 +KODI_INPUTSTREAM_FFMPEGDIRECT_VERSION = 21.3.7-Omega
  KODI_INPUTSTREAM_FFMPEGDIRECT_SITE = $(call github,xbmc,inputstream.ffmpegdirect,$(KODI_INPUTSTREAM_FFMPEGDIRECT_VERSION))
@@ -1613,7 +1622,7 @@ diff -ruN a/buildroot/package/kodi-pvr-nextpvr/kodi-pvr-nextpvr.mk b/buildroot/p
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_NEXTPVR_VERSION = 20.4.3-Nexus
 +KODI_PVR_NEXTPVR_VERSION = 21.3.2-Omega
  KODI_PVR_NEXTPVR_SITE = $(call github,kodi-pvr,pvr.nextpvr,$(KODI_PVR_NEXTPVR_VERSION))
@@ -1633,7 +1642,7 @@ diff -ruN a/buildroot/package/kodi-pvr-octonet/kodi-pvr-octonet.mk b/buildroot/p
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_OCTONET_VERSION = 20.3.0-Nexus
 +KODI_PVR_OCTONET_VERSION = 21.0.1-Omega
  KODI_PVR_OCTONET_SITE = $(call github,DigitalDevices,pvr.octonet,$(KODI_PVR_OCTONET_VERSION))
@@ -1653,7 +1662,7 @@ diff -ruN a/buildroot/package/kodi-visualisation-shadertoy/kodi-visualisation-sh
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_VISUALISATION_SHADERTOY_VERSION = 20.3.0-Nexus
 +KODI_VISUALISATION_SHADERTOY_VERSION = 21.0.2-Omega
  KODI_VISUALISATION_SHADERTOY_SITE = $(call github,xbmc,visualization.shadertoy,$(KODI_VISUALISATION_SHADERTOY_VERSION))
@@ -1673,15 +1682,15 @@ diff -ruN a/buildroot/package/kodi-pvr-stalker/kodi-pvr-stalker.mk b/buildroot/p
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -KODI_PVR_STALKER_VERSION = 20.3.1-Nexus
 +KODI_PVR_STALKER_VERSION = 21.1.3-Omega
  KODI_PVR_STALKER_SITE = $(call github,kodi-pvr,pvr.stalker,$(KODI_PVR_STALKER_VERSION))
  KODI_PVR_STALKER_LICENSE = GPL-2.0+
  KODI_PVR_STALKER_LICENSE_FILES = LICENSE.md
-diff -ruN b/buildroot/package/bento4/bento4.hash buildroot/package/bento4/bento4.hash
---- b/buildroot/package/bento4/bento4.hash	2026-08-14 13:16:54.420793591 +0800
-+++ buildroot/package/bento4/bento4.hash	2026-07-16 03:19:23.000000000 +0800
+diff -ruN a/buildroot/package/bento4/bento4.hash b/buildroot/package/bento4/bento4.hash
+--- a/buildroot/package/bento4/bento4.hash	2026-08-14 13:16:54.420793591 +0800
++++ b/buildroot/package/bento4/bento4.hash	2026-07-16 03:19:23.000000000 +0800
 @@ -1,3 +1,3 @@
  # Locally calculated
 -sha256  4464cd47b597e6dedbfc231bb6eb097c45cfe5ee0051082460d9ac53e9d74dc3  bento4-1.6.0-639-7-Omega.tar.gz
@@ -1693,7 +1702,7 @@ diff -ruN a/buildroot/package/bento4/bento4.mk b/buildroot/package/bento4/bento4
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -BENTO4_VERSION = 1.6.0-639-7-Omega
 +BENTO4_VERSION = 1.6.0-641-Omega
  BENTO4_SITE = $(call github,xbmc,Bento4,$(BENTO4_VERSION))

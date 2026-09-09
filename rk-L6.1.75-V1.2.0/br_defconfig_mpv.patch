@@ -1,6 +1,6 @@
 --- a/buildroot/configs/rockchip_rk3576_defconfig	2025-07-14 14:08:16.000000000 +0800
-+++ b/buildroot/configs/rockchip_rk3576_defconfig	2026-09-07 20:14:40.284877834 +0800
-@@ -19,7 +19,133 @@
++++ b/buildroot/configs/rockchip_rk3576_defconfig	2026-09-08 21:49:10.133396841 +0800
+@@ -19,7 +19,136 @@
  #include "tools/benchmark.config"
  #include "tools/common.config"
  #include "tools/test.config"
@@ -13,6 +13,9 @@
 +# BR2_PACKAGE_ALSA_PLUGINS is reset to default
 +BR2_PACKAGE_ANDROID_ADBD_SECURE=y
 +BR2_PACKAGE_APITRACE=y
++BR2_PACKAGE_AVAHI=y
++# BR2_PACKAGE_AVAHI_AUTOIPD is not set
++BR2_PACKAGE_AVAHI_DAEMON=y
 +BR2_PACKAGE_BLUEZ5_UTILS_PLUGINS_HEALTH=y
 +BR2_PACKAGE_BLUEZ5_UTILS_PLUGINS_MESH=y
 +BR2_PACKAGE_BLUEZ5_UTILS_PLUGINS_NETWORK=y

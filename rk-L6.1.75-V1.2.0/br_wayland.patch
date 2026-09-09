@@ -18,7 +18,7 @@ diff -ruN a/buildroot/package/wayland/0001-meson-Make-wayland-egl-optional.patch
 ---- a/meson.build
 -+++ b/meson.build
 -@@ -117,7 +117,9 @@ subdir('src')
--
+- 
 - if get_option('libraries')
 - 	subdir('cursor')
 --	subdir('egl')
@@ -40,7 +40,7 @@ diff -ruN a/buildroot/package/wayland/0001-meson-Make-wayland-egl-optional.patch
 - option('libraries',
 -   description: 'Compile Wayland libraries',
 -   type: 'boolean',
----
+--- 
 -2.20.1
 -
 diff -ruN a/buildroot/package/wayland/0002-wayland-client-Support-waiting-for-socket-when-conne.patch b/buildroot/package/wayland/0002-wayland-client-Support-waiting-for-socket-when-conne.patch
@@ -73,13 +73,13 @@ diff -ruN a/buildroot/package/wayland/0002-wayland-client-Support-waiting-for-so
 - 	int name_size, fd;
 - 	bool path_is_absolute;
 -+	int i;
--
+- 
 - 	if (name == NULL)
 - 		name = getenv("WAYLAND_DISPLAY");
 -@@ -1151,7 +1152,13 @@ connect_to_socket(const char *name)
--
+- 
 - 	size = offsetof (struct sockaddr_un, sun_path) + name_size;
--
+- 
 --	if (connect(fd, (struct sockaddr *) &addr, size) < 0) {
 -+	i = 500;
 -+	while (connect(fd, (struct sockaddr *) &addr, size) < 0) {
@@ -91,7 +91,7 @@ diff -ruN a/buildroot/package/wayland/0002-wayland-client-Support-waiting-for-so
 - 		close(fd);
 - 		return -1;
 - 	}
----
+--- 
 -2.20.1
 -
 diff -ruN a/buildroot/package/wayland/0003-client-Assign-proxy-to-default-queue-when-releasing-.patch b/buildroot/package/wayland/0003-client-Assign-proxy-to-default-queue-when-releasing-.patch
@@ -119,7 +119,7 @@ diff -ruN a/buildroot/package/wayland/0003-client-Assign-proxy-to-default-queue-
 -@@ -296,6 +296,21 @@ destroy_queued_closure(struct wl_closure *closure)
 - 	wl_closure_destroy(closure);
 - }
--
+- 
 -+static void
 -+proxy_set_queue(struct wl_proxy *proxy, struct wl_event_queue *queue)
 -+{
@@ -148,7 +148,7 @@ diff -ruN a/buildroot/package/wayland/0003-client-Assign-proxy-to-default-queue-
 -+			proxy_set_queue(proxy, NULL);
 - 		}
 - 	}
--
+- 
 -@@ -2377,18 +2390,7 @@ WL_EXPORT void
 - wl_proxy_set_queue(struct wl_proxy *proxy, struct wl_event_queue *queue)
 - {
@@ -168,15 +168,15 @@ diff -ruN a/buildroot/package/wayland/0003-client-Assign-proxy-to-default-queue-
 -+	proxy_set_queue(proxy, queue);
 - 	pthread_mutex_unlock(&proxy->display->mutex);
 - }
--
----
+- 
+--- 
 -2.20.1
 -
 diff -ruN a/buildroot/package/wayland/Config.in b/buildroot/package/wayland/Config.in
 --- a/buildroot/package/wayland/Config.in	2024-05-08 21:21:50.000000000 +0800
-+++ b/buildroot/package/wayland/Config.in	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/wayland/Config.in	2026-09-08 22:55:34.945129057 +0800
 @@ -14,8 +14,3 @@
-
+ 
  comment "wayland needs a toolchain w/ threads, dynamic library"
  	depends on !BR2_TOOLCHAIN_HAS_THREADS || BR2_STATIC_LIBS
 -
@@ -186,7 +186,7 @@ diff -ruN a/buildroot/package/wayland/Config.in b/buildroot/package/wayland/Conf
 -endif
 diff -ruN a/buildroot/package/wayland/wayland.hash b/buildroot/package/wayland/wayland.hash
 --- a/buildroot/package/wayland/wayland.hash	2024-05-08 21:21:50.000000000 +0800
-+++ b/buildroot/package/wayland/wayland.hash	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/wayland/wayland.hash	2026-09-08 22:55:34.946129061 +0800
 @@ -1,6 +1,6 @@
 -# From https://lists.freedesktop.org/archives/wayland-devel/2023-April/042647.html
 -sha256  1540af1ea698a471c2d8e9d288332c7e0fd360c8f1d12936ebb7e7cbc2425842  wayland-1.22.0.tar.xz
@@ -194,16 +194,16 @@ diff -ruN a/buildroot/package/wayland/wayland.hash b/buildroot/package/wayland/w
 +# From https://lists.freedesktop.org/archives/wayland-devel/2024-August/043760.html
 +sha256  864fb2a8399e2d0ec39d56e9d9b753c093775beadc6022ce81f441929a81e5ed  wayland-1.23.1.tar.xz
 +sha512  818eda003e3f7aa15690eedb1ff227a6056b2ce54bf23d45ffe573dc40a914623c5a1358218b59444dcdc483db0503324f0d27091d0ea954412a8b290de5f50a  wayland-1.23.1.tar.xz
-
+ 
  # Locally calculated
  sha256  6eefcb023622a463168a5c20add95fd24a38c7482622a9254a23b99b7c153061  COPYING
 diff -ruN a/buildroot/package/wayland/wayland.mk b/buildroot/package/wayland/wayland.mk
 --- a/buildroot/package/wayland/wayland.mk	2024-05-08 21:21:50.000000000 +0800
-+++ b/buildroot/package/wayland/wayland.mk	2026-07-16 03:19:23.000000000 +0800
++++ b/buildroot/package/wayland/wayland.mk	2026-09-08 22:55:34.947129065 +0800
 @@ -4,7 +4,7 @@
  #
  ################################################################################
-
+ 
 -WAYLAND_VERSION = 1.22.0
 +WAYLAND_VERSION = 1.23.1
  WAYLAND_SITE = https://gitlab.freedesktop.org/wayland/wayland/-/releases/$(WAYLAND_VERSION)/downloads
@@ -212,7 +212,7 @@ diff -ruN a/buildroot/package/wayland/wayland.mk b/buildroot/package/wayland/way
 @@ -17,10 +17,6 @@
  WAYLAND_CONF_OPTS = -Dtests=false -Ddocumentation=false
  HOST_WAYLAND_CONF_OPTS = -Dtests=false -Ddocumentation=false
-
+ 
 -ifeq ($(BR2_PACKAGE_WAYLAND_WITHOUT_EGL),y)
 -WAYLAND_CONF_OPTS += -Degl=false
 -endif
