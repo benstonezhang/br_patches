@@ -490,6 +490,30 @@ diff -ruN a/buildroot/package/mesa3d/0010-nir-Use-STACK_ARRAY-instead-of-NIR_VLA
 +    return true;
 + }
 + 
+diff -ruN a/buildroot/package/mesa3d/0011-timespace-fix.patch b/buildroot/package/mesa3d/0011-timespace-fix.patch
+--- a/buildroot/package/mesa3d/0011-timespace-fix.patch	1970-01-01 08:00:00.000000000 +0800
++++ b/buildroot/package/mesa3d/0011-timespace-fix.patch	2026-09-10 16:37:58.762733605 +0800
+@@ -0,0 +1,20 @@
++--- a/src/loader/loader_wayland_helper.c	2026-09-10 16:33:48.916791328 +0800
+++++ b/src/loader/loader_wayland_helper.c	2026-09-10 16:34:06.779858691 +0800
++@@ -24,6 +24,7 @@
++ #include <errno.h>
++ 
++ #include "util/perf/cpu_trace.h"
+++#include "util/timespec.h"
++ 
++ #include "loader_wayland_helper.h"
++ 
++--- a/src/gallium/drivers/llvmpipe/lp_fence.c	2026-09-10 16:34:56.725047056 +0800
+++++ b/src/gallium/drivers/llvmpipe/lp_fence.c	2026-09-10 16:35:28.949168587 +0800
++@@ -45,6 +45,7 @@
++ #include <poll.h>
++ #include "util/libsync.h"
++ #include "util/list.h"
+++#include "util/timespec.h"
++ #endif
++ 
++ static unsigned fence_id = 0;
 diff -ruN a/buildroot/package/mesa3d/Config.in b/buildroot/package/mesa3d/Config.in
 --- a/buildroot/package/mesa3d/Config.in	2024-05-08 21:21:23.000000000 +0800
 +++ b/buildroot/package/mesa3d/Config.in	2026-09-09 12:28:15.652498633 +0800
