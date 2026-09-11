@@ -1,6 +1,6 @@
 --- a/buildroot/configs/rockchip_rk3576_defconfig	2025-07-14 14:08:16.000000000 +0800
 +++ b/buildroot/configs/rockchip_rk3576_defconfig	2026-09-09 16:59:26.145179131 +0800
-@@ -19,7 +19,147 @@
+@@ -19,7 +19,150 @@
  #include "tools/benchmark.config"
  #include "tools/common.config"
  #include "tools/test.config"
@@ -119,6 +119,8 @@
 +BR2_PACKAGE_PYTHON_REQUESTS=y
 +BR2_PACKAGE_PYTHON_ZEROCONF=y
 +BR2_PACKAGE_RSYNC=y
++BR2_PACKAGE_SHAIRPORT_SYNC=y
++BR2_PACKAGE_SHAIRPORT_SYNC_LIBSOXR=y
 +# BR2_PACKAGE_RT_TESTS is reset to default
 +BR2_PACKAGE_SOCAT=y
 +BR2_PACKAGE_SOURCE_HAN_SANS_JP=y
@@ -127,6 +129,7 @@
 +# BR2_PACKAGE_STRESS is reset to default
 +# BR2_PACKAGE_STRESS_NG is reset to default
 +BR2_PACKAGE_TCPDUMP=y
++BR2_PACKAGE_TRACEROUTE=y
 +BR2_PACKAGE_UDPXY=y
 +# BR2_PACKAGE_UNIXBENCH is reset to default
 +BR2_PACKAGE_USBUTILS=y
