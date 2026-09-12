@@ -1,0 +1,44 @@
+--- a/external/rkscript/log-guardian	2024-07-15 11:42:28.000000000 +0800
++++ b/external/rkscript/log-guardian	2026-09-12 10:21:26.934935136 +0800
+@@ -12,9 +12,9 @@
+ 
+ PID_FILE=/var/run/log-guardian.pid
+ 
+-INTERVAL="60s"
+-RESERVED_LOG_SIZE="10M"
+-MIN_AVAIL_SIZE="100M"
++INTERVAL="10m"
++RESERVED_LOG_SIZE="2M"
++MIN_AVAIL_SIZE="4M"
+ LOG_DIRS="/var/log/,/tmp/"
+ 
+ log() {
+@@ -119,8 +119,7 @@
+ 	return 1
+ }
+ 
+-LOG_DIRS="$(echo "$LOG_DIRS" | xargs -d ',')"
+-for dir in $LOG_DIRS; do
++for dir in ${LOG_DIRS//,/ }; do
+ 	if [ ! -d "$dir" ]; then
+ 		log "[WARN] Not a dir: \"$dir\""
+ 	elif [ "$(total_size "$dir")" -le "$MIN_AVAIL_SIZE" ]; then
+@@ -128,16 +127,14 @@
+ 	fi
+ done
+ 
+-[ "$LOG_DIRS" ] || exit 0
+-
+-log "Guarding logs in: \"$LOG_DIRS\"..."
++log "Guarding logs in: $LOG_DIRS ..."
+ 
+ {
+ 	trap 'rm -f "$PID_FILE"' EXIT QUIT TERM INT
+ 	echo $$ > $PID_FILE
+ 
+ 	while true; do
+-		for dir in $LOG_DIRS; do
++		for dir in ${LOG_DIRS//,/ }; do
+ 			[ -d "$dir" ] || continue
+ 			is_full "$dir" || continue
+ 			[ "$(total_size "$dir")" -gt "$MIN_AVAIL_SIZE" ] || \
